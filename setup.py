@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -6,14 +6,17 @@ with open("README.md", "r") as fh:
 setup(
   name='vvspy',
   py_modules=["vvspy"],
-  version='0.0.3',
+  version='0.0.7',
   license='MIT',
   description='API Wrapper for VVS (Verkehrsverbund Stuttgart)',
   author='zaanposni',
   author_email='zaanposni@users.noreply.github.com',
   url='https://github.com/FI18-Trainees/vvspy',
   keywords=['VVS', 'API', 'STUTTGART', 'WRAPPER'],
-  package_dir={'': 'src'},
+  packages=find_packages(exclude=["*tests"]),
+  package_data={
+    "vvspy": ["vvspy/*"]
+  },
   install_requires=[
           'requests',
           'typing',

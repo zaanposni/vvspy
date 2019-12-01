@@ -3,7 +3,7 @@ from datetime import datetime
 import requests
 import json
 
-from obj import Departure, Arrival
+from .obj import Departure, Arrival
 
 API_URL = "http://www2.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
