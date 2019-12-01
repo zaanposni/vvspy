@@ -3,9 +3,10 @@ from datetime import datetime
 import requests
 import json
 
-from .obj import Departure, Arrival
+from vvspy.obj import Departure, Arrival
 
-API_URL = "http://www2.vvs.de/vvs/widget/XML_DM_REQUEST?"
+API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
+# TODO: new station id format de:08111:2599 (lapp kabel)
 
 
 def _get_api_response(station_id: Union[str, int], check_time: datetime = None, **kwargs) -> dict:
