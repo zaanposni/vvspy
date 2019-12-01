@@ -5,7 +5,7 @@ import json
 
 def get_EFA_from_VVS(origin, destination, departure):
     url = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
-    querystring = {"SpEncId": "0", "calcOneDirection": "1", "changeSpeed": "normal", "computationType": "sequence",
+    params = {"SpEncId": "0", "calcOneDirection": "1", "changeSpeed": "normal", "computationType": "sequence",
                    "coordOutputFormat": "EPSG:4326", "cycleSpeed": "14", "deleteAssignedStops": "0",
                    "deleteITPTWalk": "0",
                    "descWithElev": "1", "illumTransfer": "on", "imparedOptionsActive": "1", "itOptionsActive": "1",
@@ -21,7 +21,7 @@ def get_EFA_from_VVS(origin, destination, departure):
                    "useElevationData": "1", "useLocalityMainStop": "0", "useRealtime": "1",
                    "useUT": "1", "version": "10.2.10.139", "w_objPrefAl": "12", "w_regPrefAm": "1"}
 
-    r = requests.get(url, params=querystring)
+    r = requests.get(url, params=params)
     r.encoding = 'UTF-8'
     efa = r.json()
     return efa
