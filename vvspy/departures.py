@@ -58,5 +58,7 @@ def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
     return parsed_response
 
 
-def departures(station_id, limit=100):
-    return _parse_response(_get_api_response(station_id, time=datetime.now(), limit=limit, depArr="departure"))
+def departures(station_id, time=None, limit=100):
+    if not time:
+        time = datetime.now()
+    return _parse_response(_get_api_response(station_id, time=time, limit=limit, depArr="departure"))
