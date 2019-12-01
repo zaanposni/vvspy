@@ -2,5 +2,5 @@ include *.csv
 include *.md
 include *.txt
 include LICENSE
-recursive-include src *.py
-recursive-include src *.pyc
+recursive-include vvspy *.py
+recursive-include vvspy *.pyc
