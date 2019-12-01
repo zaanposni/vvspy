@@ -6,5 +6,19 @@
 <a href="https://pypi.org/project/schedule/"><img src="https://img.shields.io/badge/uses-scheduler-brightgreen"/></a>
 <a href="https://pushed.co/"><img src="https://img.shields.io/badge/uses-pushed.co-brightgreen"/></a>
 </p>
-<hr/>
-<h2 align="center">Note: This is stil work in progress</h2><br/>
+<h2 align="center">Note: This is stil work in progress</h2><br />
+
+
+
+## Installation
+
+```
+pip install vvspy
+```
+
+## Requirements
+
+Python 3.6 or higher
+
+## Example
+TODO
