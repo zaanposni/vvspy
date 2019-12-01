@@ -1,0 +1,8 @@
+* @zaanposni @Monkmitrad @ArPiiX
+
+# PYTHON
+*.py @zaanposni @Monkmitrad
+/requirements.txt @zaanposni
+
+# UNITTESTS
+/tests/ @zaanposni
