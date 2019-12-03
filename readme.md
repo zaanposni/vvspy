@@ -22,7 +22,7 @@ pip install vvspy
 
 Python 3.6 or higher
 
-## Example
+## Examples
 - Detect delay in upcoming departures:
 ```python
 from vvspy import get_departures
@@ -40,6 +40,13 @@ from vvspy import get_trip
 # TODO
 ```
 
+## Features
+
+- [x] fully object oriented results
+- [ ] full customizable requests and parameters  # coming soon
+- [x] parsing all available info into result obj
+- [x] Well tested and maintained
+- [x] Departures, Arrivals, Trips, Station info, Upcoming events, Maintenance work
 
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
 
