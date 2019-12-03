@@ -2,6 +2,7 @@ from typing import List, Union
 from datetime import datetime
 import requests
 import json
+import traceback
 
 from vvspy.obj import Departure, Arrival
 
@@ -10,9 +11,12 @@ API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
 
 def _get_api_response(station_id: Union[str, int], check_time: datetime = None, dep_arr: str = "departure",
-                      limit: int = 100, **kwargs) -> List[Union[Arrival, Departure]]:  # TODO: use func for arr and dep
+                      limit: int = 100, debug: bool = False, request_params: dict = None, **kwargs)\
+        -> List[Union[Arrival, Departure]]:  # TODO: use func for arr and dep
     if not check_time:
         check_time = datetime.now()
+    if request_params is None:
+        request_params = dict()
 
     params = {
         "locationServerActive": kwargs.get("locationServerActive", 1),  # typo from zocationServerActive ?!
@@ -40,9 +44,30 @@ def _get_api_response(station_id: Union[str, int], check_time: datetime = None, 
 
     }
 
-    r = requests.get(API_URL, params=params, **kwargs.get("request_params", {}))
-    r.encoding = 'UTF-8'
-    return _parse_response(r.json())  # TODO: error handling
+    try:
+        r = requests.get(API_URL, **{**request_params, **{"params": params}})
+    except ConnectionError as e:
+        print("ConnectionError")
+        traceback.print_exc()
+        return []
+
+    if r.status_code != 200:
+        if debug:
+            print("Error in API request")
+            print(f"Request: {r.status_code}")
+            print(f"{r.text}")
+        return []
+
+    try:
+        r.encoding = 'UTF-8'
+        return _parse_response(r.json())  # TODO: error handling
+    except json.decoder.JSONDecodeError:
+        if debug:
+            print("Error in API request")
+            print("Received invalid json")
+            print(f"Request: {r.status_code}")
+            print(f"{r.text}")
+        return []
 
 
 def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:

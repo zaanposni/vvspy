@@ -6,8 +6,6 @@ from .trip import get_trip
 from .departures import departures
 
 
-def departure_now(station_id: Union[str, int], limit: int = 100, request_params: dict = None,
-                  **kwargs) -> List[Union[Arrival, Departure]]:
-    return departures(station_id=station_id, check_time=__datetime.now(), limit=limit, request_params=request_params,
-                      **kwargs)
+def departure_now(station_id: Union[str, int], limit: int = 100, **kwargs) -> List[Union[Arrival, Departure]]:
+    return departures(station_id=station_id, check_time=__datetime.now(), limit=limit, **kwargs)
 
