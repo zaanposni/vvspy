@@ -2,6 +2,7 @@ from typing import List, Union
 from datetime import datetime
 import requests
 import json
+import traceback
 
 from vvspy.obj import Departure, Arrival
 
@@ -9,19 +10,23 @@ API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 # TODO: new station id format de:08111:2599 (lapp kabel)
 
 
-def _get_api_response(station_id: Union[str, int], check_time: datetime = None, **kwargs) -> dict:
+def _get_api_response(station_id: Union[str, int], check_time: datetime = None, dep_arr: str = "departure",
+                      limit: int = 100, debug: bool = False, request_params: dict = None, **kwargs)\
+        -> List[Union[Arrival, Departure]]:  # TODO: use func for arr and dep
     if not check_time:
         check_time = datetime.now()
+    if request_params is None:
+        request_params = dict()
 
     params = {
-        "zocationServerActive": kwargs.get("zocationServerActive", 1),
+        "locationServerActive": kwargs.get("locationServerActive", 1),  # typo from zocationServerActive ?!
         "lsShowTrainsExplicit": kwargs.get("lsShowTrainsExplicit", 1),
         "stateless": kwargs.get("stateless", 1),
         "language": kwargs.get("language", "de"),
         "SpEncId": kwargs.get("SpEncId", 0),
         "anySigWhenPerfectNoOtherMatches": kwargs.get("anySigWhenPerfectNoOtherMatches", 1),
-        "limit": kwargs.get("limit", 50),
-        "depArr": kwargs.get("depArr", "departure"),
+        "limit": limit,
+        "depArr": dep_arr,
         "type_dm": kwargs.get("type_dm", "any"),
         "anyObjFilter_dm": kwargs.get("anyObjFilter_dm", 2),
         "deleteAssignedStops": kwargs.get("deleteAssignedStops", 1),
@@ -39,9 +44,30 @@ def _get_api_response(station_id: Union[str, int], check_time: datetime = None, 
 
     }
 
-    r = requests.get(API_URL, params=params, **kwargs.get("request_params", {}))
-    r.encoding = 'UTF-8'
-    return r.json()  # TODO: error handling
+    try:
+        r = requests.get(API_URL, **{**request_params, **{"params": params}})
+    except ConnectionError as e:
+        print("ConnectionError")
+        traceback.print_exc()
+        return []
+
+    if r.status_code != 200:
+        if debug:
+            print("Error in API request")
+            print(f"Request: {r.status_code}")
+            print(f"{r.text}")
+        return []
+
+    try:
+        r.encoding = 'UTF-8'
+        return _parse_response(r.json())  # TODO: error handling
+    except json.decoder.JSONDecodeError:
+        if debug:
+            print("Error in API request")
+            print("Received invalid json")
+            print(f"Request: {r.status_code}")
+            print(f"{r.text}")
+        return []
 
 
 def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
@@ -58,12 +84,4 @@ def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
     return parsed_response
 
 
-def departures(station_id: str, check_time: datetime = None, limit: int = 100, request_params: dict = None,
-               config: dict = None):
-    if request_params is None:
-        request_params = dict()
-    if not check_time:
-        check_time = datetime.now()
-
-    return _parse_response(_get_api_response(station_id, time=check_time, limit=limit, depArr="departure",
-                                             request_params=request_params, **config))
+get_departures = _get_api_response  # alias
