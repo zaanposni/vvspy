@@ -2,6 +2,9 @@
 <p align="center">
 <a href="https://github.com/zaanposni/vvs"><img alt="star this repo" src="https://img.shields.io/github/stars/zaanposni/vvs" /></a>
 <a href="https://github.com/zaanposni/vvs/fork"><img alt="fork this repo" src="https://img.shields.io/github/forks/zaanposni/vvs" /></a>
+<img src="https://img.shields.io/badge/api-vvs-orange" />
+<img src="https://img.shields.io/pypi/pyversions/vvspy" />
+<img src="https://img.shields.io/pypi/v/vvspy" />
 <a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
 </p>
 <h2 align="center">Note: This is stil work in progress</h2><br />
