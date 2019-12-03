@@ -1,10 +1,9 @@
 <h1 align="center">VVS API Wrapper</h1>
 <p align="center">
-<a href="https://github.com/zaanposni/vvs"><img alt="star this repo" src="https://img.shields.io/github/stars/zaanposni/vvs" /></a>
-<a href="https://github.com/zaanposni/vvs/fork"><img alt="fork this repo" src="https://img.shields.io/github/forks/zaanposni/vvs" /></a>
 <img src="https://img.shields.io/badge/api-vvs-orange" />
 <img src="https://img.shields.io/pypi/pyversions/vvspy" />
 <img src="https://img.shields.io/pypi/v/vvspy" />
+<img src="https://github.com/FI18-Trainees/vvspy/workflows/BasicCheckup/badge.svg" alt="Checkup status"/>
 <a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
 </p>
 <h2 align="center">Note: This is still work in progress</h2><br />
