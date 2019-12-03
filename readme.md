@@ -1,6 +1,6 @@
 <h1 align="center">VVSPY</h1>
+<h4>VVS API Wrapper</h4>
 <p align="center">
-<p>VVS API Wrapper</p>
 <a href="https://github.com/zaanposni/vvs"><img alt="star this repo" src="https://img.shields.io/github/stars/zaanposni/vvs" /></a>
 <a href="https://github.com/zaanposni/vvs/fork"><img alt="fork this repo" src="https://img.shields.io/github/forks/zaanposni/vvs" /></a>
 <img src="https://img.shields.io/badge/api-vvs-orange" />
@@ -31,7 +31,7 @@ deps = get_departures("5006115", limit=3)
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected")
-        print("Number: " + dep.symbol)
+        print("Linenumber: " + dep.serving_line.symbol)
 ```
 
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
