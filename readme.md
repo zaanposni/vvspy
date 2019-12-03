@@ -1,15 +1,15 @@
-<h1 align="center">VVS API Wrapper</h1>
+<h1 align="center">VVSPY</h1>
 <p align="center">
+<p>VVS API Wrapper</p>
 <a href="https://github.com/zaanposni/vvs"><img alt="star this repo" src="https://img.shields.io/github/stars/zaanposni/vvs" /></a>
 <a href="https://github.com/zaanposni/vvs/fork"><img alt="fork this repo" src="https://img.shields.io/github/forks/zaanposni/vvs" /></a>
 <img src="https://img.shields.io/badge/api-vvs-orange" />
 <img src="https://img.shields.io/pypi/pyversions/vvspy" />
 <img src="https://img.shields.io/pypi/v/vvspy" />
 <a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
-</p>
-<h2 align="center">Note: This is stil work in progress</h2><br />
+<h2 align="center">Note: This is still work in progress</h2><br />
 
-Fully object-oriented library to integrate the VVS API into your project.
+**Fully object-oriented library** to integrate the **VVS API** into your project.
 
 
 ## Installation
@@ -23,7 +23,16 @@ pip install vvspy
 Python 3.6 or higher
 
 ## Example
-TODO
+Detect delay in upcoming departures
+```python
+from vvspy import get_departures
+
+deps = get_departures("5006115", limit=3)
+for dep in deps:
+    if dep.delay > 0:
+        print("Alarm! Delay detected")
+        print("Number: " + dep.symbol)
+```
 
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
 
