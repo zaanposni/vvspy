@@ -91,6 +91,6 @@ def parse_efa(efa, limit=100):
     return parsedTrips[:int(limit)]
 
 
-def gettrip(origin, destination, time=0, limit=100):
+def get_trip(origin, destination, time=0, limit=100):  # TODO: same as in departures.py
     if not time: time = datetime.now()
     return parse_efa(get_EFA_from_VVS(origin, destination, departure=time), limit=limit)
