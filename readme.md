@@ -23,16 +23,23 @@ pip install vvspy
 Python 3.6 or higher
 
 ## Example
-Detect delay in upcoming departures
+- Detect delay in upcoming departures:
 ```python
 from vvspy import get_departures
 
-deps = get_departures("5006115", limit=3)
+deps = get_departures("5006115", limit=3)  # Stuttgart main station
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
         print("Line number: " + dep.serving_line.symbol)
 ```
+- Get complete trip info between two stations:
+```python
+from vvspy import get_trip
+
+# TODO
+```
+
 
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
 
