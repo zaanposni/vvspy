@@ -84,4 +84,4 @@ def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
     return parsed_response
 
 
-departures = _get_api_response  # alias
+get_departures = _get_api_response  # alias
