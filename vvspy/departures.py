@@ -39,7 +39,7 @@ def _get_api_response(station_id: Union[str, int], check_time: datetime = None, 
 
     }
 
-    r = requests.get(API_URL, params=params)
+    r = requests.get(API_URL, params=params, **kwargs.get("request_params", {}))
     r.encoding = 'UTF-8'
     return r.json()  # TODO: error handling
 
@@ -58,7 +58,12 @@ def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
     return parsed_response
 
 
-def departures(station_id, time=None, limit=100):
-    if not time:
-        time = datetime.now()
-    return _parse_response(_get_api_response(station_id, time=time, limit=limit, depArr="departure"))
+def departures(station_id: str, check_time: datetime = None, limit: int = 100, request_params: dict = None,
+               config: dict = None):
+    if request_params is None:
+        request_params = dict()
+    if not check_time:
+        check_time = datetime.now()
+
+    return _parse_response(_get_api_response(station_id, time=check_time, limit=limit, depArr="departure",
+                                             request_params=request_params, **config))
