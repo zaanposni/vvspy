@@ -48,6 +48,8 @@ from vvspy import get_trip
 - [x] Well tested and maintained
 - [x] Departures, Arrivals, Trips, Station info, Upcoming events, Maintenance work
 
+See issues/projects on GitHub for upcoming features
+
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
 
 - <a href="https://github.com/zaanposni">Zaanposni</a>
