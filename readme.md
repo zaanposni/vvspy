@@ -1,5 +1,4 @@
-<h1 align="center">VVSPY</h1>
-<h4>VVS API Wrapper</h4>
+<h1 align="center">VVS API Wrapper</h1>
 <p align="center">
 <a href="https://github.com/zaanposni/vvs"><img alt="star this repo" src="https://img.shields.io/github/stars/zaanposni/vvs" /></a>
 <a href="https://github.com/zaanposni/vvs/fork"><img alt="fork this repo" src="https://img.shields.io/github/forks/zaanposni/vvs" /></a>
@@ -7,6 +6,7 @@
 <img src="https://img.shields.io/pypi/pyversions/vvspy" />
 <img src="https://img.shields.io/pypi/v/vvspy" />
 <a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
+</p>
 <h2 align="center">Note: This is still work in progress</h2><br />
 
 **Fully object-oriented library** to integrate the **VVS API** into your project.
@@ -30,8 +30,8 @@ from vvspy import get_departures
 deps = get_departures("5006115", limit=3)
 for dep in deps:
     if dep.delay > 0:
-        print("Alarm! Delay detected")
-        print("Linenumber: " + dep.serving_line.symbol)
+        print("Alarm! Delay detected.")
+        print("Line number: " + dep.serving_line.symbol)
 ```
 
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
