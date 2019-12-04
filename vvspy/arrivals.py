@@ -10,9 +10,8 @@ API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 # TODO: new station id format de:08111:2599 (lapp kabel)
 
 
-def _get_api_response(station_id: Union[str, int], check_time: datetime = None, dep_arr: str = "arrival",
-                      limit: int = 100, debug: bool = False, request_params: dict = None, **kwargs)\
-        -> List[Union[Arrival, Departure]]:  # TODO: use func for arr and dep
+def _get_api_response(station_id: Union[str, int], check_time: datetime = None, limit: int = 100, debug: bool = False,
+                      request_params: dict = None, **kwargs) -> Union[List[Union[Arrival, Departure]], None]:
     if not check_time:
         check_time = datetime.now()
     if request_params is None:
@@ -25,7 +24,7 @@ def _get_api_response(station_id: Union[str, int], check_time: datetime = None, 
         "SpEncId": kwargs.get("SpEncId", 0),
         "anySigWhenPerfectNoOtherMatches": kwargs.get("anySigWhenPerfectNoOtherMatches", 1),
         "limit": limit,
-        "depArr": dep_arr,
+        "depArr": "arrival",
         "type_dm": kwargs.get("type_dm", "any"),
         "anyObjFilter_dm": kwargs.get("anyObjFilter_dm", 2),
         "deleteAssignedStops": kwargs.get("deleteAssignedStops", 1),
@@ -49,14 +48,14 @@ def _get_api_response(station_id: Union[str, int], check_time: datetime = None, 
     except ConnectionError as e:
         print("ConnectionError")
         traceback.print_exc()
-        return []
+        return
 
     if r.status_code != 200:
         if debug:
             print("Error in API request")
             print(f"Request: {r.status_code}")
             print(f"{r.text}")
-        return []
+        return
 
     try:
         r.encoding = 'UTF-8'
@@ -67,14 +66,14 @@ def _get_api_response(station_id: Union[str, int], check_time: datetime = None, 
             print("Received invalid json")
             print(f"Request: {r.status_code}")
             print(f"{r.text}")
-        return []
+        return
 
 
 def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
     parsed_response = []
 
     if not result or "arrivalList" not in result or not result["arrivalList"]:  # error in response/request
-        return []
+        return []  # no results
 
     if isinstance(result["arrivalList"], dict):  # one result
         parsed_response.append(Arrival(**result["arrivalList"]["arrival"]))
