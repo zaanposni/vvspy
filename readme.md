@@ -73,8 +73,10 @@ See issues/projects on GitHub for upcoming features
 
 <a href="https://github.com/zaanposni"><img src="https://avatars3.githubusercontent.com/u/24491035?s=460&v=4"
                                             height=90px, width=90px style="border-radius: 50%" /></a>
+<a href="https://github.com/ArPiiX"><img src="https://avatars1.githubusercontent.com/u/48033823?s=460&v=4"
+                                         height=90px, width=90px style="border-radius: 50%" /></a>
 <a href="https://github.com/Monkmitrad"><img src="https://avatars1.githubusercontent.com/u/33026966?s=460&v=4"
-                                            height=90px, width=90px style="border-radius: 50%" /></a>
+                                             height=90px, width=90px style="border-radius: 50%" /></a>
 
 ## License:
 
