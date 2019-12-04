@@ -30,7 +30,7 @@ deps = get_departures("5006115", limit=3)  # Stuttgart main station
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
-        print("Line number: " + dep.serving_line.symbol)
+        print(dep)  # Station @ Timestamp: Train: Origin - Destination
 ```
 - Get complete trip info between two stations:
 ```python
@@ -38,7 +38,15 @@ from vvspy import get_trip
 
 # TODO
 ```
+- Filter for specific lines:
+```python
+from vvspy import get_departures
 
+deps = get_departures("5006118")  # Stuttgart main station (lower)
+for dep in deps:
+    if dep.serving_line.symbol == "S4":
+        print(f"Departure of S4 at {dep.real_datetime}")
+```
 ## Features
 
 - [x] fully object oriented results
@@ -51,10 +59,11 @@ See issues/projects on GitHub for upcoming features
 
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
 
-- <a href="https://github.com/zaanposni">Zaanposni</a>
-- <a href="https://github.com/Monkmitrad">Monkmitrad</a>
-<hr />
+<a href="https://github.com/zaanposni"><img src="https://avatars3.githubusercontent.com/u/24491035?s=460&v=4"
+                                            height=90px, width=90px style="border-radius: 50%" /></a>
+<a href="https://github.com/Monkmitrad"><img src="https://avatars1.githubusercontent.com/u/33026966?s=460&v=4"
+                                            height=90px, width=90px style="border-radius: 50%" /></a>
 
-### License:
+## License:
 
 This project is licensed under MIT.
