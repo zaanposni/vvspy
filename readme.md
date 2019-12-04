@@ -16,10 +16,7 @@
 ```
 pip install vvspy
 ```
-
-## Requirements
-
-Python 3.6 or higher
+Requirement: Python 3.6 or higher
 
 ## Examples
 - Detect delay in upcoming departures:
@@ -32,7 +29,7 @@ for dep in deps:
         print("Alarm! Delay detected.")
         print(dep)  # Timestamp @ Station: Train: Origin - Destination
 ```
-- Get complete trip info between two stations:
+- Get complete trip info between two stations (including interchanges):
 ```python
 from vvspy import get_trips
 
@@ -67,7 +64,7 @@ for dep in deps:
 - [x] Well tested and maintained
 - [x] Departures, Arrivals, Trips, Station info, Upcoming events, Maintenance work
 
-See issues/projects on GitHub for upcoming features
+- See issues/projects on GitHub for upcoming features
 
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
 
