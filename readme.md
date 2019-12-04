@@ -59,10 +59,11 @@ See issues/projects on GitHub for upcoming features
 
 ## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
 
-- <a href="https://github.com/zaanposni">Zaanposni</a>
-- <a href="https://github.com/Monkmitrad">Monkmitrad</a>
-<hr />
+<a href="https://github.com/zaanposni"><img src="https://avatars3.githubusercontent.com/u/24491035?s=460&v=4"
+                                            height=90px, width=90px style="border-radius: 50%" /></a>
+<a href="https://github.com/Monkmitrad"><img src="https://avatars1.githubusercontent.com/u/33026966?s=460&v=4"
+                                            height=90px, width=90px style="border-radius: 50%" /></a>
 
-### License:
+## License:
 
 This project is licensed under MIT.
