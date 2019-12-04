@@ -42,10 +42,10 @@ from vvspy import get_trip
 ```python
 from vvspy import get_departures
 
-deps = get_departures("5006115")  # Stuttgart main station
+deps = get_departures("5006118")  # Stuttgart main station (lower)
 for dep in deps:
     if dep.serving_line.symbol == "S4":
-        print(f"Departure of S4 at {dep.serving_line.real_datetime}")
+        print(f"Departure of S4 at {dep.real_datetime}")
 ```
 ## Features
 
