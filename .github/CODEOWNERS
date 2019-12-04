@@ -6,3 +6,8 @@
 
 # UNITTESTS
 /tests/ @zaanposni
+
+# PYPI
+/setup.cfg @zaanposni
+/setup.py @zaanposni
+/MANIFEST.in @zaanposni
