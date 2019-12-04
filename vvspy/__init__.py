@@ -6,6 +6,7 @@ from .obj import Arrival as __Arrival
 from .obj import Departure as __Departure
 from .trip import get_trips
 from .departures import get_departures
+from .arrivals import get_arrivals
 
 
 def departure_now(station_id: __Union[str, int], limit: int = 100, **kwargs) -> __List[__Union[__Arrival, __Departure]]:
