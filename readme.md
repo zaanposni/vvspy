@@ -6,7 +6,6 @@
 <img src="https://github.com/FI18-Trainees/vvspy/workflows/BasicCheckup/badge.svg" alt="Checkup status"/>
 <a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
 </p>
-<h2 align="center">Note: This is still work in progress</h2><br />
 
 **Fully object-oriented library** to integrate the **VVS API** into your project.
 
