@@ -1,10 +1,23 @@
+from datetime import datetime
+
 from .departure import Departure
 from .arrival import Arrival
+from .connection import Connection
 
 
 class Trip:
-    def __init__(self, arrival: Arrival, departure: Departure):
-        self.arrival = arrival
-        self.departure = departure
-        # self.specialstuff for this trip
-        # TODO: multiple arrival departure (list?) for connections with multiple stops
+    def __init__(self, **kwargs):
+        self.raw = kwargs
+        self.connections = []
+        for connection in kwargs.get("legs", []):
+            self.connections.append(Connection(**connection))
+
+        self.duration = sum([x.duration for x in self.connections])
+        self.zones = kwargs.get("fare", {}).get("zones", [])[0].get("zones", [])
+
+        # inserted raw
+        self.fare = kwargs.get("fare")
+
+    def __str__(self):
+        return f"Connection ({int(self.duration / 60)} minutes):\n" \
+               + '\n'.join([str(x) for x in self.connections])
