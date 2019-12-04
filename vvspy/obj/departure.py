@@ -6,6 +6,7 @@ from .line_operator import LineOperator
 
 class Departure:
     def __init__(self, **kwargs):
+        self.raw = kwargs
         self.stop_id = kwargs.get("stopID")
         self.x = kwargs.get("x")
         self.y = kwargs.get("y")
