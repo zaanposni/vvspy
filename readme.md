@@ -30,13 +30,25 @@ deps = get_departures("5006115", limit=3)  # Stuttgart main station
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
-        print(dep)  # Station @ Timestamp: Train: Origin - Destination
+        print(dep)  # Timestamp @ Station: Train: Origin - Destination
 ```
 - Get complete trip info between two stations:
 ```python
-from vvspy import get_trip
+from vvspy import get_trips
 
-# TODO
+trips = get_trips("5000355", "5005600", limit=1)  # Stuttgart main station
+for trip in trips:
+    print(f"Duration: {trip.duration / 60} minutes")
+    for connection in trip.connections:
+        print(f"From: {connection.origin.name} - To: {connection.destination.name}")
+```
+```text
+# Output:
+Duration: 58 minutes
+From: Wallgraben - To: Hauptbf (A.-Klett-Pl.)
+From: Hauptbf (Arnulf-Klett-Platz) - To: Stuttgart Hauptbahnhof (tief)
+From: Stuttgart Hauptbahnhof (tief) - To: Marbach (N)
+From: Marbach (N) Bf - To: Murr Hardtlinde
 ```
 - Filter for specific lines:
 ```python
