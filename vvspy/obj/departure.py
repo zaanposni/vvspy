@@ -50,8 +50,10 @@ class Departure:
         self.serving_line = ServingLine(**kwargs.get("servingLine", {}))
         self.operator = LineOperator(**kwargs.get("operator", {}))
 
+        # inserted raw
         self.stop_infos = kwargs.get("stopInfos")
         self.line_infos = kwargs.get("lineInfos")
 
     def __str__(self):
-        return f"{self.stop_name}@{str(self.real_datetime)}: {self.serving_line}"
+        pre = "[Delayed]" if self.delay else ""
+        return f"{pre} [{str(self.real_datetime)}]@ {self.stop_name}: {self.serving_line}"

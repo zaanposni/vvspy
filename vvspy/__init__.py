@@ -4,7 +4,7 @@ from typing import Union as __Union
 
 from .obj import Arrival as __Arrival
 from .obj import Departure as __Departure
-from .trip import get_trip
+from .trip import get_trips
 from .departures import get_departures
 from .arrivals import get_arrivals
 

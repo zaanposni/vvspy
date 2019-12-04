@@ -1,96 +1,102 @@
 from datetime import datetime, timezone
 import requests
 import json
+from typing import Union, List
+import traceback
+
+from .obj import Trip
+
+__API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 
 
-def get_EFA_from_VVS(origin, destination, departure):
-    url = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
-    params = {"SpEncId": "0", "calcOneDirection": "1", "changeSpeed": "normal", "computationType": "sequence",
-                   "coordOutputFormat": "EPSG:4326", "cycleSpeed": "14", "deleteAssignedStops": "0",
-                   "deleteITPTWalk": "0",
-                   "descWithElev": "1", "illumTransfer": "on", "imparedOptionsActive": "1", "itOptionsActive": "1",
-                   "itdDate": departure.strftime('%Y%m%d'), "itdTime": departure.strftime('%H%M'),
-                   "language": "de", "locationServerActive": "1",
-                   "macroWebTrip": "true", "name_destination": str(destination), "name_origin": str(origin),
-                   "noElevationProfile": "1", "noElevationSummary": "1", "outputFormat": "rapidJSON",
-                   "outputOptionsActive": "1", "ptOptionsActive": "1", "routeType": "leasttime",
-                   "searchLimitMinutes": "360", "securityOptionsActive": "1", "serverInfo": "1",
-                   "showInterchanges": "1",
-                   "trITArrMOT": "100", "trITArrMOTvalue": "15", "trITDepMOT": "100", "trITDepMOTvalue": "15",
-                   "tryToFindLocalityStops": "1", "type_destination": "any", "type_origin": "any",
-                   "useElevationData": "1", "useLocalityMainStop": "0", "useRealtime": "1",
-                   "useUT": "1", "version": "10.2.10.139", "w_objPrefAl": "12", "w_regPrefAm": "1"}
+def _get_api_response(origin_station_id: Union[str, int], destination_station_id: Union[str, int],
+                      check_time: datetime = None, limit: int = 100, debug: bool = False,
+                      request_params: dict = None, **kwargs) -> Union[List[Trip], None]:
+    if not check_time:
+        check_time = datetime.now()
+    if request_params is None:
+        request_params = dict()
 
-    r = requests.get(url, params=params)
-    r.encoding = 'UTF-8'
-    efa = r.json()
-    return efa
+    params = {
+        "SpEncId": kwargs.get("SpEncId", "0"),
+        "calcOneDirection": kwargs.get("calcOneDirection", "1"),
+        "changeSpeed": kwargs.get("changeSpeed", "normal"),
+        "computationType": kwargs.get("computationType", "sequence"),
+        "coordOutputFormat": kwargs.get("coordOutputFormat", "EPSG:4326"),
+        "cycleSpeed": kwargs.get("cycleSpeed", "14"),
+        "deleteAssignedStops": kwargs.get("deleteAssignedStops", "0"),
+        "deleteITPTWalk": kwargs.get("deleteITPTWalk", "0"),
+        "descWithElev": kwargs.get("descWithElev", "1"),
+        "illumTransfer": kwargs.get("illumTransfer", "on"),
+        "imparedOptionsActive": kwargs.get("imparedOptionsActive", "1"),
+        "itOptionsActive": kwargs.get("itOptionsActive", "1"),
+        "itdDate": check_time.strftime('%Y%m%d'),
+        "itdTime": check_time.strftime('%H%M'),
+        "language": kwargs.get("language", "de"),
+        "locationServerActive": kwargs.get("locationServerActive", "1"),
+        "macroWebTrip": kwargs.get("macroWebTrip", "true"),
+        "name_destination": destination_station_id,
+        "name_origin": origin_station_id,
+        "noElevationProfile": kwargs.get("noElevationProfile", "1"),
+        "noElevationSummary": kwargs.get("noElevationSummary", "1"),
+        "outputFormat": "rapidJSON",
+        "outputOptionsActive": "1",
+        "ptOptionsActive": kwargs.get("ptOptionsActive", "1"),
+        "routeType": kwargs.get("routeType", "leasttime"),
+        "searchLimitMinutes": kwargs.get("searchLimitMinutes", "360"),
+        "securityOptionsActive": kwargs.get("securityOptionsActive", "1"),
+        "serverInfo": kwargs.get("serverInfo", "1"),
+        "showInterchanges": kwargs.get("showInterchanges", "1"),
+        "trITArrMOT": kwargs.get("trITArrMOT", "100"),
+        "trITArrMOTvalue": kwargs.get("trITArrMOTvalue", "15"),
+        "trITDepMOT": kwargs.get("trITDepMOT", "100"),
+        "trITDepMOTvalue": kwargs.get("trITDepMOTvalue", "15"),
+        "tryToFindLocalityStops": kwargs.get("tryToFindLocalityStops", "1"),
+        "type_destination": kwargs.get("type_destination", "any"),
+        "type_origin": kwargs.get("type_origin", "any"),
+        "useElevationData": kwargs.get("useElevationData", "1"),
+        "useLocalityMainStop": kwargs.get("useLocalityMainStop", "0"),
+        "useRealtime": kwargs.get("useRealtime", "1"),
+        "useUT": kwargs.get("useUT", "1"),
+        "version": kwargs.get("version", "10.2.10.139"),
+        "w_objPrefAl": kwargs.get("w_objPrefAl", "12"),
+        "w_regPrefAm": kwargs.get("w_regPrefAm", "1")
+    }
 
+    try:
+        r = requests.get(__API_URL, **{**request_params, **{"params": params}})
+    except ConnectionError:
+        print("ConnectionError")
+        traceback.print_exc()
+        return
 
-def parse_efa(efa, limit=100):
-    parsedTrips = []
-    if not efa or "journeys" not in efa or not efa["journeys"]:
-        return parsedTrips
-    for journey in efa["journeys"]:
-        connections = []
-        for connection in journey["legs"]:
-            duration = connection.get("duration", "None")
-            origin = connection["origin"].get("name", "None")
-            originName = connection["origin"].get("disassembledName", "None")
-            originType = connection["origin"].get("pointType", "None")
-            departureTimePlanned = datetime.strptime(connection["origin"]["departureTimePlanned"][:-1], '%Y-%m-%dT%H:%M:%S')
-            departureTimeEstimated = datetime.strptime(connection["origin"]["departureTimeEstimated"][:-1], '%Y-%m-%dT%H:%M:%S')
+    if r.status_code != 200:
+        if debug:
+            print("Error in API request")
+            print(f"Request: {r.status_code}")
+            print(f"{r.text}")
+        return
 
-            departureDelta = departureTimeEstimated - departureTimePlanned
-            departureDelay = int(departureDelta.total_seconds() / 60)
-
-            destination = connection["destination"].get("name", "None")
-            destinationName = connection["destination"].get("disassembledName", "None")
-            destinationType = connection["destination"].get("pointType", "None")
-            arrivalTimePlanned = datetime.strptime(connection["destination"]["arrivalTimePlanned"][:-1], '%Y-%m-%dT%H:%M:%S')
-            arrivalTimeEstimated = datetime.strptime(connection["destination"]["arrivalTimeEstimated"][:-1], '%Y-%m-%dT%H:%M:%S')
-
-            arrivalDelta = arrivalTimeEstimated - arrivalTimePlanned
-            arrivalDelay = int(arrivalDelta.total_seconds() / 60)
-
-            stoppingPointPlanned = connection["destination"]["properties"].get("stoppingPointPlanned", "None")
-
-            transportation = connection["transportation"].get("name", "None")
-            transportationName = connection["transportation"].get("disassembledName", "None")
-            transportationNumber = connection["transportation"].get("number", "None")
-            transportationDescription = connection["transportation"].get("description", "None")
-
-            connectionObject = {
-                "duration": duration,
-                "origin": origin,
-                "originName": originName,
-                "originType": originType,
-                "departureTimePlanned": str(departureTimePlanned),
-                "departureTimeEstimated": str(departureTimeEstimated),
-                "departureDelay": departureDelay,
-                "destination": destination,
-                "destinationName": destinationName,
-                "destinationType": destinationType,
-                "arrivalTimePlanned": str(arrivalTimePlanned),
-                "arrivalTimeEstimated": str(arrivalTimeEstimated),
-                "arrivalDelay": arrivalDelay,
-                "stoppingPointPlanned": stoppingPointPlanned,
-                "transportation": transportation,
-                "transportationName": transportationName,
-                "transportationNumber": transportationNumber,
-                "transportationDescription": transportationDescription
-            }
-
-            connections.append(connectionObject)
-        duration = sum([dur["duration"] for dur in connections])
-        trip = {
-            "duration": duration,
-            "connections": connections
-        }
-        parsedTrips.append(trip)
-    return parsedTrips[:int(limit)]
+    try:
+        r.encoding = 'UTF-8'
+        return _parse_response(r.json(), limit=limit)  # TODO: error handling
+    except json.decoder.JSONDecodeError:
+        if debug:
+            print("Error in API request")
+            print("Received invalid json")
+            print(f"Request: {r.status_code}")
+            print(f"{r.text}")
+        return
 
 
-def get_trip(origin, destination, time=0, limit=100):  # TODO: same as in departures.py
-    if not time: time = datetime.now()
-    return parse_efa(get_EFA_from_VVS(origin, destination, departure=time), limit=limit)
+def _parse_response(result: dict, limit: int = 100) -> Union[List[Trip], None]:
+    parsed_trips = []
+    if not result or "journeys" not in result or not result["journeys"]:
+        return []  # no trips found
+    for trip in result["journeys"][:int(limit)]:
+        parsed_trips.append(Trip(**trip))
+
+    return parsed_trips
+
+
+get_trips = _get_api_response
