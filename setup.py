@@ -12,7 +12,7 @@ setup(
   author='zaanposni',
   author_email='zaanposni@users.noreply.github.com',
   url='https://github.com/FI18-Trainees/vvspy',
-  keywords=['VVS', 'API', 'STUTTGART', 'WRAPPER'],
+  keywords=['VVS', 'API', 'STUTTGART', 'WRAPPER', 'JSON', 'REST', 'EFA', 'PYTHON'],
   packages=find_packages(exclude=["*tests"]),
   package_data={
     "vvspy": ["vvspy/*"]
