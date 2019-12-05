@@ -28,6 +28,9 @@ for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
         print(dep)  # Timestamp @ Station: Train: Origin - Destination
+    else:
+        print("Train on time")
+        print(dep)  # Timestamp @ Station: Train: Origin - Destination
 ```
 - Get complete trip info between two stations (including interchanges):
 ```python
