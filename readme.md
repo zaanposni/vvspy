@@ -16,7 +16,7 @@
 ```
 pip install vvspy
 ```
-Requirement: Python 3.6 or higher
+**Python 3.6 or higher required**
 
 ## Examples
 - Detect delay in upcoming departures:
@@ -58,8 +58,7 @@ for dep in deps:
 ```
 ## Features
 
-- [x] fully object oriented results
-- [ ] full customizable requests and parameters  # coming soon
+- [x] full customizable requests and parameters
 - [x] parsing all available info into result obj
 - [x] Well tested and maintained
 - [x] Departures, Arrivals, Trips, Station info, Upcoming events, Maintenance work
