@@ -56,4 +56,4 @@ class Departure:
 
     def __str__(self):
         pre = "[Delayed]" if self.delay else ""
-        return f"{pre} [{str(self.real_datetime)}]@ {self.stop_name}: {self.serving_line}"
+        return f"{pre} [{str(self.real_datetime)}] @ {self.stop_name}: {self.serving_line}"
