@@ -9,6 +9,7 @@
 
 **Fully object-oriented library** to integrate the **VVS API** into your project.
 
+- <a href="https://vvspy.readthedocs.io/en/latest/">readthedocs</a>
 
 ## Installation
 
@@ -16,9 +17,6 @@
 pip install vvspy
 ```
 Requirement: Python 3.6 or higher
-
-## Documentation
-- <a href="https://vvspy.readthedocs.io/en/latest/">readthedocs</a>
 
 ## Examples
 - Detect delay in upcoming departures:
@@ -76,6 +74,10 @@ for dep in deps:
                                          height=90px, width=90px style="border-radius: 50%" /></a>
 <a href="https://github.com/Monkmitrad"><img src="https://avatars1.githubusercontent.com/u/33026966?s=460&v=4"
                                              height=90px, width=90px style="border-radius: 50%" /></a>
+
+## Projects using vvspy
+
+- TODO
 
 ## License:
 
