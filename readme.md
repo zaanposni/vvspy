@@ -17,6 +17,9 @@ pip install vvspy
 ```
 Requirement: Python 3.6 or higher
 
+## Documentation
+- <a href="https://vvspy.readthedocs.io/en/latest/">readthedocs</a>
+
 ## Examples
 - Detect delay in upcoming departures:
 ```python
