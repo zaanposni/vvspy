@@ -13,10 +13,10 @@
 
 ## Installation
 
+**Python 3.6 or higher required**
 ```
 pip install vvspy
 ```
-**Python 3.6 or higher required**
 
 ## Examples
 - Detect delay in upcoming departures:
