@@ -27,10 +27,11 @@ deps = get_departures("5006115", limit=3)  # Stuttgart main station
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
-        print(dep)  # Timestamp @ Station: Train: Origin - Destination
+        print(dep)  # [Delayed] [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
+
     else:
         print("Train on time")
-        print(dep)  # Timestamp @ Station: Train: Origin - Destination
+        print(dep)  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 ```
 - Get complete trip info between two stations (including interchanges):
 ```python

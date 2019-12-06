@@ -7,7 +7,6 @@ from .connection import Connection
 
 class Trip:
     def __init__(self, **kwargs):
-        self.raw = kwargs
         self.connections = []
         for connection in kwargs.get("legs", []):
             self.connections.append(Connection(**connection))
@@ -16,6 +15,7 @@ class Trip:
         self.zones = kwargs.get("fare", {}).get("zones", [])[0].get("zones", [])
 
         # inserted raw
+        self.raw = kwargs
         self.fare = kwargs.get("fare")
 
     def __str__(self):

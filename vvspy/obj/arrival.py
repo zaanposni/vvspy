@@ -6,7 +6,6 @@ from .line_operator import LineOperator
 
 class Arrival:
     def __init__(self, **kwargs):
-        self.raw = kwargs
         self.stop_id = kwargs.get("stopID")
         self.x = kwargs.get("x")
         self.y = kwargs.get("y")
@@ -46,15 +45,18 @@ class Arrival:
                 pass
         else:
             self.real_datetime = self.datetime
+
         self.delay = int((self.real_datetime - self.datetime).total_seconds() / 60)
         self.serving_line = ServingLine(**kwargs.get("servingLine", {}))
         self.operator = LineOperator(**kwargs.get("operator", {}))
 
+        # inserted raw
+        self.raw = kwargs
         self.stop_infos = kwargs.get("stopInfos")
         self.line_infos = kwargs.get("lineInfos")
 
     def __str__(self):
         pre = "[Delayed] " if self.delay else ""
         if self.real_datetime.date() == datetime.now().date():
-            return f"{pre}[{str(self.real_datetime.strftime('%H:%M'))}] @ {self.stop_name}: {self.serving_line}"
-        return f"{pre}[{str(self.real_datetime)}] @ {self.stop_name}: {self.serving_line}"
+            return f"{pre}[{str(self.real_datetime.strftime('%H:%M'))}] {self.serving_line}"
+        return f"{pre}[{str(self.real_datetime)}] {self.serving_line}"
