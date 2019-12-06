@@ -17,4 +17,4 @@ class ServingLine:
         self.stateless = kwargs.get("stateless")
 
     def __str__(self):
-        return f"{self.name} [{self.number}]: {self.direction_from} - {self.direction}"
+        return f"[{self.symbol}]: {self.direction_from} - {self.direction}"
