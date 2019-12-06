@@ -55,5 +55,5 @@ class Departure:
         self.line_infos = kwargs.get("lineInfos")
 
     def __str__(self):
-        pre = "[Delayed]" if self.delay else ""
-        return f"{pre} [{str(self.real_datetime)}] @ {self.stop_name}: {self.serving_line}"
+        pre = "[Delayed] " if self.delay else ""
+        return f"{pre}[{str(self.real_datetime)}] @ {self.stop_name}: {self.serving_line}"
