@@ -38,6 +38,10 @@ class Departure:
         Estimated departure datetime (equals to ``self.datetime`` if no realtime data is available).
     delay :class:`int`
         Delay of departure in minutes.
+    serving_line :class:`ServingLine`
+        abc
+    operator :class:`Operator`
+        abc
     """
     def __init__(self, **kwargs):
         self.raw = kwargs

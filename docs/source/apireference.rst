@@ -35,3 +35,19 @@ Connection
     :members:
     :inherited-members:
     :exclude-members: __str__
+
+ServingLine
+------------
+
+.. autoclass:: vvspy.obj.ServingLine()
+    :members:
+    :inherited-members:
+    :exclude-members: __str__
+
+LineOperator
+-------------
+
+.. autoclass:: vvspy.obj.LineOperator()
+    :members:
+    :inherited-members:
+    :exclude-members: __str__

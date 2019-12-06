@@ -1,8 +1,8 @@
 <h1 align="center">VVS API Wrapper</h1>
 <p align="center">
-<img src="https://img.shields.io/badge/api-vvs-orange" />
 <img src="https://img.shields.io/pypi/pyversions/vvspy" />
 <img src="https://img.shields.io/pypi/v/vvspy" />
+<a href="https://vvspy.readthedocs.io/en/latest/" target="_blank"><img src="https://img.shields.io/readthedocs/vvspy" /></a>
 <img src="https://github.com/FI18-Trainees/vvspy/workflows/BasicCheckup/badge.svg" alt="Checkup status"/>
 <a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
 </p>
