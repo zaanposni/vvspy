@@ -5,6 +5,49 @@ from .line_operator import LineOperator
 
 
 class Arrival:
+    r"""
+
+        Attributes
+        -----------
+
+        raw: :class:`dict`
+            Raw dict received by the API.
+        stop_id :class:`str`
+            Station_id of the arrival.
+        x: :class:`str`
+            Coordinates of the station.
+        y: :class:`str`
+            Coordinates of the station.
+        map_name :class:`str`
+            Map name the API works on.
+        area :class:`str`
+            The area of the station (unsure atm)
+        platform :class:`str`
+            Platform / track of the arrival.
+        platform_name :class:`str`
+            name of the platform.
+        stop_name :class:`str`
+            name of the station.
+        name_wo :class:`str`
+            name of the station.
+        countdown :class:`int`
+            minutes until arrival.
+        datetime :class:`datetime.datetime`
+            Planned arrival datetime.
+        real_datetime :class:`datetime.datetime`
+            Estimated arrival datetime (equal to ``self.datetime`` if no realtime data is available).
+        delay :class:`int`
+            Delay of arrival in minutes.
+        serving_line :class:`ServingLine`
+            line of the incoming arrival
+        operator :class:`Operator`
+            Operator of the incoming arrival
+        stop_infos Optional[:class:`dict`]
+            All related info to the station. (e.g. maintenance work)
+        line_infos Optional[:class:`dict`]
+            All related info to the station. (e.g. maintenance work)
+        """
+    
     def __init__(self, **kwargs):
         self.stop_id = kwargs.get("stopID")
         self.x = kwargs.get("x")
@@ -16,7 +59,7 @@ class Arrival:
         self.stop_name = kwargs.get("stopName")
         self.name_wo = kwargs.get("nameWO")
         self.point_type = kwargs.get("pointType")
-        self.countdown = kwargs.get("countdown")
+        self.countdown = int(kwargs.get("countdown", "0"))
         dt = kwargs.get("dateTime")
         if dt:
             try:

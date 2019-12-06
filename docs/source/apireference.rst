@@ -1,11 +1,8 @@
-API Reference
+VVSPY Models
 =============
-
-text
 
 Departures
 -----------
-
 .. autoclass:: vvspy.obj.Departure()
     :members:
     :inherited-members:
@@ -13,7 +10,6 @@ Departures
 
 Arrivals
 ---------
-
 .. autoclass:: vvspy.obj.Arrival()
     :members:
     :inherited-members:
@@ -21,7 +17,6 @@ Arrivals
 
 Trips
 ------
-
 .. autoclass:: vvspy.obj.Trip()
     :members:
     :inherited-members:
@@ -29,8 +24,6 @@ Trips
 
 Connection
 ^^^^^^^^^^
-
-
 .. autoclass:: vvspy.obj.Connection()
     :members:
     :inherited-members:
@@ -38,7 +31,6 @@ Connection
 
 ServingLine
 ------------
-
 .. autoclass:: vvspy.obj.ServingLine()
     :members:
     :inherited-members:
@@ -46,7 +38,6 @@ ServingLine
 
 LineOperator
 -------------
-
 .. autoclass:: vvspy.obj.LineOperator()
     :members:
     :inherited-members:

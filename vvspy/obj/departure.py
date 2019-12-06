@@ -21,11 +21,11 @@ class Departure:
     map_name :class:`str`
         Map name the API works on.
     area :class:`str`
-        The area of the station ?
+        The area of the station (unsure atm)
     platform :class:`str`
         Platform / track of the departure.
     platform_name :class:`str`
-        name of the ``platform``.
+        name of the platform.
     stop_name :class:`str`
         name of the station.
     name_wo :class:`str`
@@ -35,14 +35,19 @@ class Departure:
     datetime :class:`datetime.datetime`
         Planned departure datetime.
     real_datetime :class:`datetime.datetime`
-        Estimated departure datetime (equals to ``self.datetime`` if no realtime data is available).
+        Estimated departure datetime (equal to ``self.datetime`` if no realtime data is available).
     delay :class:`int`
         Delay of departure in minutes.
     serving_line :class:`ServingLine`
-        abc
+        line of the incoming departure
     operator :class:`Operator`
-        abc
+        Operator of the incoming departure
+    stop_infos Optional[:class:`dict`]
+        All related info to the station. (e.g. maintenance work)
+    line_infos Optional[:class:`dict`]
+        All related info to the station. (e.g. maintenance work)
     """
+
     def __init__(self, **kwargs):
         self.stop_id = kwargs.get("stopID")
         self.x = kwargs.get("x")

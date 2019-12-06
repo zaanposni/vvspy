@@ -1,3 +1,6 @@
+VVSPY
+=====
+
 vvspy is a  easy to use, complete API wrapper for the EFA / VVS API.
 
 **Features:**
@@ -15,6 +18,7 @@ Documentation Contents
    :maxdepth: 2
 
    introduction
+   requestreference
    apireference
    help
    license
