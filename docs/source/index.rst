@@ -1,20 +1,22 @@
-VVSPY - A VVS API Wrapper
-=========================
+vvspy is a  easy to use, complete API wrapper for the EFA / VVS API.
 
-Some text.::
+**Features:**
 
-    print("Hello world")
-    >> Hello world
+- Easy to use with an object oriented design
+- Implements the entire VVS API
+- full customizable requests and parameters
+- Well tested and maintained
+- Departures, Arrivals, Trips, Station info, Upcoming events, Maintenance work
 
-Guide:
-^^^^^^
-
-text
+Documentation Contents
+----------------------
 
 .. toctree::
    :maxdepth: 2
 
-   license
+   introduction
+   apireference
    help
+   license
 
 ..

@@ -9,7 +9,7 @@
 
 **Fully object-oriented library** to integrate the **VVS API** into your project.
 
-- <a href="https://vvspy.readthedocs.io/en/latest/">readthedocs</a>
+- <a href="https://vvspy.readthedocs.io/en/latest/" target="_blank">readthedocs</a>
 
 ## Installation
 

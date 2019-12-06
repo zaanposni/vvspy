@@ -5,6 +5,40 @@ from .line_operator import LineOperator
 
 
 class Departure:
+    r"""
+
+    Attributes
+    -----------
+
+    raw: :class:`dict`
+        Raw dict received by the API.
+    stop_id :class:`str`
+        Station_id of the departure.
+    x: :class:`str`
+        Coordinates of the station.
+    y: :class:`str`
+        Coordinates of the station.
+    map_name :class:`str`
+        Map name the API works on.
+    area :class:`str`
+        The area of the station ?
+    platform :class:`str`
+        Platform / track of the departure.
+    platform_name :class:`str`
+        name of the ``platform``.
+    stop_name :class:`str`
+        name of the station.
+    name_wo :class:`str`
+        name of the station.
+    countdown :class:`int`
+        minutes until departure.
+    datetime :class:`datetime.datetime`
+        Planned departure datetime.
+    real_datetime :class:`datetime.datetime`
+        Estimated departure datetime (equals to ``self.datetime`` if no realtime data is available).
+    delay :class:`int`
+        Delay of departure in minutes.
+    """
     def __init__(self, **kwargs):
         self.raw = kwargs
         self.stop_id = kwargs.get("stopID")
@@ -17,7 +51,7 @@ class Departure:
         self.stop_name = kwargs.get("stopName")
         self.name_wo = kwargs.get("nameWO")
         self.point_type = kwargs.get("pointType")
-        self.countdown = kwargs.get("countdown")
+        self.countdown = int(kwargs.get("countdown", "0"))
         dt = kwargs.get("dateTime")
         if dt:
             try:
