@@ -105,7 +105,7 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
         return
 
 
-def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
+def _parse_response(result: dict) -> List[Union[Departure]]:
     parsed_response = []
     if not result or "departureList" not in result or not result["departureList"]:  # error in response/request
         return []  # no results
