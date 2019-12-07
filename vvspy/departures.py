@@ -18,17 +18,22 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
     Returns none on webrequest errors.
 
     Examples
-    ---------
+    --------
     Basic usage:
-    .. code-block:: python3
+
+    .. code-block:: python
+
         results = vvspy.get_departures("5006115", limit=3)  # Stuttgart main station
+
     Set proxy for request:
-    .. code-block:: python3
+
+    .. code-block:: python
+
         proxies = {}  # see https://stackoverflow.com/a/8287752/9850709
         results = vvspy.get_departures("5006115", request_params={"proxies": proxies})
 
     Parameters
-    -----------
+    ----------
         station_id Union[:class:`int`, :class:`str`]
             Station you want to get departures from.
             See csv on root of repository to get your id.
