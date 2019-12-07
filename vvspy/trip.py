@@ -9,9 +9,45 @@ from .obj import Trip
 __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 
 
-def _get_api_response(origin_station_id: Union[str, int], destination_station_id: Union[str, int],
-                      check_time: datetime = None, limit: int = 100, debug: bool = False,
-                      request_params: dict = None, **kwargs) -> Union[List[Trip], None]:
+def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[str, int],
+              check_time: datetime = None, limit: int = 100, debug: bool = False,
+              request_params: dict = None, **kwargs) -> Union[List[Trip], None]:
+    r"""
+
+    Returns: List[:class:`vvspy.obj.Trip`]
+    Returns none on webrequest errors.
+
+    Examples
+    ---------
+    Basic usage:
+    .. code-block:: python3
+        results = vvspy.get_trips("5006115", "5006465", limit=3)  # Stuttgart main station to Zuffenhausen
+    Set proxy for request:
+    .. code-block:: python3
+        proxies = {}  # see https://stackoverflow.com/a/8287752/9850709
+        results = vvspy.get_arrivals("5006115", "5006465", request_params={"proxies": proxies})
+
+    Parameters
+    -----------
+        station_id Union[:class:`int`, :class:`str`]
+            Station you want to get trips from.
+            See csv on root of repository to get your id.
+        check_time Optional[:class:`datetime.datetime`]
+            Time you want to check.
+            default datetime.now()
+        limit Optional[:class:`int`]
+            Limit request/result on this integer.
+            default 100
+        debug Optional[:class:`bool`]
+            Get advanced debug prints on failed web requests
+            default False
+        request_params Optional[:class:`dict`]
+            params parsed to the api request (e.g. proxies)
+            default {}
+        kwargs Optional[:class:`dict`]
+            Check trips.py to see all available kwargs.
+    """
+
     if not check_time:
         check_time = datetime.now()
     if request_params is None:
@@ -97,6 +133,3 @@ def _parse_response(result: dict, limit: int = 100) -> Union[List[Trip], None]:
         parsed_trips.append(Trip(**trip))
 
     return parsed_trips
-
-
-get_trips = _get_api_response

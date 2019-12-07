@@ -1,15 +1,15 @@
 <h1 align="center">VVS API Wrapper</h1>
 <p align="center">
-<img src="https://img.shields.io/badge/api-vvs-orange" />
 <img src="https://img.shields.io/pypi/pyversions/vvspy" />
 <img src="https://img.shields.io/pypi/v/vvspy" />
+<a href="https://vvspy.readthedocs.io/en/latest/" target="_blank"><img src="https://img.shields.io/readthedocs/vvspy" /></a>
 <img src="https://github.com/FI18-Trainees/vvspy/workflows/BasicCheckup/badge.svg" alt="Checkup status"/>
 <a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
 </p>
 
 **Fully object-oriented library** to integrate the **VVS API** into your project.
 
-- <a href="https://vvspy.readthedocs.io/en/latest/">readthedocs</a>
+- <a href="https://vvspy.readthedocs.io/en/latest/" target="_blank">readthedocs</a>
 
 ## Installation
 
@@ -27,10 +27,11 @@ deps = get_departures("5006115", limit=3)  # Stuttgart main station
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
-        print(dep)  # Timestamp @ Station: Train: Origin - Destination
+        print(dep)  # [Delayed] [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
+
     else:
         print("Train on time")
-        print(dep)  # Timestamp @ Station: Train: Origin - Destination
+        print(dep)  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 ```
 - Get complete trip info between two stations (including interchanges):
 ```python

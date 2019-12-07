@@ -6,8 +6,26 @@ from .connection import Connection
 
 
 class Trip:
+    r"""
+
+        Result object from a trip request from one station to another including interchanges
+
+        Attributes
+        -----------
+
+        raw :class:`dict`
+            Raw dict received by the API.
+        connections List[:class:`Connection`]
+            List of connections the trip consists of.
+        duration :class:`int`
+            seconds the trip takes overall.
+        zones List[:class:`str`]
+            List of zones this trip goes through.
+        fare Optional[:class:`dict`]
+            misc info about this trip, ticket prices, etc.
+    """
+
     def __init__(self, **kwargs):
-        self.raw = kwargs
         self.connections = []
         for connection in kwargs.get("legs", []):
             self.connections.append(Connection(**connection))
@@ -16,6 +34,7 @@ class Trip:
         self.zones = kwargs.get("fare", {}).get("zones", [])[0].get("zones", [])
 
         # inserted raw
+        self.raw = kwargs
         self.fare = kwargs.get("fare")
 
     def __str__(self):

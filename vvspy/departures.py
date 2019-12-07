@@ -4,14 +4,51 @@ import requests
 import json
 import traceback
 
-from vvspy.obj import Departure, Arrival
+from vvspy.obj import Departure
 
 __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 # TODO: new station id format de:08111:2599 (lapp kabel)
 
 
-def _get_api_response(station_id: Union[str, int], check_time: datetime = None, limit: int = 100, debug: bool = False,
-                      request_params: dict = None, **kwargs) -> Union[List[Union[Departure]], None]:
+def get_departures(station_id: Union[str, int], check_time: datetime = None, limit: int = 100, debug: bool = False,
+                   request_params: dict = None, **kwargs) -> Union[List[Departure], None]:
+    r"""
+
+    Returns: List[:class:`vvspy.obj.Departure`]
+    Returns none on webrequest errors.
+
+    Examples
+    ---------
+    Basic usage:
+    .. code-block:: python3
+        results = vvspy.get_departures("5006115", limit=3)  # Stuttgart main station
+    Set proxy for request:
+    .. code-block:: python3
+        proxies = {}  # see https://stackoverflow.com/a/8287752/9850709
+        results = vvspy.get_departures("5006115", request_params={"proxies": proxies})
+
+    Parameters
+    -----------
+        station_id Union[:class:`int`, :class:`str`]
+            Station you want to get departures from.
+            See csv on root of repository to get your id.
+        check_time Optional[:class:`datetime.datetime`]
+            Time you want to check.
+            default datetime.now()
+        limit Optional[:class:`int`]
+            Limit request/result on this integer.
+            default 100
+        debug Optional[:class:`bool`]
+            Get advanced debug prints on failed web requests
+            default False
+        request_params Optional[:class:`dict`]
+            params parsed to the api request (e.g. proxies)
+            default {}
+        kwargs Optional[:class:`dict`]
+            Check departures.py to see all available kwargs.
+
+    """
+
     if not check_time:
         check_time = datetime.now()
     if request_params is None:
@@ -68,7 +105,7 @@ def _get_api_response(station_id: Union[str, int], check_time: datetime = None, 
         return
 
 
-def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
+def _parse_response(result: dict) -> List[Union[Departure]]:
     parsed_response = []
     if not result or "departureList" not in result or not result["departureList"]:  # error in response/request
         return []  # no results
@@ -80,6 +117,3 @@ def _parse_response(result: dict) -> List[Union[Arrival, Departure]]:
             parsed_response.append(Departure(**departure))
 
     return parsed_response
-
-
-get_departures = _get_api_response  # alias

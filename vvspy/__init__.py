@@ -9,6 +9,5 @@ from .departures import get_departures
 from .arrivals import get_arrivals
 
 
-def departure_now(station_id: __Union[str, int], limit: int = 100, **kwargs) -> __List[__Union[__Arrival, __Departure]]:
+def departures_now(station_id: __Union[str, int], limit: int = 100, **kwargs) -> __List[__Union[__Arrival, __Departure]]:
     return get_departures(station_id=station_id, check_time=__datetime.now(), limit=limit, **kwargs)
-
