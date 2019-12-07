@@ -29,6 +29,27 @@ Connection
     :inherited-members:
     :exclude-members: __str__
 
+Origin
+^^^^^^
+.. autoclass:: vvspy.obj.Origin()
+    :members:
+    :inherited-members:
+    :exclude-members: __str__
+
+Destination
+^^^^^^^^^^^
+.. autoclass:: vvspy.obj.Destination()
+    :members:
+    :inherited-members:
+    :exclude-members: __str__
+
+Transportation
+^^^^^^^^^^^^^^
+.. autoclass:: vvspy.obj.Transportation()
+    :members:
+    :inherited-members:
+    :exclude-members: __str__
+
 ServingLine
 ------------
 .. autoclass:: vvspy.obj.ServingLine()

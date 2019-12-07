@@ -7,16 +7,18 @@ from .line_operator import LineOperator
 class Departure:
     r"""
 
+     Departure object from a departure request of one station.
+
     Attributes
     -----------
 
-    raw: :class:`dict`
+    raw :class:`dict`
         Raw dict received by the API.
     stop_id :class:`str`
         Station_id of the departure.
-    x: :class:`str`
+    x :class:`str`
         Coordinates of the station.
-    y: :class:`str`
+    y :class:`str`
         Coordinates of the station.
     map_name :class:`str`
         Map name the API works on.
@@ -39,13 +41,13 @@ class Departure:
     delay :class:`int`
         Delay of departure in minutes.
     serving_line :class:`ServingLine`
-        line of the incoming departure
-    operator :class:`Operator`
-        Operator of the incoming departure
-    stop_infos Optional[:class:`dict`]
-        All related info to the station. (e.g. maintenance work)
+        line of the incoming departure.
+    operator :class:`LineOperator`
+        Operator of the incoming departure.
+    stop_infos: Optional[:class:`dict`]
+        All related info to the station (e.g. maintenance work).
     line_infos Optional[:class:`dict`]
-        All related info to the station. (e.g. maintenance work)
+        All related info to the station (e.g. maintenance work).
     """
 
     def __init__(self, **kwargs):

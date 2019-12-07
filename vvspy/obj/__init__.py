@@ -5,3 +5,6 @@ from .trip import Trip
 from .serving_line import ServingLine
 from .line_operator import LineOperator
 from .connection import Connection
+from .origin import Origin
+from .destination import Destination
+from .transportation import Transportation
