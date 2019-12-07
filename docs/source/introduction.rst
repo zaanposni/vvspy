@@ -13,7 +13,7 @@ But there are various other things you can done. For example a simple dashboard 
 Installation
 ------------
 
-.. code-block::
+.. code-block:: python
 
     pip install vvspy
 
