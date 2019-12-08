@@ -4,6 +4,7 @@
 <img src="https://img.shields.io/pypi/v/vvspy" />
 <a href="https://vvspy.readthedocs.io/en/latest/" target="_blank"><img src="https://img.shields.io/readthedocs/vvspy" /></a>
 <img src="https://github.com/FI18-Trainees/vvspy/workflows/BasicCheckup/badge.svg" alt="Checkup status"/>
+<img src="https://github.com/FI18-Trainees/vvspy/workflows/Unittests/badge.svg" alt="Checkup status"/>
 <a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
 </p>
 
