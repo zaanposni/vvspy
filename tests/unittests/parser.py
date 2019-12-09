@@ -20,7 +20,9 @@ class TestParser(unittest.TestCase):
         with open(os.path.join(path, "trip_request_200.json"), 'r') as f:
             data = json.load(f)
         results = parse_trip_response(data)
+        self.assertTrue(results)
         self.assertTrue(all([isinstance(x, Trip) for x in results]))
+        self.assertEqual(results[0].connections[0].origin.delay, 1)
 
     def trip_400(self):
         with open(os.path.join(path, "trip_request_400.json"), 'r') as f:
@@ -32,7 +34,9 @@ class TestParser(unittest.TestCase):
         with open(os.path.join(path, "arrival_request_200.json"), 'r') as f:
             data = json.load(f)
         results = parse_arrival_response(data)
+        self.assertTrue(results)
         self.assertTrue(all([isinstance(x, Arrival) for x in results]))
+        self.assertEqual(results[0].delay, 1)
 
     def arrival_400(self):
         with open(os.path.join(path, "arrival_request_400.json"), 'r') as f:
@@ -43,13 +47,15 @@ class TestParser(unittest.TestCase):
     def departure_200(self):
         with open(os.path.join(path, "departure_request_200.json"), 'r') as f:
             data = json.load(f)
-        results = parse_arrival_response(data)
+        results = parse_departure_response(data)
+        self.assertTrue(results)
         self.assertTrue(all([isinstance(x, Departure) for x in results]))
+        self.assertEqual(results[0].delay, 1)
 
     def departure_400(self):
         with open(os.path.join(path, "departure_request_400.json"), 'r') as f:
             data = json.load(f)
-        results = parse_arrival_response(data)
+        results = parse_departure_response(data)
         self.assertEqual(results, [])
 
     def test_start(self):
