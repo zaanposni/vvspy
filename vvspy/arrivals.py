@@ -99,7 +99,7 @@ def get_arrivals(station_id: Union[str, int], check_time: datetime = None, limit
 
     try:
         r.encoding = 'UTF-8'
-        return _parse_arrival_response(r.json())   # TODO: error handling
+        return _parse_response(r.json())   # TODO: error handling
     except json.decoder.JSONDecodeError:
         if debug:
             print("Error in API request")
@@ -109,7 +109,7 @@ def get_arrivals(station_id: Union[str, int], check_time: datetime = None, limit
         return
 
 
-def _parse_arrival_response(result: dict) -> List[Union[Arrival]]:
+def _parse_response(result: dict) -> List[Union[Arrival]]:
     parsed_response = []
 
     if not result or "arrivalList" not in result or not result["arrivalList"]:  # error in response/request

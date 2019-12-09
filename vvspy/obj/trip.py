@@ -19,7 +19,7 @@ class Trip:
             List of connections the trip consists of.
         duration :class:`int`
             seconds the trip takes overall.
-        zones List[:class:`str`]
+        zones Optional[List[:class:`str`]]
             List of zones this trip goes through.
         fare Optional[:class:`dict`]
             misc info about this trip, ticket prices, etc.
@@ -31,8 +31,11 @@ class Trip:
             self.connections.append(Connection(**connection))
 
         self.duration = sum([x.duration for x in self.connections])
-        self.zones = kwargs.get("fare", {}).get("zones", [])[0].get("zones", [])
 
+        try:
+            self.zones = kwargs.get("fare", {}).get("zones", [])[0].get("zones", [])
+        except IndexError:
+            self.zones = []
         # inserted raw
         self.raw = kwargs
         self.fare = kwargs.get("fare")

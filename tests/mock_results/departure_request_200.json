@@ -1,0 +1,823 @@
+{
+  "parameters": [
+    {
+      "name": "serverID",
+      "value": "efa01.dc.vvs.de_"
+    },
+    {
+      "name": "requestID",
+      "value": "0"
+    },
+    {
+      "name": "sessionID",
+      "value": "0"
+    },
+    {
+      "name": "calcTime",
+      "value": "133.849"
+    },
+    {
+      "name": "serverTime",
+      "value": "2019-12-09T18:52:00"
+    }
+  ],
+  "dm": {
+    "input": {
+      "input": "Stuttgart, Wallgraben"
+    },
+    "points": {
+      "point": {
+        "usage": "dm",
+        "type": "any",
+        "name": "Stuttgart, Wallgraben",
+        "stateless": "5000355",
+        "anyType": "stop",
+        "sort": "2",
+        "quality": "100000",
+        "best": "0",
+        "object": "Wallgraben",
+        "ref": {
+          "id": "5000355",
+          "gid": "de:08111:355",
+          "omc": "8111000",
+          "placeID": "51",
+          "place": "Stuttgart",
+          "coords": "9.12526,48.72701"
+        },
+        "infos": null
+      }
+    },
+    "itdOdvAssignedStops": {
+      "stopID": "5000355",
+      "name": "Wallgraben",
+      "x": "9.12526",
+      "y": "48.72701",
+      "mapName": "WGS84[DD.ddddd]",
+      "value": "5000355:Wallgraben",
+      "place": "Stuttgart",
+      "nameWithPlace": "Wallgraben",
+      "distanceTime": "0",
+      "isTransferStop": "0",
+      "vm": "100",
+      "gid": "de:08111:355"
+    }
+  },
+  "arr": {
+    "input": {
+      "input": ""
+    },
+    "points": null
+  },
+  "dateTime": {
+    "deparr": "dep",
+    "ttpFrom": "20191101",
+    "ttpTo": "20201212",
+    "year": "2019",
+    "month": "12",
+    "day": "9",
+    "hour": "18",
+    "minute": "52"
+  },
+  "dateRange": [
+    {
+      "day": "09",
+      "month": "12",
+      "year": "2019",
+      "weekday": "2"
+    },
+    {
+      "day": "10",
+      "month": "12",
+      "year": "2019",
+      "weekday": "3"
+    },
+    {
+      "day": "11",
+      "month": "12",
+      "year": "2019",
+      "weekday": "4"
+    },
+    {
+      "day": "12",
+      "month": "12",
+      "year": "2019",
+      "weekday": "5"
+    },
+    {
+      "day": "13",
+      "month": "12",
+      "year": "2019",
+      "weekday": "6"
+    },
+    {
+      "day": "14",
+      "month": "12",
+      "year": "2019",
+      "weekday": "7"
+    },
+    {
+      "day": "15",
+      "month": "12",
+      "year": "2019",
+      "weekday": "1"
+    },
+    {
+      "day": "16",
+      "month": "12",
+      "year": "2019",
+      "weekday": "2"
+    },
+    {
+      "day": "17",
+      "month": "12",
+      "year": "2019",
+      "weekday": "3"
+    },
+    {
+      "day": "18",
+      "month": "12",
+      "year": "2019",
+      "weekday": "4"
+    },
+    {
+      "day": "19",
+      "month": "12",
+      "year": "2019",
+      "weekday": "5"
+    },
+    {
+      "day": "20",
+      "month": "12",
+      "year": "2019",
+      "weekday": "6"
+    },
+    {
+      "day": "21",
+      "month": "12",
+      "year": "2019",
+      "weekday": "7"
+    },
+    {
+      "day": "22",
+      "month": "12",
+      "year": "2019",
+      "weekday": "1"
+    },
+    {
+      "day": "23",
+      "month": "12",
+      "year": "2019",
+      "weekday": "2"
+    }
+  ],
+  "option": {
+    "ptOption": {
+      "active": "-1",
+      "maxChanges": "9",
+      "maxTime": "360",
+      "maxWait": "120",
+      "routeType": "LEASTTIME",
+      "changeSpeed": "normal",
+      "lineRestriction": "400",
+      "useProxFootSearch": "0",
+      "useProxFootSearchOrigin": "0",
+      "useProxFootSearchDestination": "0",
+      "bike": "0",
+      "plane": "0",
+      "noCrowded": "0",
+      "noSolidStairs": "0",
+      "noEscalators": "0",
+      "noElevators": "0",
+      "lowPlatformVhcl": "0",
+      "wheelchair": "0",
+      "needElevatedPlt": "0",
+      "assistance": "0",
+      "SOSAvail": "0",
+      "noLonelyTransfer": "0",
+      "illumTransfer": "0",
+      "overgroundTransfer": "0",
+      "noInsecurePlaces": "0",
+      "privateTransport": "0",
+      "excludedMeans": [
+        {
+          "means": "Zug",
+          "value": "0",
+          "selected": "0"
+        },
+        {
+          "means": "S-Bahn",
+          "value": "1",
+          "selected": "0"
+        },
+        {
+          "means": "U-Bahn",
+          "value": "2",
+          "selected": "0"
+        },
+        {
+          "means": "Stadtbahn",
+          "value": "3",
+          "selected": "0"
+        },
+        {
+          "means": "Straßen-/Trambahn",
+          "value": "4",
+          "selected": "0"
+        },
+        {
+          "means": "Stadtbus",
+          "value": "5",
+          "selected": "0"
+        },
+        {
+          "means": "Regionalbus",
+          "value": "6",
+          "selected": "0"
+        },
+        {
+          "means": "Schnellbus",
+          "value": "7",
+          "selected": "0"
+        },
+        {
+          "means": "Seil-/Zahnradbahn",
+          "value": "8",
+          "selected": "0"
+        },
+        {
+          "means": "Schiff",
+          "value": "9",
+          "selected": "0"
+        },
+        {
+          "means": "AST/Rufbus",
+          "value": "10",
+          "selected": "0"
+        },
+        {
+          "means": "Sonstige",
+          "value": "11",
+          "selected": "0"
+        },
+        {
+          "means": "Flugzeug",
+          "value": "12",
+          "selected": "0"
+        },
+        {
+          "means": "Zug (Nahverkehr)",
+          "value": "13",
+          "selected": "0"
+        },
+        {
+          "means": "Zug (Fernverkehr)",
+          "value": "14",
+          "selected": "0"
+        },
+        {
+          "means": "Zug Fernv m Zuschlag",
+          "value": "15",
+          "selected": "0"
+        },
+        {
+          "means": "Zug Fernv m spez Fpr",
+          "value": "16",
+          "selected": "0"
+        },
+        {
+          "means": "SEV Schienenersatzv",
+          "value": "17",
+          "selected": "0"
+        },
+        {
+          "means": "Zug Shuttle",
+          "value": "18",
+          "selected": "0"
+        },
+        {
+          "means": "Bürgerbus",
+          "value": "19",
+          "selected": "0"
+        }
+      ],
+      "activeImp": "-1",
+      "activeCom": "-1",
+      "activeSec": "-1"
+    }
+  },
+  "servingLines": {
+    "lines": [
+      {
+        "mode": {
+          "name": "Stadtbahn U3",
+          "number": "U3",
+          "product": "Stadtbahn",
+          "productId": "2",
+          "type": "3",
+          "mtSubcode": "0",
+          "code": "1",
+          "destination": "Vaihingen Bf",
+          "destID": "5006002",
+          "desc": "Plieningen - Möhringen - Vaihingen",
+          "timetablePeriod": "Fahrplan 2019",
+          "diva": {
+            "branch": "20",
+            "line": "20003",
+            "supplement": " ",
+            "dir": "H",
+            "project": "j19",
+            "network": "vvs",
+            "stateless": "vvs:20003: :H:j19",
+            "tripCode": "0",
+            "operator": "SSB",
+            "opCode": "01",
+            "vF": "20181209",
+            "vTo": "20191214",
+            "isTTB": "1",
+            "isSTT": "1",
+            "isROP": "1",
+            "attrs": [ ]
+          }
+        },
+        "index": "2:0"
+      },
+      {
+        "mode": {
+          "name": "Stadtbahn U3",
+          "number": "U3",
+          "product": "Stadtbahn",
+          "productId": "2",
+          "type": "3",
+          "mtSubcode": "0",
+          "code": "1",
+          "destination": "Plieningen",
+          "destID": "5006555",
+          "desc": "Vaihingen - Möhringen - Plieningen",
+          "timetablePeriod": "Fahrplan 2019",
+          "diva": {
+            "branch": "20",
+            "line": "20003",
+            "supplement": " ",
+            "dir": "R",
+            "project": "j19",
+            "network": "vvs",
+            "stateless": "vvs:20003: :R:j19",
+            "tripCode": "0",
+            "operator": "SSB",
+            "opCode": "01",
+            "vF": "20181209",
+            "vTo": "20191214",
+            "isTTB": "1",
+            "isSTT": "1",
+            "isROP": "1",
+            "attrs": [ ]
+          }
+        },
+        "index": "2:1"
+      },
+      {
+        "mode": {
+          "name": "Stadtbahn U8",
+          "number": "U8",
+          "product": "Stadtbahn",
+          "productId": "2",
+          "type": "3",
+          "mtSubcode": "0",
+          "code": "1",
+          "destination": "Vaihingen Bf",
+          "destID": "5006002",
+          "desc": "Ostfildern - Heumaden - Möhringen - Vaihingen",
+          "timetablePeriod": "Fahrplan 2019",
+          "diva": {
+            "branch": "20",
+            "line": "20008",
+            "supplement": " ",
+            "dir": "H",
+            "project": "j19",
+            "network": "vvs",
+            "stateless": "vvs:20008: :H:j19",
+            "tripCode": "0",
+            "operator": "SSB",
+            "opCode": "01",
+            "vF": "20181209",
+            "vTo": "20191214",
+            "isTTB": "1",
+            "isSTT": "1",
+            "isROP": "1",
+            "attrs": [ ]
+          }
+        },
+        "index": "2:2"
+      },
+      {
+        "mode": {
+          "name": "Stadtbahn U8",
+          "number": "U8",
+          "product": "Stadtbahn",
+          "productId": "2",
+          "type": "3",
+          "mtSubcode": "0",
+          "code": "1",
+          "destination": "Nellingen Ostfildern",
+          "destID": "5002974",
+          "desc": "Vaihingen - Möhringen - Heumaden - Ostfildern",
+          "timetablePeriod": "Fahrplan 2019",
+          "diva": {
+            "branch": "20",
+            "line": "20008",
+            "supplement": " ",
+            "dir": "R",
+            "project": "j19",
+            "network": "vvs",
+            "stateless": "vvs:20008: :R:j19",
+            "tripCode": "0",
+            "operator": "SSB",
+            "opCode": "01",
+            "vF": "20181209",
+            "vTo": "20191214",
+            "isTTB": "1",
+            "isSTT": "1",
+            "isROP": "1",
+            "attrs": [ ]
+          }
+        },
+        "index": "2:3"
+      },
+      {
+        "mode": {
+          "name": "Stadtbahn U12",
+          "number": "U12",
+          "product": "Stadtbahn",
+          "productId": "2",
+          "type": "3",
+          "mtSubcode": "0",
+          "code": "1",
+          "destination": "Dürrlewang",
+          "destID": "5002613",
+          "desc": "Remseck - Hallschlag - Hbf - Dürrlewang",
+          "timetablePeriod": "Fahrplan 2019",
+          "diva": {
+            "branch": "20",
+            "line": "20012",
+            "supplement": " ",
+            "dir": "H",
+            "project": "j19",
+            "network": "vvs",
+            "stateless": "vvs:20012: :H:j19",
+            "tripCode": "0",
+            "operator": "SSB",
+            "opCode": "01",
+            "vF": "20181209",
+            "vTo": "20191214",
+            "isTTB": "1",
+            "isSTT": "1",
+            "isROP": "1",
+            "attrs": [ ]
+          }
+        },
+        "index": "2:4"
+      },
+      {
+        "mode": {
+          "name": "Stadtbahn U12",
+          "number": "U12",
+          "product": "Stadtbahn",
+          "productId": "2",
+          "type": "3",
+          "mtSubcode": "0",
+          "code": "1",
+          "destination": "Neckargröningen Remseck",
+          "destID": "5003573",
+          "desc": "Dürrlewang - Hbf - Hallschlag - Remseck",
+          "timetablePeriod": "Fahrplan 2019",
+          "diva": {
+            "branch": "20",
+            "line": "20012",
+            "supplement": " ",
+            "dir": "R",
+            "project": "j19",
+            "network": "vvs",
+            "stateless": "vvs:20012: :R:j19",
+            "tripCode": "0",
+            "operator": "SSB",
+            "opCode": "01",
+            "vF": "20181209",
+            "vTo": "20191214",
+            "isTTB": "1",
+            "isSTT": "1",
+            "isROP": "1",
+            "attrs": [ ]
+          }
+        },
+        "index": "2:5"
+      }
+    ]
+  },
+  "departureList": [
+    {
+      "stopID": "5000355",
+      "x": "9.12526",
+      "y": "48.72702",
+      "mapName": "WGS84[DD.ddddd]",
+      "area": "1",
+      "platform": "1",
+      "platformName": "",
+      "stopName": "Wallgraben",
+      "nameWO": "Wallgraben",
+      "countdown": "0",
+      "dateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "18",
+        "minute": "52"
+      },
+      "realDateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "18",
+        "minute": "53"
+      },
+      "servingLine": {
+        "key": "135",
+        "code": "1",
+        "number": "U12",
+        "symbol": "U12",
+        "motType": "3",
+        "mtSubcode": "0",
+        "realtime": "1",
+        "direction": "Dürrlewang",
+        "directionFrom": "Neckargröningen Remseck",
+        "name": "Stadtbahn",
+        "delay": "0",
+        "liErgRiProj": {
+          "line": "20012",
+          "project": "j19",
+          "direction": "H",
+          "supplement": " ",
+          "network": "vvs"
+        },
+        "destID": "5002613",
+        "stateless": "vvs:20012: :H:j19"
+      },
+      "operator": {
+        "code": "01",
+        "name": "SSB",
+        "publicCode": ""
+      },
+      "attrs": [
+        {
+          "name": "AVMSTripID",
+          "value": "765985-00129-1"
+        }
+      ]
+    },
+    {
+      "stopID": "5000355",
+      "x": "9.12525",
+      "y": "48.72700",
+      "mapName": "WGS84[DD.ddddd]",
+      "area": "3",
+      "platform": "2",
+      "platformName": "",
+      "stopName": "Wallgraben",
+      "nameWO": "Wallgraben",
+      "countdown": "1",
+      "dateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "18",
+        "minute": "53"
+      },
+      "realDateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "18",
+        "minute": "53"
+      },
+      "servingLine": {
+        "key": "741",
+        "code": "1",
+        "number": "U12",
+        "symbol": "U12",
+        "motType": "3",
+        "mtSubcode": "0",
+        "realtime": "1",
+        "direction": "Neckargröningen Remseck",
+        "directionFrom": "Dürrlewang",
+        "name": "Stadtbahn",
+        "delay": "0",
+        "liErgRiProj": {
+          "line": "20012",
+          "project": "j19",
+          "direction": "R",
+          "supplement": " ",
+          "network": "vvs"
+        },
+        "destID": "5003573",
+        "stateless": "vvs:20012: :R:j19"
+      },
+      "operator": {
+        "code": "01",
+        "name": "SSB",
+        "publicCode": ""
+      },
+      "attrs": [
+        {
+          "name": "AVMSTripID",
+          "value": "765968-00129-1"
+        }
+      ]
+    },
+    {
+      "stopID": "5000355",
+      "x": "9.12526",
+      "y": "48.72702",
+      "mapName": "WGS84[DD.ddddd]",
+      "area": "1",
+      "platform": "1",
+      "platformName": "",
+      "stopName": "Wallgraben",
+      "nameWO": "Wallgraben",
+      "countdown": "3",
+      "dateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "18",
+        "minute": "54"
+      },
+      "realDateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "18",
+        "minute": "55"
+      },
+      "servingLine": {
+        "key": "137",
+        "code": "1",
+        "number": "U3",
+        "symbol": "U3",
+        "motType": "3",
+        "mtSubcode": "0",
+        "realtime": "1",
+        "direction": "Vaihingen Bf",
+        "directionFrom": "Plieningen",
+        "name": "Stadtbahn",
+        "delay": "1",
+        "liErgRiProj": {
+          "line": "20003",
+          "project": "j19",
+          "direction": "H",
+          "supplement": " ",
+          "network": "vvs"
+        },
+        "destID": "5006002",
+        "stateless": "vvs:20003: :H:j19"
+      },
+      "operator": {
+        "code": "01",
+        "name": "SSB",
+        "publicCode": ""
+      },
+      "attrs": [
+        {
+          "name": "AVMSTripID",
+          "value": "764508-00129-1"
+        }
+      ]
+    },
+    {
+      "stopID": "5000355",
+      "x": "9.12525",
+      "y": "48.72700",
+      "mapName": "WGS84[DD.ddddd]",
+      "area": "3",
+      "platform": "2",
+      "platformName": "",
+      "stopName": "Wallgraben",
+      "nameWO": "Wallgraben",
+      "countdown": "3",
+      "dateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "18",
+        "minute": "55"
+      },
+      "realDateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "18",
+        "minute": "55"
+      },
+      "servingLine": {
+        "key": "305",
+        "code": "1",
+        "number": "U3",
+        "symbol": "U3",
+        "motType": "3",
+        "mtSubcode": "0",
+        "realtime": "1",
+        "direction": "Plieningen",
+        "directionFrom": "Vaihingen Bf",
+        "name": "Stadtbahn",
+        "delay": "0",
+        "liErgRiProj": {
+          "line": "20003",
+          "project": "j19",
+          "direction": "R",
+          "supplement": " ",
+          "network": "vvs"
+        },
+        "destID": "5006555",
+        "stateless": "vvs:20003: :R:j19"
+      },
+      "operator": {
+        "code": "01",
+        "name": "SSB",
+        "publicCode": ""
+      },
+      "attrs": [
+        {
+          "name": "AVMSTripID",
+          "value": "764472-00129-1"
+        }
+      ]
+    },
+    {
+      "stopID": "5000355",
+      "x": "9.12525",
+      "y": "48.72700",
+      "mapName": "WGS84[DD.ddddd]",
+      "area": "3",
+      "platform": "2",
+      "platformName": "",
+      "stopName": "Wallgraben",
+      "nameWO": "Wallgraben",
+      "countdown": "9",
+      "dateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "19",
+        "minute": "1"
+      },
+      "realDateTime": {
+        "year": "2019",
+        "month": "12",
+        "day": "9",
+        "weekday": "2",
+        "hour": "19",
+        "minute": "1"
+      },
+      "servingLine": {
+        "key": "230",
+        "code": "1",
+        "number": "U8",
+        "symbol": "U8",
+        "motType": "3",
+        "mtSubcode": "0",
+        "realtime": "1",
+        "direction": "Nellingen Ostfildern",
+        "directionFrom": "Vaihingen Bf",
+        "name": "Stadtbahn",
+        "delay": "0",
+        "liErgRiProj": {
+          "line": "20008",
+          "project": "j19",
+          "direction": "R",
+          "supplement": " ",
+          "network": "vvs"
+        },
+        "destID": "5002974",
+        "stateless": "vvs:20008: :R:j19"
+      },
+      "operator": {
+        "code": "01",
+        "name": "SSB",
+        "publicCode": ""
+      },
+      "attrs": [
+        {
+          "name": "AVMSTripID",
+          "value": "764409-00129-1"
+        }
+      ]
+    }
+  ]
+}

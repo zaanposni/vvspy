@@ -1,0 +1,6033 @@
+{
+  "serverInfo": {
+    "controllerVersion": "10.3.7.22",
+    "serverID": "efa06.dc.vvs.de_",
+    "virtDir": "vvsefaall",
+    "serverTime": "2019-12-09T18:23:03",
+    "calcTime": 246.72
+  },
+  "version": "10.2.10.139",
+  "systemMessages": [ ],
+  "journeys": [
+    {
+      "rating": 0,
+      "isAdditional": false,
+      "interchanges": 0,
+      "legs": [
+        {
+          "duration": 360,
+          "isRealtimeControlled": true,
+          "origin": {
+            "isGlobalId": true,
+            "id": "de:08111:355:1:2",
+            "name": "Wallgraben",
+            "type": "platform",
+            "coord": [
+              48.727,
+              9.12525
+            ],
+            "niveau": 1,
+            "parent": {
+              "id": "5000355",
+              "name": "Wallgraben",
+              "type": "stop",
+              "parent": {
+                "id": "placeID:8111000:51",
+                "name": "Stuttgart",
+                "type": "locality"
+              }
+            },
+            "departureTimePlanned": "2019-12-09T17:25:00Z",
+            "departureTimeEstimated": "2019-12-09T17:26:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F73.pdf"
+                },
+                {
+                  "type": "SM",
+                  "url": "vvs/uWall.pdf"
+                }
+              ],
+              "AREA_NIVEAU_DIVA": "1",
+              "areaGid": "de:08111:355:3"
+            }
+          },
+          "destination": {
+            "isGlobalId": true,
+            "id": "de:08111:354:1:2",
+            "name": "Sigmaringer Straße",
+            "type": "platform",
+            "coord": [
+              48.72871,
+              9.15321
+            ],
+            "niveau": 0,
+            "parent": {
+              "id": "5000354",
+              "name": "Sigmaringer Straße",
+              "type": "stop",
+              "parent": {
+                "id": "placeID:8111000:51",
+                "name": "Stuttgart",
+                "type": "locality"
+              }
+            },
+            "arrivalTimePlanned": "2019-12-09T17:31:00Z",
+            "arrivalTimeEstimated": "2019-12-09T17:31:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F74.pdf"
+                }
+              ],
+              "AREA_NIVEAU_DIVA": "0",
+              "areaGid": "de:08111:354:1"
+            }
+          },
+          "transportation": {
+            "id": "vvs:20003: :R:",
+            "name": "Stadtbahn U3",
+            "disassembledName": "U3",
+            "number": "U3",
+            "description": "Vaihingen - Möhringen - Plieningen",
+            "product": {
+              "id": 2,
+              "class": 3,
+              "name": "Stadtbahn",
+              "iconId": 1
+            },
+            "operator": {
+              "id": "01",
+              "name": "SSB"
+            },
+            "destination": {
+              "id": "5006555",
+              "name": "Plieningen",
+              "type": "stop"
+            },
+            "properties": {
+              "isTTB": true,
+              "isSTT": true,
+              "isROP": true,
+              "tripCode": 300,
+              "mtSubcode": "0"
+            }
+          },
+          "stopSequence": [
+            {
+              "isGlobalId": true,
+              "id": "de:08111:355:1:2",
+              "name": "Wallgraben",
+              "type": "platform",
+              "coord": [
+                48.727,
+                9.12525
+              ],
+              "niveau": 1,
+              "parent": {
+                "id": "5000355",
+                "name": "Wallgraben",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "1",
+                "areaGid": "de:08111:355:3",
+                "zone": "vvs:1"
+              },
+              "departureTimePlanned": "2019-12-09T17:25:00Z",
+              "departureTimeEstimated": "2019-12-09T17:25:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:350:0:2",
+              "name": "SSB-Zentrum",
+              "type": "platform",
+              "coord": [
+                48.72679,
+                9.13084
+              ],
+              "niveau": 1,
+              "parent": {
+                "id": "5000350",
+                "name": "SSB-Zentrum",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "1",
+                "areaGid": "de:08111:350:4",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:26:00Z",
+              "departureTimePlanned": "2019-12-09T17:26:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:26:00Z",
+              "departureTimeEstimated": "2019-12-09T17:26:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:170:2:2",
+              "name": "Vaihinger Straße",
+              "type": "platform",
+              "coord": [
+                48.72773,
+                9.13922
+              ],
+              "niveau": -1,
+              "parent": {
+                "id": "5000170",
+                "name": "Vaihinger Straße",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "-1",
+                "areaGid": "de:08111:170:2",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:28:00Z",
+              "departureTimePlanned": "2019-12-09T17:28:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:28:00Z",
+              "departureTimeEstimated": "2019-12-09T17:28:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:6169:3:4",
+              "name": "Möhringen Bf",
+              "disassembledName": "Gleis 4",
+              "type": "platform",
+              "pointType": "TRACK",
+              "coord": [
+                48.73057,
+                9.14713
+              ],
+              "niveau": 0,
+              "parent": {
+                "id": "5006169",
+                "name": "Möhringen Bf",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "0",
+                "stoppingPointPlanned": "Gleis 4",
+                "areaGid": "de:08111:6169:3",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:30:00Z",
+              "departureTimePlanned": "2019-12-09T17:30:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:30:00Z",
+              "departureTimeEstimated": "2019-12-09T17:30:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:354:1:2",
+              "name": "Sigmaringer Straße",
+              "type": "platform",
+              "coord": [
+                48.72871,
+                9.15321
+              ],
+              "niveau": 0,
+              "parent": {
+                "id": "5000354",
+                "name": "Sigmaringer Straße",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "0",
+                "areaGid": "de:08111:354:1",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:31:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:31:00Z"
+            }
+          ],
+          "infos": [ ],
+          "coords": [
+            [
+              48.72698,
+              9.12525
+            ],
+            [
+              48.72697,
+              9.12569
+            ],
+            [
+              48.72696,
+              9.12598
+            ],
+            [
+              48.72696,
+              9.12612
+            ],
+            [
+              48.72695,
+              9.12645
+            ],
+            [
+              48.72694,
+              9.12663
+            ],
+            [
+              48.72692,
+              9.12722
+            ],
+            [
+              48.72691,
+              9.12756
+            ],
+            [
+              48.7269,
+              9.12787
+            ],
+            [
+              48.72689,
+              9.12803
+            ],
+            [
+              48.72689,
+              9.1282
+            ],
+            [
+              48.72686,
+              9.12875
+            ],
+            [
+              48.72684,
+              9.12938
+            ],
+            [
+              48.72682,
+              9.12983
+            ],
+            [
+              48.72681,
+              9.13012
+            ],
+            [
+              48.72678,
+              9.13083
+            ],
+            [
+              48.72678,
+              9.13083
+            ],
+            [
+              48.72678,
+              9.13102
+            ],
+            [
+              48.72666,
+              9.13421
+            ],
+            [
+              48.72664,
+              9.13481
+            ],
+            [
+              48.72661,
+              9.13585
+            ],
+            [
+              48.72658,
+              9.13659
+            ],
+            [
+              48.72657,
+              9.1369
+            ],
+            [
+              48.72657,
+              9.13705
+            ],
+            [
+              48.72658,
+              9.13721
+            ],
+            [
+              48.72659,
+              9.13734
+            ],
+            [
+              48.72661,
+              9.13749
+            ],
+            [
+              48.72664,
+              9.13762
+            ],
+            [
+              48.72667,
+              9.13777
+            ],
+            [
+              48.72672,
+              9.13793
+            ],
+            [
+              48.72678,
+              9.1381
+            ],
+            [
+              48.72687,
+              9.13829
+            ],
+            [
+              48.72697,
+              9.13848
+            ],
+            [
+              48.72708,
+              9.13864
+            ],
+            [
+              48.72718,
+              9.13877
+            ],
+            [
+              48.72729,
+              9.13889
+            ],
+            [
+              48.72742,
+              9.13902
+            ],
+            [
+              48.7276,
+              9.13915
+            ],
+            [
+              48.72772,
+              9.13924
+            ],
+            [
+              48.72772,
+              9.13924
+            ],
+            [
+              48.72779,
+              9.13929
+            ],
+            [
+              48.72814,
+              9.13955
+            ],
+            [
+              48.72849,
+              9.13983
+            ],
+            [
+              48.72868,
+              9.14004
+            ],
+            [
+              48.72885,
+              9.1403
+            ],
+            [
+              48.72904,
+              9.14068
+            ],
+            [
+              48.7292,
+              9.14119
+            ],
+            [
+              48.72934,
+              9.14174
+            ],
+            [
+              48.7296,
+              9.14292
+            ],
+            [
+              48.72973,
+              9.14346
+            ],
+            [
+              48.73007,
+              9.14486
+            ],
+            [
+              48.73012,
+              9.14518
+            ],
+            [
+              48.73018,
+              9.14548
+            ],
+            [
+              48.73024,
+              9.14576
+            ],
+            [
+              48.73035,
+              9.14622
+            ],
+            [
+              48.73052,
+              9.14695
+            ],
+            [
+              48.73056,
+              9.14714
+            ],
+            [
+              48.73056,
+              9.14714
+            ],
+            [
+              48.73062,
+              9.14741
+            ],
+            [
+              48.73066,
+              9.14762
+            ],
+            [
+              48.73069,
+              9.14785
+            ],
+            [
+              48.73071,
+              9.14807
+            ],
+            [
+              48.73071,
+              9.14827
+            ],
+            [
+              48.7307,
+              9.14859
+            ],
+            [
+              48.73067,
+              9.14883
+            ],
+            [
+              48.73061,
+              9.1491
+            ],
+            [
+              48.73056,
+              9.14931
+            ],
+            [
+              48.73048,
+              9.14953
+            ],
+            [
+              48.73015,
+              9.15025
+            ],
+            [
+              48.73008,
+              9.15041
+            ],
+            [
+              48.73003,
+              9.15052
+            ],
+            [
+              48.72981,
+              9.15097
+            ],
+            [
+              48.72919,
+              9.15224
+            ],
+            [
+              48.72897,
+              9.15268
+            ],
+            [
+              48.72894,
+              9.15275
+            ],
+            [
+              48.72889,
+              9.15285
+            ],
+            [
+              48.72871,
+              9.15322
+            ]
+          ]
+        }
+      ],
+      "fare": {
+        "tickets": [
+          {
+            "id": "020111",
+            "name": "Einzelfahrschein",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 2.5,
+            "priceNetto": 2.34,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020211",
+            "name": "Einzelfahrschein",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 1.3,
+            "priceNetto": 1.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020151",
+            "name": "EinzelTicket Mobil",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 2.37,
+            "priceNetto": 2.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020251",
+            "name": "EinzelTicket Mobil",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 1.22,
+            "priceNetto": 1.14,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "030111",
+            "name": "4er-Ticket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 9.5,
+            "priceNetto": 8.88,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MULTIPLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "030211",
+            "name": "4er-Ticket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 4.9,
+            "priceNetto": 4.58,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "MULTIPLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050241",
+            "name": "EinzelTagesTicket (Automat)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 5.2,
+            "priceNetto": 4.86,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 755,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050251",
+            "name": "EinzelTagesTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 5.0,
+            "priceNetto": 4.67,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 755,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050141",
+            "name": "GruppenTagesTicket (Automat)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 10.4,
+            "priceNetto": 9.72,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "MULTIADULTS",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 755,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050151",
+            "name": "GruppenTagesTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 10.2,
+            "priceNetto": 9.53,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "MULTIADULTS",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 755,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "110211",
+            "name": "WochenTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 22.7,
+            "priceNetto": 21.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "WEEK",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "120111",
+            "name": "MonatsTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 67.6,
+            "priceNetto": 63.18,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "134411",
+            "name": "JahresTicket (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 676.0,
+            "priceNetto": 631.78,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "134511",
+            "name": "JahresTicket (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 807.0,
+            "priceNetto": 754.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "210131",
+            "name": "MonatsTicket für Schüler, Auszubildende, Studenten",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 49.2,
+            "priceNetto": 45.98,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SCHOLAR",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "310143",
+            "name": "SeniorenTicket (MonatsTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "3",
+            "priceBrutto": 56.7,
+            "priceNetto": 52.99,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SENIOR",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "324449",
+            "name": "SeniorenTicket (JahresTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "3",
+            "priceBrutto": 560.4,
+            "priceNetto": 523.74,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SENIOR",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "140411",
+            "name": "FirmenTicket 5 % Rabatt (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 642.0,
+            "priceNetto": 600.0,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "145411",
+            "name": "FirmenTicket 5 % Rabatt (persönlich) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 53.52,
+            "priceNetto": 50.02,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "141411",
+            "name": "FirmenTicket 5 % Rabatt (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 767.0,
+            "priceNetto": 716.82,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "146411",
+            "name": "FirmenTicket 5 % Rabatt (übertragbar) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 63.89,
+            "priceNetto": 59.71,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "Dumm01",
+            "name": "FirmenTicket 10 % Rabatt (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 608.4,
+            "priceNetto": 568.6,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "145511",
+            "name": "FirmenTicket 10 % Rabatt (persönlich) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 50.7,
+            "priceNetto": 47.38,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "Dumm08",
+            "name": "FirmenTicket 10 % Rabatt (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 726.36,
+            "priceNetto": 678.84,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "146511",
+            "name": "FirmenTicket 10 % Rabatt (übertragbar) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 60.53,
+            "priceNetto": 56.57,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "410151",
+            "name": "9-Uhr-UmweltTicket (MonatsTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 51.5,
+            "priceNetto": 48.13,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "424451",
+            "name": "9-Uhr-UmweltTicket (JahresTicket) (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 515.0,
+            "priceNetto": 481.31,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "424551",
+            "name": "9-Uhr-UmweltTicket (JahresTicket) (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 646.0,
+            "priceNetto": 603.74,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "226339",
+            "name": "StudiTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "Netz",
+            "priceBrutto": 207.0,
+            "priceNetto": 193.46,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "STUDENT",
+            "travellerClass": "SECOND",
+            "timeValidity": "OTHER_VALIDITYTIME",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          }
+        ],
+        "zones": [
+          {
+            "net": "vvs",
+            "toLeg": 0,
+            "fromLeg": 0,
+            "neutralZone": "",
+            "zones": [
+              "1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "rating": 0,
+      "isAdditional": false,
+      "interchanges": 0,
+      "legs": [
+        {
+          "duration": 360,
+          "isRealtimeControlled": true,
+          "origin": {
+            "isGlobalId": true,
+            "id": "de:08111:355:1:2",
+            "name": "Wallgraben",
+            "type": "platform",
+            "coord": [
+              48.727,
+              9.12525
+            ],
+            "niveau": 1,
+            "parent": {
+              "id": "5000355",
+              "name": "Wallgraben",
+              "type": "stop",
+              "parent": {
+                "id": "placeID:8111000:51",
+                "name": "Stuttgart",
+                "type": "locality"
+              }
+            },
+            "departureTimePlanned": "2019-12-09T17:35:00Z",
+            "departureTimeEstimated": "2019-12-09T17:35:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F73.pdf"
+                },
+                {
+                  "type": "SM",
+                  "url": "vvs/uWall.pdf"
+                }
+              ],
+              "AREA_NIVEAU_DIVA": "1",
+              "areaGid": "de:08111:355:3"
+            }
+          },
+          "destination": {
+            "isGlobalId": true,
+            "id": "de:08111:354:1:2",
+            "name": "Sigmaringer Straße",
+            "type": "platform",
+            "coord": [
+              48.72871,
+              9.15321
+            ],
+            "niveau": 0,
+            "parent": {
+              "id": "5000354",
+              "name": "Sigmaringer Straße",
+              "type": "stop",
+              "parent": {
+                "id": "placeID:8111000:51",
+                "name": "Stuttgart",
+                "type": "locality"
+              }
+            },
+            "arrivalTimePlanned": "2019-12-09T17:41:00Z",
+            "arrivalTimeEstimated": "2019-12-09T17:41:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F74.pdf"
+                }
+              ],
+              "AREA_NIVEAU_DIVA": "0",
+              "areaGid": "de:08111:354:1"
+            }
+          },
+          "transportation": {
+            "id": "vvs:20003: :R:",
+            "name": "Stadtbahn U3",
+            "disassembledName": "U3",
+            "number": "U3",
+            "description": "Vaihingen - Möhringen - Plieningen",
+            "product": {
+              "id": 2,
+              "class": 3,
+              "name": "Stadtbahn",
+              "iconId": 1
+            },
+            "operator": {
+              "id": "01",
+              "name": "SSB"
+            },
+            "destination": {
+              "id": "5006555",
+              "name": "Plieningen",
+              "type": "stop"
+            },
+            "properties": {
+              "isTTB": true,
+              "isSTT": true,
+              "isROP": true,
+              "tripCode": 302,
+              "mtSubcode": "0"
+            }
+          },
+          "stopSequence": [
+            {
+              "isGlobalId": true,
+              "id": "de:08111:355:1:2",
+              "name": "Wallgraben",
+              "type": "platform",
+              "coord": [
+                48.727,
+                9.12525
+              ],
+              "niveau": 1,
+              "parent": {
+                "id": "5000355",
+                "name": "Wallgraben",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "1",
+                "areaGid": "de:08111:355:3",
+                "zone": "vvs:1"
+              },
+              "departureTimePlanned": "2019-12-09T17:35:00Z",
+              "departureTimeEstimated": "2019-12-09T17:35:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:350:0:2",
+              "name": "SSB-Zentrum",
+              "type": "platform",
+              "coord": [
+                48.72679,
+                9.13084
+              ],
+              "niveau": 1,
+              "parent": {
+                "id": "5000350",
+                "name": "SSB-Zentrum",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "1",
+                "areaGid": "de:08111:350:4",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:36:00Z",
+              "departureTimePlanned": "2019-12-09T17:36:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:36:00Z",
+              "departureTimeEstimated": "2019-12-09T17:36:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:170:2:2",
+              "name": "Vaihinger Straße",
+              "type": "platform",
+              "coord": [
+                48.72773,
+                9.13922
+              ],
+              "niveau": -1,
+              "parent": {
+                "id": "5000170",
+                "name": "Vaihinger Straße",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "-1",
+                "areaGid": "de:08111:170:2",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:38:00Z",
+              "departureTimePlanned": "2019-12-09T17:38:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:38:00Z",
+              "departureTimeEstimated": "2019-12-09T17:38:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:6169:3:4",
+              "name": "Möhringen Bf",
+              "disassembledName": "Gleis 4",
+              "type": "platform",
+              "pointType": "TRACK",
+              "coord": [
+                48.73057,
+                9.14713
+              ],
+              "niveau": 0,
+              "parent": {
+                "id": "5006169",
+                "name": "Möhringen Bf",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "0",
+                "stoppingPointPlanned": "Gleis 4",
+                "areaGid": "de:08111:6169:3",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:40:00Z",
+              "departureTimePlanned": "2019-12-09T17:40:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:40:00Z",
+              "departureTimeEstimated": "2019-12-09T17:40:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:354:1:2",
+              "name": "Sigmaringer Straße",
+              "type": "platform",
+              "coord": [
+                48.72871,
+                9.15321
+              ],
+              "niveau": 0,
+              "parent": {
+                "id": "5000354",
+                "name": "Sigmaringer Straße",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "0",
+                "areaGid": "de:08111:354:1",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:41:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:41:00Z"
+            }
+          ],
+          "infos": [ ],
+          "coords": [
+            [
+              48.72698,
+              9.12525
+            ],
+            [
+              48.72697,
+              9.12569
+            ],
+            [
+              48.72696,
+              9.12598
+            ],
+            [
+              48.72696,
+              9.12612
+            ],
+            [
+              48.72695,
+              9.12645
+            ],
+            [
+              48.72694,
+              9.12663
+            ],
+            [
+              48.72692,
+              9.12722
+            ],
+            [
+              48.72691,
+              9.12756
+            ],
+            [
+              48.7269,
+              9.12787
+            ],
+            [
+              48.72689,
+              9.12803
+            ],
+            [
+              48.72689,
+              9.1282
+            ],
+            [
+              48.72686,
+              9.12875
+            ],
+            [
+              48.72684,
+              9.12938
+            ],
+            [
+              48.72682,
+              9.12983
+            ],
+            [
+              48.72681,
+              9.13012
+            ],
+            [
+              48.72678,
+              9.13083
+            ],
+            [
+              48.72678,
+              9.13083
+            ],
+            [
+              48.72678,
+              9.13102
+            ],
+            [
+              48.72666,
+              9.13421
+            ],
+            [
+              48.72664,
+              9.13481
+            ],
+            [
+              48.72661,
+              9.13585
+            ],
+            [
+              48.72658,
+              9.13659
+            ],
+            [
+              48.72657,
+              9.1369
+            ],
+            [
+              48.72657,
+              9.13705
+            ],
+            [
+              48.72658,
+              9.13721
+            ],
+            [
+              48.72659,
+              9.13734
+            ],
+            [
+              48.72661,
+              9.13749
+            ],
+            [
+              48.72664,
+              9.13762
+            ],
+            [
+              48.72667,
+              9.13777
+            ],
+            [
+              48.72672,
+              9.13793
+            ],
+            [
+              48.72678,
+              9.1381
+            ],
+            [
+              48.72687,
+              9.13829
+            ],
+            [
+              48.72697,
+              9.13848
+            ],
+            [
+              48.72708,
+              9.13864
+            ],
+            [
+              48.72718,
+              9.13877
+            ],
+            [
+              48.72729,
+              9.13889
+            ],
+            [
+              48.72742,
+              9.13902
+            ],
+            [
+              48.7276,
+              9.13915
+            ],
+            [
+              48.72772,
+              9.13924
+            ],
+            [
+              48.72772,
+              9.13924
+            ],
+            [
+              48.72779,
+              9.13929
+            ],
+            [
+              48.72814,
+              9.13955
+            ],
+            [
+              48.72849,
+              9.13983
+            ],
+            [
+              48.72868,
+              9.14004
+            ],
+            [
+              48.72885,
+              9.1403
+            ],
+            [
+              48.72904,
+              9.14068
+            ],
+            [
+              48.7292,
+              9.14119
+            ],
+            [
+              48.72934,
+              9.14174
+            ],
+            [
+              48.7296,
+              9.14292
+            ],
+            [
+              48.72973,
+              9.14346
+            ],
+            [
+              48.73007,
+              9.14486
+            ],
+            [
+              48.73012,
+              9.14518
+            ],
+            [
+              48.73018,
+              9.14548
+            ],
+            [
+              48.73024,
+              9.14576
+            ],
+            [
+              48.73035,
+              9.14622
+            ],
+            [
+              48.73052,
+              9.14695
+            ],
+            [
+              48.73056,
+              9.14714
+            ],
+            [
+              48.73056,
+              9.14714
+            ],
+            [
+              48.73062,
+              9.14741
+            ],
+            [
+              48.73066,
+              9.14762
+            ],
+            [
+              48.73069,
+              9.14785
+            ],
+            [
+              48.73071,
+              9.14807
+            ],
+            [
+              48.73071,
+              9.14827
+            ],
+            [
+              48.7307,
+              9.14859
+            ],
+            [
+              48.73067,
+              9.14883
+            ],
+            [
+              48.73061,
+              9.1491
+            ],
+            [
+              48.73056,
+              9.14931
+            ],
+            [
+              48.73048,
+              9.14953
+            ],
+            [
+              48.73015,
+              9.15025
+            ],
+            [
+              48.73008,
+              9.15041
+            ],
+            [
+              48.73003,
+              9.15052
+            ],
+            [
+              48.72981,
+              9.15097
+            ],
+            [
+              48.72919,
+              9.15224
+            ],
+            [
+              48.72897,
+              9.15268
+            ],
+            [
+              48.72894,
+              9.15275
+            ],
+            [
+              48.72889,
+              9.15285
+            ],
+            [
+              48.72871,
+              9.15322
+            ]
+          ]
+        }
+      ],
+      "fare": {
+        "tickets": [
+          {
+            "id": "020111",
+            "name": "Einzelfahrschein",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 2.5,
+            "priceNetto": 2.34,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020211",
+            "name": "Einzelfahrschein",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 1.3,
+            "priceNetto": 1.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020151",
+            "name": "EinzelTicket Mobil",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 2.37,
+            "priceNetto": 2.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020251",
+            "name": "EinzelTicket Mobil",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 1.22,
+            "priceNetto": 1.14,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "030111",
+            "name": "4er-Ticket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 9.5,
+            "priceNetto": 8.88,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MULTIPLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "030211",
+            "name": "4er-Ticket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 4.9,
+            "priceNetto": 4.58,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "MULTIPLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050241",
+            "name": "EinzelTagesTicket (Automat)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 5.2,
+            "priceNetto": 4.86,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 745,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050251",
+            "name": "EinzelTagesTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 5.0,
+            "priceNetto": 4.67,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 745,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050141",
+            "name": "GruppenTagesTicket (Automat)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 10.4,
+            "priceNetto": 9.72,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "MULTIADULTS",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 745,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050151",
+            "name": "GruppenTagesTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 10.2,
+            "priceNetto": 9.53,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "MULTIADULTS",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 745,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "110211",
+            "name": "WochenTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 22.7,
+            "priceNetto": 21.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "WEEK",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "120111",
+            "name": "MonatsTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 67.6,
+            "priceNetto": 63.18,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "134411",
+            "name": "JahresTicket (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 676.0,
+            "priceNetto": 631.78,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "134511",
+            "name": "JahresTicket (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 807.0,
+            "priceNetto": 754.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "210131",
+            "name": "MonatsTicket für Schüler, Auszubildende, Studenten",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 49.2,
+            "priceNetto": 45.98,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SCHOLAR",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "310143",
+            "name": "SeniorenTicket (MonatsTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "3",
+            "priceBrutto": 56.7,
+            "priceNetto": 52.99,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SENIOR",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "324449",
+            "name": "SeniorenTicket (JahresTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "3",
+            "priceBrutto": 560.4,
+            "priceNetto": 523.74,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SENIOR",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "140411",
+            "name": "FirmenTicket 5 % Rabatt (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 642.0,
+            "priceNetto": 600.0,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "145411",
+            "name": "FirmenTicket 5 % Rabatt (persönlich) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 53.52,
+            "priceNetto": 50.02,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "141411",
+            "name": "FirmenTicket 5 % Rabatt (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 767.0,
+            "priceNetto": 716.82,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "146411",
+            "name": "FirmenTicket 5 % Rabatt (übertragbar) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 63.89,
+            "priceNetto": 59.71,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "Dumm01",
+            "name": "FirmenTicket 10 % Rabatt (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 608.4,
+            "priceNetto": 568.6,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "145511",
+            "name": "FirmenTicket 10 % Rabatt (persönlich) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 50.7,
+            "priceNetto": 47.38,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "Dumm08",
+            "name": "FirmenTicket 10 % Rabatt (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 726.36,
+            "priceNetto": 678.84,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "146511",
+            "name": "FirmenTicket 10 % Rabatt (übertragbar) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 60.53,
+            "priceNetto": 56.57,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "410151",
+            "name": "9-Uhr-UmweltTicket (MonatsTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 51.5,
+            "priceNetto": 48.13,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "424451",
+            "name": "9-Uhr-UmweltTicket (JahresTicket) (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 515.0,
+            "priceNetto": 481.31,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "424551",
+            "name": "9-Uhr-UmweltTicket (JahresTicket) (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 646.0,
+            "priceNetto": 603.74,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "226339",
+            "name": "StudiTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "Netz",
+            "priceBrutto": 207.0,
+            "priceNetto": 193.46,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "STUDENT",
+            "travellerClass": "SECOND",
+            "timeValidity": "OTHER_VALIDITYTIME",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          }
+        ],
+        "zones": [
+          {
+            "net": "vvs",
+            "toLeg": 0,
+            "fromLeg": 0,
+            "neutralZone": "",
+            "zones": [
+              "1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "rating": 0,
+      "isAdditional": false,
+      "interchanges": 0,
+      "legs": [
+        {
+          "duration": 360,
+          "isRealtimeControlled": true,
+          "origin": {
+            "isGlobalId": true,
+            "id": "de:08111:355:1:2",
+            "name": "Wallgraben",
+            "type": "platform",
+            "coord": [
+              48.727,
+              9.12525
+            ],
+            "niveau": 1,
+            "parent": {
+              "id": "5000355",
+              "name": "Wallgraben",
+              "type": "stop",
+              "parent": {
+                "id": "placeID:8111000:51",
+                "name": "Stuttgart",
+                "type": "locality"
+              }
+            },
+            "departureTimePlanned": "2019-12-09T17:45:00Z",
+            "departureTimeEstimated": "2019-12-09T17:45:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F73.pdf"
+                },
+                {
+                  "type": "SM",
+                  "url": "vvs/uWall.pdf"
+                }
+              ],
+              "AREA_NIVEAU_DIVA": "1",
+              "areaGid": "de:08111:355:3"
+            }
+          },
+          "destination": {
+            "isGlobalId": true,
+            "id": "de:08111:354:1:2",
+            "name": "Sigmaringer Straße",
+            "type": "platform",
+            "coord": [
+              48.72871,
+              9.15321
+            ],
+            "niveau": 0,
+            "parent": {
+              "id": "5000354",
+              "name": "Sigmaringer Straße",
+              "type": "stop",
+              "parent": {
+                "id": "placeID:8111000:51",
+                "name": "Stuttgart",
+                "type": "locality"
+              }
+            },
+            "arrivalTimePlanned": "2019-12-09T17:51:00Z",
+            "arrivalTimeEstimated": "2019-12-09T17:51:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F74.pdf"
+                }
+              ],
+              "AREA_NIVEAU_DIVA": "0",
+              "areaGid": "de:08111:354:1"
+            }
+          },
+          "transportation": {
+            "id": "vvs:20003: :R:",
+            "name": "Stadtbahn U3",
+            "disassembledName": "U3",
+            "number": "U3",
+            "description": "Vaihingen - Möhringen - Plieningen",
+            "product": {
+              "id": 2,
+              "class": 3,
+              "name": "Stadtbahn",
+              "iconId": 1
+            },
+            "operator": {
+              "id": "01",
+              "name": "SSB"
+            },
+            "destination": {
+              "id": "5006555",
+              "name": "Plieningen",
+              "type": "stop"
+            },
+            "properties": {
+              "isTTB": true,
+              "isSTT": true,
+              "isROP": true,
+              "tripCode": 303,
+              "mtSubcode": "0"
+            }
+          },
+          "stopSequence": [
+            {
+              "isGlobalId": true,
+              "id": "de:08111:355:1:2",
+              "name": "Wallgraben",
+              "type": "platform",
+              "coord": [
+                48.727,
+                9.12525
+              ],
+              "niveau": 1,
+              "parent": {
+                "id": "5000355",
+                "name": "Wallgraben",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "1",
+                "areaGid": "de:08111:355:3",
+                "zone": "vvs:1"
+              },
+              "departureTimePlanned": "2019-12-09T17:45:00Z",
+              "departureTimeEstimated": "2019-12-09T17:45:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:350:0:2",
+              "name": "SSB-Zentrum",
+              "type": "platform",
+              "coord": [
+                48.72679,
+                9.13084
+              ],
+              "niveau": 1,
+              "parent": {
+                "id": "5000350",
+                "name": "SSB-Zentrum",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "1",
+                "areaGid": "de:08111:350:4",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:46:00Z",
+              "departureTimePlanned": "2019-12-09T17:46:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:46:00Z",
+              "departureTimeEstimated": "2019-12-09T17:46:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:170:2:2",
+              "name": "Vaihinger Straße",
+              "type": "platform",
+              "coord": [
+                48.72773,
+                9.13922
+              ],
+              "niveau": -1,
+              "parent": {
+                "id": "5000170",
+                "name": "Vaihinger Straße",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "-1",
+                "areaGid": "de:08111:170:2",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:48:00Z",
+              "departureTimePlanned": "2019-12-09T17:48:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:48:00Z",
+              "departureTimeEstimated": "2019-12-09T17:48:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:6169:3:4",
+              "name": "Möhringen Bf",
+              "disassembledName": "Gleis 4",
+              "type": "platform",
+              "pointType": "TRACK",
+              "coord": [
+                48.73057,
+                9.14713
+              ],
+              "niveau": 0,
+              "parent": {
+                "id": "5006169",
+                "name": "Möhringen Bf",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "0",
+                "stoppingPointPlanned": "Gleis 4",
+                "areaGid": "de:08111:6169:3",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:50:00Z",
+              "departureTimePlanned": "2019-12-09T17:50:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:50:00Z",
+              "departureTimeEstimated": "2019-12-09T17:50:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:354:1:2",
+              "name": "Sigmaringer Straße",
+              "type": "platform",
+              "coord": [
+                48.72871,
+                9.15321
+              ],
+              "niveau": 0,
+              "parent": {
+                "id": "5000354",
+                "name": "Sigmaringer Straße",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "0",
+                "areaGid": "de:08111:354:1",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:51:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:51:00Z"
+            }
+          ],
+          "infos": [ ],
+          "coords": [
+            [
+              48.72698,
+              9.12525
+            ],
+            [
+              48.72697,
+              9.12569
+            ],
+            [
+              48.72696,
+              9.12598
+            ],
+            [
+              48.72696,
+              9.12612
+            ],
+            [
+              48.72695,
+              9.12645
+            ],
+            [
+              48.72694,
+              9.12663
+            ],
+            [
+              48.72692,
+              9.12722
+            ],
+            [
+              48.72691,
+              9.12756
+            ],
+            [
+              48.7269,
+              9.12787
+            ],
+            [
+              48.72689,
+              9.12803
+            ],
+            [
+              48.72689,
+              9.1282
+            ],
+            [
+              48.72686,
+              9.12875
+            ],
+            [
+              48.72684,
+              9.12938
+            ],
+            [
+              48.72682,
+              9.12983
+            ],
+            [
+              48.72681,
+              9.13012
+            ],
+            [
+              48.72678,
+              9.13083
+            ],
+            [
+              48.72678,
+              9.13083
+            ],
+            [
+              48.72678,
+              9.13102
+            ],
+            [
+              48.72666,
+              9.13421
+            ],
+            [
+              48.72664,
+              9.13481
+            ],
+            [
+              48.72661,
+              9.13585
+            ],
+            [
+              48.72658,
+              9.13659
+            ],
+            [
+              48.72657,
+              9.1369
+            ],
+            [
+              48.72657,
+              9.13705
+            ],
+            [
+              48.72658,
+              9.13721
+            ],
+            [
+              48.72659,
+              9.13734
+            ],
+            [
+              48.72661,
+              9.13749
+            ],
+            [
+              48.72664,
+              9.13762
+            ],
+            [
+              48.72667,
+              9.13777
+            ],
+            [
+              48.72672,
+              9.13793
+            ],
+            [
+              48.72678,
+              9.1381
+            ],
+            [
+              48.72687,
+              9.13829
+            ],
+            [
+              48.72697,
+              9.13848
+            ],
+            [
+              48.72708,
+              9.13864
+            ],
+            [
+              48.72718,
+              9.13877
+            ],
+            [
+              48.72729,
+              9.13889
+            ],
+            [
+              48.72742,
+              9.13902
+            ],
+            [
+              48.7276,
+              9.13915
+            ],
+            [
+              48.72772,
+              9.13924
+            ],
+            [
+              48.72772,
+              9.13924
+            ],
+            [
+              48.72779,
+              9.13929
+            ],
+            [
+              48.72814,
+              9.13955
+            ],
+            [
+              48.72849,
+              9.13983
+            ],
+            [
+              48.72868,
+              9.14004
+            ],
+            [
+              48.72885,
+              9.1403
+            ],
+            [
+              48.72904,
+              9.14068
+            ],
+            [
+              48.7292,
+              9.14119
+            ],
+            [
+              48.72934,
+              9.14174
+            ],
+            [
+              48.7296,
+              9.14292
+            ],
+            [
+              48.72973,
+              9.14346
+            ],
+            [
+              48.73007,
+              9.14486
+            ],
+            [
+              48.73012,
+              9.14518
+            ],
+            [
+              48.73018,
+              9.14548
+            ],
+            [
+              48.73024,
+              9.14576
+            ],
+            [
+              48.73035,
+              9.14622
+            ],
+            [
+              48.73052,
+              9.14695
+            ],
+            [
+              48.73056,
+              9.14714
+            ],
+            [
+              48.73056,
+              9.14714
+            ],
+            [
+              48.73062,
+              9.14741
+            ],
+            [
+              48.73066,
+              9.14762
+            ],
+            [
+              48.73069,
+              9.14785
+            ],
+            [
+              48.73071,
+              9.14807
+            ],
+            [
+              48.73071,
+              9.14827
+            ],
+            [
+              48.7307,
+              9.14859
+            ],
+            [
+              48.73067,
+              9.14883
+            ],
+            [
+              48.73061,
+              9.1491
+            ],
+            [
+              48.73056,
+              9.14931
+            ],
+            [
+              48.73048,
+              9.14953
+            ],
+            [
+              48.73015,
+              9.15025
+            ],
+            [
+              48.73008,
+              9.15041
+            ],
+            [
+              48.73003,
+              9.15052
+            ],
+            [
+              48.72981,
+              9.15097
+            ],
+            [
+              48.72919,
+              9.15224
+            ],
+            [
+              48.72897,
+              9.15268
+            ],
+            [
+              48.72894,
+              9.15275
+            ],
+            [
+              48.72889,
+              9.15285
+            ],
+            [
+              48.72871,
+              9.15322
+            ]
+          ]
+        }
+      ],
+      "fare": {
+        "tickets": [
+          {
+            "id": "020111",
+            "name": "Einzelfahrschein",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 2.5,
+            "priceNetto": 2.34,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020211",
+            "name": "Einzelfahrschein",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 1.3,
+            "priceNetto": 1.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020151",
+            "name": "EinzelTicket Mobil",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 2.37,
+            "priceNetto": 2.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020251",
+            "name": "EinzelTicket Mobil",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 1.22,
+            "priceNetto": 1.14,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "030111",
+            "name": "4er-Ticket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 9.5,
+            "priceNetto": 8.88,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MULTIPLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "030211",
+            "name": "4er-Ticket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 4.9,
+            "priceNetto": 4.58,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "MULTIPLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050241",
+            "name": "EinzelTagesTicket (Automat)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 5.2,
+            "priceNetto": 4.86,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 735,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050251",
+            "name": "EinzelTagesTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 5.0,
+            "priceNetto": 4.67,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 735,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050141",
+            "name": "GruppenTagesTicket (Automat)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 10.4,
+            "priceNetto": 9.72,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "MULTIADULTS",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 735,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050151",
+            "name": "GruppenTagesTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 10.2,
+            "priceNetto": 9.53,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "MULTIADULTS",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 735,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "110211",
+            "name": "WochenTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 22.7,
+            "priceNetto": 21.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "WEEK",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "120111",
+            "name": "MonatsTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 67.6,
+            "priceNetto": 63.18,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "134411",
+            "name": "JahresTicket (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 676.0,
+            "priceNetto": 631.78,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "134511",
+            "name": "JahresTicket (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 807.0,
+            "priceNetto": 754.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "210131",
+            "name": "MonatsTicket für Schüler, Auszubildende, Studenten",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 49.2,
+            "priceNetto": 45.98,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SCHOLAR",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "310143",
+            "name": "SeniorenTicket (MonatsTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "3",
+            "priceBrutto": 56.7,
+            "priceNetto": 52.99,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SENIOR",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "324449",
+            "name": "SeniorenTicket (JahresTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "3",
+            "priceBrutto": 560.4,
+            "priceNetto": 523.74,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SENIOR",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "140411",
+            "name": "FirmenTicket 5 % Rabatt (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 642.0,
+            "priceNetto": 600.0,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "145411",
+            "name": "FirmenTicket 5 % Rabatt (persönlich) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 53.52,
+            "priceNetto": 50.02,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "141411",
+            "name": "FirmenTicket 5 % Rabatt (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 767.0,
+            "priceNetto": 716.82,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "146411",
+            "name": "FirmenTicket 5 % Rabatt (übertragbar) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 63.89,
+            "priceNetto": 59.71,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "Dumm01",
+            "name": "FirmenTicket 10 % Rabatt (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 608.4,
+            "priceNetto": 568.6,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "145511",
+            "name": "FirmenTicket 10 % Rabatt (persönlich) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 50.7,
+            "priceNetto": 47.38,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "Dumm08",
+            "name": "FirmenTicket 10 % Rabatt (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 726.36,
+            "priceNetto": 678.84,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "146511",
+            "name": "FirmenTicket 10 % Rabatt (übertragbar) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 60.53,
+            "priceNetto": 56.57,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "410151",
+            "name": "9-Uhr-UmweltTicket (MonatsTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 51.5,
+            "priceNetto": 48.13,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "424451",
+            "name": "9-Uhr-UmweltTicket (JahresTicket) (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 515.0,
+            "priceNetto": 481.31,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "424551",
+            "name": "9-Uhr-UmweltTicket (JahresTicket) (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 646.0,
+            "priceNetto": 603.74,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "226339",
+            "name": "StudiTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "Netz",
+            "priceBrutto": 207.0,
+            "priceNetto": 193.46,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "STUDENT",
+            "travellerClass": "SECOND",
+            "timeValidity": "OTHER_VALIDITYTIME",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          }
+        ],
+        "zones": [
+          {
+            "net": "vvs",
+            "toLeg": 0,
+            "fromLeg": 0,
+            "neutralZone": "",
+            "zones": [
+              "1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "rating": 0,
+      "isAdditional": false,
+      "interchanges": 0,
+      "legs": [
+        {
+          "duration": 360,
+          "isRealtimeControlled": true,
+          "origin": {
+            "isGlobalId": true,
+            "id": "de:08111:355:1:2",
+            "name": "Wallgraben",
+            "type": "platform",
+            "coord": [
+              48.727,
+              9.12525
+            ],
+            "niveau": 1,
+            "parent": {
+              "id": "5000355",
+              "name": "Wallgraben",
+              "type": "stop",
+              "parent": {
+                "id": "placeID:8111000:51",
+                "name": "Stuttgart",
+                "type": "locality"
+              }
+            },
+            "departureTimePlanned": "2019-12-09T17:55:00Z",
+            "departureTimeEstimated": "2019-12-09T17:55:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F73.pdf"
+                },
+                {
+                  "type": "SM",
+                  "url": "vvs/uWall.pdf"
+                }
+              ],
+              "AREA_NIVEAU_DIVA": "1",
+              "areaGid": "de:08111:355:3"
+            }
+          },
+          "destination": {
+            "isGlobalId": true,
+            "id": "de:08111:354:1:2",
+            "name": "Sigmaringer Straße",
+            "type": "platform",
+            "coord": [
+              48.72871,
+              9.15321
+            ],
+            "niveau": 0,
+            "parent": {
+              "id": "5000354",
+              "name": "Sigmaringer Straße",
+              "type": "stop",
+              "parent": {
+                "id": "placeID:8111000:51",
+                "name": "Stuttgart",
+                "type": "locality"
+              }
+            },
+            "arrivalTimePlanned": "2019-12-09T18:01:00Z",
+            "arrivalTimeEstimated": "2019-12-09T18:01:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F74.pdf"
+                }
+              ],
+              "AREA_NIVEAU_DIVA": "0",
+              "areaGid": "de:08111:354:1"
+            }
+          },
+          "transportation": {
+            "id": "vvs:20003: :R:",
+            "name": "Stadtbahn U3",
+            "disassembledName": "U3",
+            "number": "U3",
+            "description": "Vaihingen - Möhringen - Plieningen",
+            "product": {
+              "id": 2,
+              "class": 3,
+              "name": "Stadtbahn",
+              "iconId": 1
+            },
+            "operator": {
+              "id": "01",
+              "name": "SSB"
+            },
+            "destination": {
+              "id": "5006555",
+              "name": "Plieningen",
+              "type": "stop"
+            },
+            "properties": {
+              "isTTB": true,
+              "isSTT": true,
+              "isROP": true,
+              "tripCode": 305,
+              "mtSubcode": "0"
+            }
+          },
+          "stopSequence": [
+            {
+              "isGlobalId": true,
+              "id": "de:08111:355:1:2",
+              "name": "Wallgraben",
+              "type": "platform",
+              "coord": [
+                48.727,
+                9.12525
+              ],
+              "niveau": 1,
+              "parent": {
+                "id": "5000355",
+                "name": "Wallgraben",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "1",
+                "areaGid": "de:08111:355:3",
+                "zone": "vvs:1"
+              },
+              "departureTimePlanned": "2019-12-09T17:55:00Z",
+              "departureTimeEstimated": "2019-12-09T17:55:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:350:0:2",
+              "name": "SSB-Zentrum",
+              "type": "platform",
+              "coord": [
+                48.72679,
+                9.13084
+              ],
+              "niveau": 1,
+              "parent": {
+                "id": "5000350",
+                "name": "SSB-Zentrum",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "1",
+                "areaGid": "de:08111:350:4",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:56:00Z",
+              "departureTimePlanned": "2019-12-09T17:56:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:56:00Z",
+              "departureTimeEstimated": "2019-12-09T17:56:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:170:2:2",
+              "name": "Vaihinger Straße",
+              "type": "platform",
+              "coord": [
+                48.72773,
+                9.13922
+              ],
+              "niveau": -1,
+              "parent": {
+                "id": "5000170",
+                "name": "Vaihinger Straße",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "-1",
+                "areaGid": "de:08111:170:2",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T17:58:00Z",
+              "departureTimePlanned": "2019-12-09T17:58:00Z",
+              "arrivalTimeEstimated": "2019-12-09T17:58:00Z",
+              "departureTimeEstimated": "2019-12-09T17:58:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:6169:3:4",
+              "name": "Möhringen Bf",
+              "disassembledName": "Gleis 4",
+              "type": "platform",
+              "pointType": "TRACK",
+              "coord": [
+                48.73057,
+                9.14713
+              ],
+              "niveau": 0,
+              "parent": {
+                "id": "5006169",
+                "name": "Möhringen Bf",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "0",
+                "stoppingPointPlanned": "Gleis 4",
+                "areaGid": "de:08111:6169:3",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T18:00:00Z",
+              "departureTimePlanned": "2019-12-09T18:00:00Z",
+              "arrivalTimeEstimated": "2019-12-09T18:00:00Z",
+              "departureTimeEstimated": "2019-12-09T18:00:00Z"
+            },
+            {
+              "isGlobalId": true,
+              "id": "de:08111:354:1:2",
+              "name": "Sigmaringer Straße",
+              "type": "platform",
+              "coord": [
+                48.72871,
+                9.15321
+              ],
+              "niveau": 0,
+              "parent": {
+                "id": "5000354",
+                "name": "Sigmaringer Straße",
+                "type": "stop",
+                "parent": {
+                  "id": "placeID:8111000:51",
+                  "name": "Stuttgart",
+                  "type": "locality"
+                }
+              },
+              "properties": {
+                "AREA_NIVEAU_DIVA": "0",
+                "areaGid": "de:08111:354:1",
+                "zone": "vvs:1"
+              },
+              "arrivalTimePlanned": "2019-12-09T18:01:00Z",
+              "arrivalTimeEstimated": "2019-12-09T18:01:00Z"
+            }
+          ],
+          "infos": [ ],
+          "coords": [
+            [
+              48.72698,
+              9.12525
+            ],
+            [
+              48.72697,
+              9.12569
+            ],
+            [
+              48.72696,
+              9.12598
+            ],
+            [
+              48.72696,
+              9.12612
+            ],
+            [
+              48.72695,
+              9.12645
+            ],
+            [
+              48.72694,
+              9.12663
+            ],
+            [
+              48.72692,
+              9.12722
+            ],
+            [
+              48.72691,
+              9.12756
+            ],
+            [
+              48.7269,
+              9.12787
+            ],
+            [
+              48.72689,
+              9.12803
+            ],
+            [
+              48.72689,
+              9.1282
+            ],
+            [
+              48.72686,
+              9.12875
+            ],
+            [
+              48.72684,
+              9.12938
+            ],
+            [
+              48.72682,
+              9.12983
+            ],
+            [
+              48.72681,
+              9.13012
+            ],
+            [
+              48.72678,
+              9.13083
+            ],
+            [
+              48.72678,
+              9.13083
+            ],
+            [
+              48.72678,
+              9.13102
+            ],
+            [
+              48.72666,
+              9.13421
+            ],
+            [
+              48.72664,
+              9.13481
+            ],
+            [
+              48.72661,
+              9.13585
+            ],
+            [
+              48.72658,
+              9.13659
+            ],
+            [
+              48.72657,
+              9.1369
+            ],
+            [
+              48.72657,
+              9.13705
+            ],
+            [
+              48.72658,
+              9.13721
+            ],
+            [
+              48.72659,
+              9.13734
+            ],
+            [
+              48.72661,
+              9.13749
+            ],
+            [
+              48.72664,
+              9.13762
+            ],
+            [
+              48.72667,
+              9.13777
+            ],
+            [
+              48.72672,
+              9.13793
+            ],
+            [
+              48.72678,
+              9.1381
+            ],
+            [
+              48.72687,
+              9.13829
+            ],
+            [
+              48.72697,
+              9.13848
+            ],
+            [
+              48.72708,
+              9.13864
+            ],
+            [
+              48.72718,
+              9.13877
+            ],
+            [
+              48.72729,
+              9.13889
+            ],
+            [
+              48.72742,
+              9.13902
+            ],
+            [
+              48.7276,
+              9.13915
+            ],
+            [
+              48.72772,
+              9.13924
+            ],
+            [
+              48.72772,
+              9.13924
+            ],
+            [
+              48.72779,
+              9.13929
+            ],
+            [
+              48.72814,
+              9.13955
+            ],
+            [
+              48.72849,
+              9.13983
+            ],
+            [
+              48.72868,
+              9.14004
+            ],
+            [
+              48.72885,
+              9.1403
+            ],
+            [
+              48.72904,
+              9.14068
+            ],
+            [
+              48.7292,
+              9.14119
+            ],
+            [
+              48.72934,
+              9.14174
+            ],
+            [
+              48.7296,
+              9.14292
+            ],
+            [
+              48.72973,
+              9.14346
+            ],
+            [
+              48.73007,
+              9.14486
+            ],
+            [
+              48.73012,
+              9.14518
+            ],
+            [
+              48.73018,
+              9.14548
+            ],
+            [
+              48.73024,
+              9.14576
+            ],
+            [
+              48.73035,
+              9.14622
+            ],
+            [
+              48.73052,
+              9.14695
+            ],
+            [
+              48.73056,
+              9.14714
+            ],
+            [
+              48.73056,
+              9.14714
+            ],
+            [
+              48.73062,
+              9.14741
+            ],
+            [
+              48.73066,
+              9.14762
+            ],
+            [
+              48.73069,
+              9.14785
+            ],
+            [
+              48.73071,
+              9.14807
+            ],
+            [
+              48.73071,
+              9.14827
+            ],
+            [
+              48.7307,
+              9.14859
+            ],
+            [
+              48.73067,
+              9.14883
+            ],
+            [
+              48.73061,
+              9.1491
+            ],
+            [
+              48.73056,
+              9.14931
+            ],
+            [
+              48.73048,
+              9.14953
+            ],
+            [
+              48.73015,
+              9.15025
+            ],
+            [
+              48.73008,
+              9.15041
+            ],
+            [
+              48.73003,
+              9.15052
+            ],
+            [
+              48.72981,
+              9.15097
+            ],
+            [
+              48.72919,
+              9.15224
+            ],
+            [
+              48.72897,
+              9.15268
+            ],
+            [
+              48.72894,
+              9.15275
+            ],
+            [
+              48.72889,
+              9.15285
+            ],
+            [
+              48.72871,
+              9.15322
+            ]
+          ]
+        }
+      ],
+      "fare": {
+        "tickets": [
+          {
+            "id": "020111",
+            "name": "Einzelfahrschein",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 2.5,
+            "priceNetto": 2.34,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020211",
+            "name": "Einzelfahrschein",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 1.3,
+            "priceNetto": 1.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020151",
+            "name": "EinzelTicket Mobil",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 2.37,
+            "priceNetto": 2.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "020251",
+            "name": "EinzelTicket Mobil",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 1.22,
+            "priceNetto": 1.14,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "SINGLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "030111",
+            "name": "4er-Ticket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 9.5,
+            "priceNetto": 8.88,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MULTIPLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "030211",
+            "name": "4er-Ticket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 4.9,
+            "priceNetto": 4.58,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "CHILD",
+            "travellerClass": "SECOND",
+            "timeValidity": "MULTIPLE",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "NO",
+            "validForOneJourneyOnly": "YES",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050241",
+            "name": "EinzelTagesTicket (Automat)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 5.2,
+            "priceNetto": 4.86,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 725,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050251",
+            "name": "EinzelTagesTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 5.0,
+            "priceNetto": 4.67,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 725,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050141",
+            "name": "GruppenTagesTicket (Automat)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 10.4,
+            "priceNetto": 9.72,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "MULTIADULTS",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 725,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "050151",
+            "name": "GruppenTagesTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 10.2,
+            "priceNetto": 9.53,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "MULTIADULTS",
+            "travellerClass": "SECOND",
+            "timeValidity": "DAY",
+            "validMinutes": 725,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "110211",
+            "name": "WochenTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 22.7,
+            "priceNetto": 21.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "WEEK",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "120111",
+            "name": "MonatsTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 67.6,
+            "priceNetto": 63.18,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "134411",
+            "name": "JahresTicket (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 676.0,
+            "priceNetto": 631.78,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "134511",
+            "name": "JahresTicket (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 807.0,
+            "priceNetto": 754.21,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "210131",
+            "name": "MonatsTicket für Schüler, Auszubildende, Studenten",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 49.2,
+            "priceNetto": 45.98,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SCHOLAR",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "310143",
+            "name": "SeniorenTicket (MonatsTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "3",
+            "priceBrutto": 56.7,
+            "priceNetto": 52.99,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SENIOR",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "324449",
+            "name": "SeniorenTicket (JahresTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "3",
+            "priceBrutto": 560.4,
+            "priceNetto": 523.74,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "SENIOR",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "140411",
+            "name": "FirmenTicket 5 % Rabatt (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 642.0,
+            "priceNetto": 600.0,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "145411",
+            "name": "FirmenTicket 5 % Rabatt (persönlich) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 53.52,
+            "priceNetto": 50.02,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "141411",
+            "name": "FirmenTicket 5 % Rabatt (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 767.0,
+            "priceNetto": 716.82,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "146411",
+            "name": "FirmenTicket 5 % Rabatt (übertragbar) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 63.89,
+            "priceNetto": 59.71,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "Dumm01",
+            "name": "FirmenTicket 10 % Rabatt (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 608.4,
+            "priceNetto": 568.6,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "145511",
+            "name": "FirmenTicket 10 % Rabatt (persönlich) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 50.7,
+            "priceNetto": 47.38,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "Dumm08",
+            "name": "FirmenTicket 10 % Rabatt (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 726.36,
+            "priceNetto": 678.84,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "146511",
+            "name": "FirmenTicket 10 % Rabatt (übertragbar) Abbuchung",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 60.53,
+            "priceNetto": 56.57,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "410151",
+            "name": "9-Uhr-UmweltTicket (MonatsTicket)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 51.5,
+            "priceNetto": 48.13,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "MONTH",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "424451",
+            "name": "9-Uhr-UmweltTicket (JahresTicket) (persönlich)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 515.0,
+            "priceNetto": 481.31,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "424551",
+            "name": "9-Uhr-UmweltTicket (JahresTicket) (übertragbar)",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "1",
+            "priceBrutto": 646.0,
+            "priceNetto": 603.74,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "ADULT",
+            "travellerClass": "SECOND",
+            "timeValidity": "YEAR",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "id": "226339",
+            "name": "StudiTicket",
+            "comment": "",
+            "URL": "",
+            "currency": "EUR",
+            "priceLevel": "Netz",
+            "priceBrutto": 207.0,
+            "priceNetto": 193.46,
+            "taxPercent": 7.0,
+            "fromLeg": 0,
+            "toLeg": 0,
+            "net": "vvs",
+            "person": "STUDENT",
+            "travellerClass": "SECOND",
+            "timeValidity": "OTHER_VALIDITYTIME",
+            "validMinutes": 0,
+            "isShortHaul": "NO",
+            "returnsAllowed": "YES",
+            "validForOneJourneyOnly": "NO",
+            "validForOneOperatorOnly": "NO",
+            "numberOfChanges": 0,
+            "nameValidityArea": "",
+            "relationKeys": [
+              {
+                "id": "",
+                "code": "",
+                "name": ""
+              }
+            ]
+          }
+        ],
+        "zones": [
+          {
+            "net": "vvs",
+            "toLeg": 0,
+            "fromLeg": 0,
+            "neutralZone": "",
+            "zones": [
+              "1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "isAdditional": false,
+      "interchanges": 0,
+      "legs": [
+        {
+          "duration": 1758,
+          "distance": 1933,
+          "origin": {
+            "isGlobalId": true,
+            "id": "de:08111:355",
+            "name": "Stuttgart, Wallgraben",
+            "type": "stop",
+            "coord": [
+              48.72935,
+              9.12625
+            ],
+            "parent": {
+              "id": "placeID:8111000:51",
+              "name": "Stuttgart",
+              "type": "locality"
+            },
+            "departureTimePlanned": "2019-12-09T17:23:00Z",
+            "departureTimeEstimated": "2019-12-09T17:23:00Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F71.pdf"
+                },
+                {
+                  "type": "SM",
+                  "url": "vvs/uWall.pdf"
+                }
+              ]
+            }
+          },
+          "destination": {
+            "isGlobalId": true,
+            "id": "de:08111:354",
+            "name": "Stuttgart, Sigmaringer Straße",
+            "type": "stop",
+            "coord": [
+              48.72936,
+              9.15038
+            ],
+            "parent": {
+              "id": "placeID:8111000:51",
+              "name": "Stuttgart",
+              "type": "locality"
+            },
+            "arrivalTimePlanned": "2019-12-09T17:52:18Z",
+            "arrivalTimeEstimated": "2019-12-09T17:52:18Z",
+            "properties": {
+              "downloads": [
+                {
+                  "type": "RM",
+                  "url": "FILELOAD?Filename=vvs1_5DEE82F71.pdf"
+                }
+              ]
+            }
+          },
+          "transportation": {
+            "product": {
+              "class": 100,
+              "name": "footpath",
+              "iconId": 100
+            }
+          },
+          "infos": [ ]
+        }
+      ],
+      "fare": {
+        "tickets": [ ],
+        "zones": [ ]
+      }
+    }
+  ]
+}

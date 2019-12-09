@@ -1,0 +1,312 @@
+{
+  "parameters": [
+    {
+      "name": "serverID",
+      "value": "efa01.dc.vvs.de_"
+    },
+    {
+      "name": "requestID",
+      "value": "0"
+    },
+    {
+      "name": "sessionID",
+      "value": "0"
+    },
+    {
+      "name": "calcTime",
+      "value": "133.849"
+    },
+    {
+      "name": "serverTime",
+      "value": "2019-12-09T18:52:00"
+    }
+  ],
+  "dm": {
+    "input": {
+      "input": "Stuttgart, Wallgraben"
+    },
+    "points": {
+      "point": {
+        "usage": "dm",
+        "type": "any",
+        "name": "Stuttgart, Wallgraben",
+        "stateless": "5000355",
+        "anyType": "stop",
+        "sort": "2",
+        "quality": "100000",
+        "best": "0",
+        "object": "Wallgraben",
+        "ref": {
+          "id": "5000355",
+          "gid": "de:08111:355",
+          "omc": "8111000",
+          "placeID": "51",
+          "place": "Stuttgart",
+          "coords": "9.12526,48.72701"
+        },
+        "infos": null
+      }
+    },
+    "itdOdvAssignedStops": {
+      "stopID": "5000355",
+      "name": "Wallgraben",
+      "x": "9.12526",
+      "y": "48.72701",
+      "mapName": "WGS84[DD.ddddd]",
+      "value": "5000355:Wallgraben",
+      "place": "Stuttgart",
+      "nameWithPlace": "Wallgraben",
+      "distanceTime": "0",
+      "isTransferStop": "0",
+      "vm": "100",
+      "gid": "de:08111:355"
+    }
+  },
+  "arr": {
+    "input": {
+      "input": ""
+    },
+    "points": null
+  },
+  "dateTime": {
+    "deparr": "dep",
+    "ttpFrom": "20191101",
+    "ttpTo": "20201212",
+    "year": "2019",
+    "month": "12",
+    "day": "9",
+    "hour": "18",
+    "minute": "52"
+  },
+  "dateRange": [
+    {
+      "day": "09",
+      "month": "12",
+      "year": "2019",
+      "weekday": "2"
+    },
+    {
+      "day": "10",
+      "month": "12",
+      "year": "2019",
+      "weekday": "3"
+    },
+    {
+      "day": "11",
+      "month": "12",
+      "year": "2019",
+      "weekday": "4"
+    },
+    {
+      "day": "12",
+      "month": "12",
+      "year": "2019",
+      "weekday": "5"
+    },
+    {
+      "day": "13",
+      "month": "12",
+      "year": "2019",
+      "weekday": "6"
+    },
+    {
+      "day": "14",
+      "month": "12",
+      "year": "2019",
+      "weekday": "7"
+    },
+    {
+      "day": "15",
+      "month": "12",
+      "year": "2019",
+      "weekday": "1"
+    },
+    {
+      "day": "16",
+      "month": "12",
+      "year": "2019",
+      "weekday": "2"
+    },
+    {
+      "day": "17",
+      "month": "12",
+      "year": "2019",
+      "weekday": "3"
+    },
+    {
+      "day": "18",
+      "month": "12",
+      "year": "2019",
+      "weekday": "4"
+    },
+    {
+      "day": "19",
+      "month": "12",
+      "year": "2019",
+      "weekday": "5"
+    },
+    {
+      "day": "20",
+      "month": "12",
+      "year": "2019",
+      "weekday": "6"
+    },
+    {
+      "day": "21",
+      "month": "12",
+      "year": "2019",
+      "weekday": "7"
+    },
+    {
+      "day": "22",
+      "month": "12",
+      "year": "2019",
+      "weekday": "1"
+    },
+    {
+      "day": "23",
+      "month": "12",
+      "year": "2019",
+      "weekday": "2"
+    }
+  ],
+  "option": {
+    "ptOption": {
+      "active": "-1",
+      "maxChanges": "9",
+      "maxTime": "360",
+      "maxWait": "120",
+      "routeType": "LEASTTIME",
+      "changeSpeed": "normal",
+      "lineRestriction": "400",
+      "useProxFootSearch": "0",
+      "useProxFootSearchOrigin": "0",
+      "useProxFootSearchDestination": "0",
+      "bike": "0",
+      "plane": "0",
+      "noCrowded": "0",
+      "noSolidStairs": "0",
+      "noEscalators": "0",
+      "noElevators": "0",
+      "lowPlatformVhcl": "0",
+      "wheelchair": "0",
+      "needElevatedPlt": "0",
+      "assistance": "0",
+      "SOSAvail": "0",
+      "noLonelyTransfer": "0",
+      "illumTransfer": "0",
+      "overgroundTransfer": "0",
+      "noInsecurePlaces": "0",
+      "privateTransport": "0",
+      "excludedMeans": [
+        {
+          "means": "Zug",
+          "value": "0",
+          "selected": "0"
+        },
+        {
+          "means": "S-Bahn",
+          "value": "1",
+          "selected": "0"
+        },
+        {
+          "means": "U-Bahn",
+          "value": "2",
+          "selected": "0"
+        },
+        {
+          "means": "Stadtbahn",
+          "value": "3",
+          "selected": "0"
+        },
+        {
+          "means": "Straßen-/Trambahn",
+          "value": "4",
+          "selected": "0"
+        },
+        {
+          "means": "Stadtbus",
+          "value": "5",
+          "selected": "0"
+        },
+        {
+          "means": "Regionalbus",
+          "value": "6",
+          "selected": "0"
+        },
+        {
+          "means": "Schnellbus",
+          "value": "7",
+          "selected": "0"
+        },
+        {
+          "means": "Seil-/Zahnradbahn",
+          "value": "8",
+          "selected": "0"
+        },
+        {
+          "means": "Schiff",
+          "value": "9",
+          "selected": "0"
+        },
+        {
+          "means": "AST/Rufbus",
+          "value": "10",
+          "selected": "0"
+        },
+        {
+          "means": "Sonstige",
+          "value": "11",
+          "selected": "0"
+        },
+        {
+          "means": "Flugzeug",
+          "value": "12",
+          "selected": "0"
+        },
+        {
+          "means": "Zug (Nahverkehr)",
+          "value": "13",
+          "selected": "0"
+        },
+        {
+          "means": "Zug (Fernverkehr)",
+          "value": "14",
+          "selected": "0"
+        },
+        {
+          "means": "Zug Fernv m Zuschlag",
+          "value": "15",
+          "selected": "0"
+        },
+        {
+          "means": "Zug Fernv m spez Fpr",
+          "value": "16",
+          "selected": "0"
+        },
+        {
+          "means": "SEV Schienenersatzv",
+          "value": "17",
+          "selected": "0"
+        },
+        {
+          "means": "Zug Shuttle",
+          "value": "18",
+          "selected": "0"
+        },
+        {
+          "means": "Bürgerbus",
+          "value": "19",
+          "selected": "0"
+        }
+      ],
+      "activeImp": "-1",
+      "activeCom": "-1",
+      "activeSec": "-1"
+    }
+  },
+  "servingLines": {
+    "lines": [ ]
+  },
+  "departureList": [ ]
+}
