@@ -19,7 +19,8 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Unittests
         run: |
-          python tests/start.py
+          cd tests
+          python start.py
 
   Py38_Ubuntu1604:
     runs-on: ubuntu-18.04
@@ -35,7 +36,8 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Unittests
         run: |
-          python tests/start.py
+          cd tests
+          python start.py
 
   Py37_Ubuntu1804:
     runs-on: ubuntu-18.04
@@ -51,7 +53,8 @@ jobs:
         python -m pip install -r requirements.txt
     - name: Unittests
       run: |
-        python tests/start.py
+        cd tests
+        python start.py
 
   Py37_Ubuntu1604:
     runs-on: ubuntu-18.04
@@ -67,7 +70,8 @@ jobs:
         python -m pip install -r requirements.txt
     - name: Unittests
       run: |
-        python tests/start.py
+        cd tests
+        python start.py
 
   Py36_Ubuntu1804:
     runs-on: ubuntu-18.04
@@ -83,7 +87,8 @@ jobs:
         python -m pip install -r requirements.txt
     - name: Unittests
       run: |
-        python tests/start.py
+        cd tests
+        python start.py
 
   Py36_Ubuntu1604:
     runs-on: ubuntu-18.04
@@ -99,5 +104,6 @@ jobs:
         python -m pip install -r requirements.txt
     - name: Unittests
       run: |
-        python tests/start.py
+        cd tests
+        python start.py
 
