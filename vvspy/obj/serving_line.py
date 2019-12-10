@@ -20,8 +20,8 @@ class ServingLine:
             ~
         mt_sub_code :class:`str`
             ~
-        real_time :class:`str`
-            0 or 1 whether or not the transport supports realtime tracking.
+        real_time :class:`bool`
+            whether or not the transport supports realtime tracking.
         direction :class:`str`
             Last station the transport is heading to.
         direction :class:`str`
@@ -49,7 +49,10 @@ class ServingLine:
         self.symbol = kwargs.get("symbol")
         self.mot_type = kwargs.get("motType")
         self.mt_sub_code = kwargs.get("mtSubCode")
-        self.real_time = kwargs.get("realtime")
+        try:
+            self.real_time = bool(int(kwargs.get("realtime", "0")))
+        except ValueError:
+            self.real_time = False
         self.direction = kwargs.get("direction")
         self.direction_from = kwargs.get("directionFrom")
         self.name = kwargs.get("trainName", kwargs.get("name"))
