@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setup(
   name='vvspy',
   py_modules=["vvspy"],
-  version='0.3.0',
+  version='1.0.0',
   license='MIT',
   description='API Wrapper for VVS (Verkehrsverbund Stuttgart)',
   author='zaanposni',
@@ -22,7 +22,7 @@ setup(
           'typing',
       ],
   classifiers=[
-    'Development Status :: 3 - Alpha',
+    'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
     'Topic :: Software Development :: Build Tools',
     'License :: OSI Approved :: MIT License',
