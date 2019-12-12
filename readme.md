@@ -81,7 +81,7 @@ for dep in deps:
 
 ## Projects using vvspy
 
-- TODO
+- <a href="https://github.com/zaanposni/vvsTracker">vvsTracker</a> a tool that send push notifications on delayed routes every day for configured time.
 
 ## License:
 
