@@ -43,7 +43,7 @@ def get_departure(station_id: __Union[str, int], check_time: __datetime = None, 
     except TypeError:  # none returned | most likely an error
         if debug:
             print("Error on webrequest")
-            return
+        return
 
 
 def get_arrival(station_id: __Union[str, int], check_time: __datetime = None, debug: bool = False,
@@ -66,7 +66,7 @@ def get_arrival(station_id: __Union[str, int], check_time: __datetime = None, de
     except TypeError:  # none returned | most likely an error
         if debug:
             print("Error on webrequest")
-            return
+        return
 
 
 def get_trip(origin_station_id: __Union[str, int], destination_station_id: __Union[str, int],
@@ -90,4 +90,4 @@ def get_trip(origin_station_id: __Union[str, int], destination_station_id: __Uni
     except TypeError:  # none returned | most likely an error
         if debug:
             print("Error on webrequest")
-            return
+        return
