@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 import requests
+from requests.models import Response
 import json
 from typing import Union, List
 import traceback
@@ -11,7 +12,7 @@ __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 
 def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[str, int],
               check_time: datetime = None, limit: int = 100, debug: bool = False,
-              request_params: dict = None, **kwargs) -> Union[List[Trip], None]:
+              request_params: dict = None, return_resp: bool = False, **kwargs) -> Union[List[Trip], Response, None]:
     r"""
 
     Returns: List[:class:`vvspy.obj.Trip`]
@@ -49,6 +50,8 @@ def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[
         request_params Optional[:class:`dict`]
             params parsed to the api request (e.g. proxies)
             default {}
+        return_resp Optional[:class:`bool`]
+            if set, the function returns the response object of the API request.
         kwargs Optional[:class:`dict`]
             Check trips.py to see all available kwargs.
     """
@@ -117,6 +120,9 @@ def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[
             print(f"Request: {r.status_code}")
             print(f"{r.text}")
         return
+
+    if return_resp:
+        return r
 
     try:
         r.encoding = 'UTF-8'
