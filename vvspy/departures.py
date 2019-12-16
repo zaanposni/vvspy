@@ -1,6 +1,7 @@
 from typing import List, Union
 from datetime import datetime
 import requests
+from requests.models import Response
 import json
 import traceback
 
@@ -11,7 +12,8 @@ __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
 
 def get_departures(station_id: Union[str, int], check_time: datetime = None, limit: int = 100, debug: bool = False,
-                   request_params: dict = None, **kwargs) -> Union[List[Departure], None]:
+                   request_params: dict = None, return_resp: bool = False, **kwargs)\
+        -> Union[List[Departure], Response, None]:
     r"""
 
     Returns: List[:class:`vvspy.obj.Departure`]
@@ -49,6 +51,8 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
         request_params Optional[:class:`dict`]
             params parsed to the api request (e.g. proxies)
             default {}
+        return_resp Optional[:class:`bool`]
+            if set, the function returns the response object of the API request.
         kwargs Optional[:class:`dict`]
             Check departures.py to see all available kwargs.
 
@@ -97,6 +101,9 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
             print(f"Request: {r.status_code}")
             print(f"{r.text}")
         return
+
+    if return_resp:
+        return r
 
     try:
         r.encoding = 'UTF-8'
