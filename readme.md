@@ -61,6 +61,12 @@ for dep in deps:
     if dep.serving_line.symbol == "S4":
         print(f"Departure of S4 at {dep.real_datetime}")
 ```
+
+## Get your station id
+
+See: <a href="https://github.com/FI18-Trainees/vvspy/issues/12#issuecomment-568175314">https://github.com/FI18-Trainees/vvspy/issues/12#issuecomment-568175314</a>
+
+
 ## Features
 
 - [x] full customizable requests and parameters
