@@ -36,13 +36,13 @@ for dep in deps:
 ```
 - Get complete trip info between two stations (including interchanges):
 ```python
-from vvspy import get_trips
+from vvspy import get_trip  # also usable: get_trips
 
-trips = get_trips("5000355", "5005600", limit=1)  # Stuttgart main station
-for trip in trips:
-    print(f"Duration: {trip.duration / 60} minutes")
-    for connection in trip.connections:
-        print(f"From: {connection.origin.name} - To: {connection.destination.name}")
+trip = get_trip("5000355", "5005600")  # Stuttgart main station
+
+print(f"Duration: {trip.duration / 60} minutes")
+for connection in trip.connections:
+    print(f"From: {connection.origin.name} - To: {connection.destination.name}")
 ```
 ```text
 # Output:
