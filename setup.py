@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
-with open("README.md", "r") as fh:
+with open("readme.md", "r") as fh:
     long_description = fh.read()
 
 setup(
   name='vvspy',
   py_modules=["vvspy"],
-  version='1.1.1',
+  version='1.1.2',
   license='MIT',
   description='API Wrapper for VVS (Verkehrsverbund Stuttgart)',
   author='zaanposni',
