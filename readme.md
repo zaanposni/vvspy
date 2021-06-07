@@ -87,7 +87,7 @@ See: <a href="https://github.com/FI18-Trainees/vvspy/issues/12#issuecomment-5681
 
 ## Projects using vvspy
 
-- <a href="https://github.com/zaanposni/vvsTracker">vvsTracker</a> a tool that send push notifications on delayed routes every day for configured time.
+- <a href="https://github.com/aschuma/vvs_direct_connect">vvs_direct_connect</a> is a dockerized REST service providing departure data by @[aschuma](https://github.com/aschuma).
 
 ## License:
 
