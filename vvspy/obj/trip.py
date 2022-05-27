@@ -30,7 +30,7 @@ class Trip:
         for connection in kwargs.get("legs", []):
             self.connections.append(Connection(**connection))
 
-        self.duration = sum([x.duration for x in self.connections])
+        self.duration = sum([x.duration for x in self.connections if x.duration])
 
         try:
             self.zones = kwargs.get("fare", {}).get("zones", [])[0].get("zones", [])
