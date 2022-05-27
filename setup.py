@@ -6,7 +6,7 @@ with open("readme.md", "r") as fh:
 setup(
   name='vvspy',
   py_modules=["vvspy"],
-  version='1.1.3',
+  version='1.1.4',
   license='MIT',
   description='API Wrapper for VVS (Verkehrsverbund Stuttgart)',
   author='zaanposni',
