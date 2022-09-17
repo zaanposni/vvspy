@@ -11,9 +11,16 @@ __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 # TODO: new station id format de:08111:2599 (lapp kabel)
 
 
-def get_departures(station_id: Union[str, int], check_time: datetime = None, limit: int = 100, debug: bool = False,
-                   request_params: dict = None, return_resp: bool = False, **kwargs)\
-        -> Union[List[Departure], Response, None]:
+def get_departures(
+    station_id: Union[str, int],
+    check_time: datetime = None,
+    limit: int = 100,
+    debug: bool = False,
+    request_params: dict = None,
+    return_resp: bool = False,
+    session: requests.Session = None,
+    **kwargs,
+) -> Union[List[Departure], Response, None]:
     r"""
 
     Returns: List[:class:`vvspy.obj.Departure`]
@@ -53,6 +60,8 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
             default {}
         return_resp Optional[:class:`bool`]
             if set, the function returns the response object of the API request.
+        session Optional[:class:`requests.Session`]
+            if set, uses a given requests.session object for requests
         kwargs Optional[:class:`dict`]
             Check departures.py to see all available kwargs.
 
@@ -69,7 +78,9 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
         "stateless": kwargs.get("stateless", 1),
         "language": kwargs.get("language", "de"),
         "SpEncId": kwargs.get("SpEncId", 0),
-        "anySigWhenPerfectNoOtherMatches": kwargs.get("anySigWhenPerfectNoOtherMatches", 1),
+        "anySigWhenPerfectNoOtherMatches": kwargs.get(
+            "anySigWhenPerfectNoOtherMatches", 1
+        ),
         "limit": limit,
         "depArr": "departure",
         "type_dm": kwargs.get("type_dm", "any"),
@@ -85,11 +96,14 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
         "itdDateMonth": check_time.strftime("%m"),
         "itdDateDay": check_time.strftime("%d"),
         "itdTimeHour": check_time.strftime("%H"),
-        "itdTimeMinute": check_time.strftime("%M")
+        "itdTimeMinute": check_time.strftime("%M"),
     }
 
     try:
-        r = requests.get(__API_URL, **{**request_params, **{"params": params}})
+        if session:
+            r = session.get(__API_URL, **{**request_params, **{"params": params}})
+        else:
+            r = requests.get(__API_URL, **{**request_params, **{"params": params}})
     except ConnectionError as e:
         print("ConnectionError")
         traceback.print_exc()
@@ -106,7 +120,7 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
         return r
 
     try:
-        r.encoding = 'UTF-8'
+        r.encoding = "UTF-8"
         return _parse_response(r.json())  # TODO: error handling
     except json.decoder.JSONDecodeError:
         if debug:
@@ -117,9 +131,11 @@ def get_departures(station_id: Union[str, int], check_time: datetime = None, lim
         return
 
 
-def _parse_response(result: dict) -> List[Union[Departure]]:
+def _parse_response(result: dict) -> List[Departure]:
     parsed_response = []
-    if not result or "departureList" not in result or not result["departureList"]:  # error in response/request
+    if (
+        not result or "departureList" not in result or not result["departureList"]
+    ):  # error in response/request
         return []  # no results
 
     if isinstance(result["departureList"], dict):  # one result

@@ -10,9 +10,16 @@ from .obj import Arrival
 _API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
 
-def get_arrivals(station_id: Union[str, int], check_time: datetime = None, limit: int = 100, debug: bool = False,
-                 request_params: dict = None, return_resp: bool = False, **kwargs)\
-        -> Union[List[Arrival], Response, None]:
+def get_arrivals(
+    station_id: Union[str, int],
+    check_time: datetime = None,
+    limit: int = 100,
+    debug: bool = False,
+    request_params: dict = None,
+    return_resp: bool = False,
+    session: requests.Session = None,
+    **kwargs,
+) -> Union[List[Arrival], Response, None]:
     r"""
 
     Returns: List[:class:`vvspy.obj.Arrival`]
@@ -52,6 +59,8 @@ def get_arrivals(station_id: Union[str, int], check_time: datetime = None, limit
             default {}
         return_resp Optional[:class:`bool`]
             if set, the function returns the response object of the API request.
+        session Optional[:class:`requests.Session`]
+            if set, uses a given requests.session object for requests
         kwargs Optional[:class:`dict`]
             Check arrivals.py to see all available kwargs.
     """
@@ -61,12 +70,16 @@ def get_arrivals(station_id: Union[str, int], check_time: datetime = None, limit
     if request_params is None:
         request_params = dict()
     params = {
-        "locationServerActive": kwargs.get("locationServerActive", 1),  # typo from zocationServerActive ?!
+        "locationServerActive": kwargs.get(
+            "locationServerActive", 1
+        ),  # typo from zocationServerActive ?!
         "lsShowTrainsExplicit": kwargs.get("lsShowTrainsExplicit", 1),
         "stateless": kwargs.get("stateless", 1),
         "language": kwargs.get("language", "de"),
         "SpEncId": kwargs.get("SpEncId", 0),
-        "anySigWhenPerfectNoOtherMatches": kwargs.get("anySigWhenPerfectNoOtherMatches", 1),
+        "anySigWhenPerfectNoOtherMatches": kwargs.get(
+            "anySigWhenPerfectNoOtherMatches", 1
+        ),
         "limit": limit,
         "depArr": "arrival",
         "type_dm": kwargs.get("type_dm", "any"),
@@ -84,11 +97,14 @@ def get_arrivals(station_id: Union[str, int], check_time: datetime = None, limit
         "itdDateDay": check_time.strftime("%d"),
         "itdTimeHour": check_time.strftime("%H"),
         "itdTimeMinute": check_time.strftime("%M"),
-        "itdTripDateTimeDepArr": "arr"
+        "itdTripDateTimeDepArr": "arr",
     }
 
     try:
-        r = requests.get(_API_URL, **{**request_params, **{"params": params}})
+        if session:
+            session.get(_API_URL, **{**request_params, **{"params": params}})
+        else:
+            r = requests.get(_API_URL, **{**request_params, **{"params": params}})
     except ConnectionError as e:
         print("ConnectionError")
         traceback.print_exc()
@@ -105,8 +121,8 @@ def get_arrivals(station_id: Union[str, int], check_time: datetime = None, limit
         return r
 
     try:
-        r.encoding = 'UTF-8'
-        return _parse_response(r.json())   # TODO: error handling
+        r.encoding = "UTF-8"
+        return _parse_response(r.json())  # TODO: error handling
     except json.decoder.JSONDecodeError:
         if debug:
             print("Error in API request")
@@ -116,10 +132,12 @@ def get_arrivals(station_id: Union[str, int], check_time: datetime = None, limit
         return
 
 
-def _parse_response(result: dict) -> List[Union[Arrival]]:
+def _parse_response(result: dict) -> List[Arrival]:
     parsed_response = []
 
-    if not result or "arrivalList" not in result or not result["arrivalList"]:  # error in response/request
+    if (
+        not result or "arrivalList" not in result or not result["arrivalList"]
+    ):  # error in response/request
         return []  # no results
 
     if isinstance(result["arrivalList"], dict):  # one result
