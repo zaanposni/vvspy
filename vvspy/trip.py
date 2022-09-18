@@ -10,9 +10,17 @@ from .obj import Trip
 __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 
 
-def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[str, int],
-              check_time: datetime = None, limit: int = 100, debug: bool = False,
-              request_params: dict = None, return_resp: bool = False, **kwargs) -> Union[List[Trip], Response, None]:
+def get_trips(
+    origin_station_id: Union[str, int],
+    destination_station_id: Union[str, int],
+    check_time: datetime = None,
+    limit: int = 100,
+    debug: bool = False,
+    request_params: dict = None,
+    return_resp: bool = False,
+    session: requests.Session = None,
+    **kwargs,
+) -> Union[List[Trip], Response, None]:
     r"""
 
     Returns: List[:class:`vvspy.obj.Trip`]
@@ -52,6 +60,8 @@ def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[
             default {}
         return_resp Optional[:class:`bool`]
             if set, the function returns the response object of the API request.
+        session Optional[:class:`requests.Session`]
+            if set, uses a given requests.session object for requests
         kwargs Optional[:class:`dict`]
             Check trips.py to see all available kwargs.
     """
@@ -74,8 +84,8 @@ def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[
         "illumTransfer": kwargs.get("illumTransfer", "on"),
         "imparedOptionsActive": kwargs.get("imparedOptionsActive", "1"),
         "itOptionsActive": kwargs.get("itOptionsActive", "1"),
-        "itdDate": check_time.strftime('%Y%m%d'),
-        "itdTime": check_time.strftime('%H%M'),
+        "itdDate": check_time.strftime("%Y%m%d"),
+        "itdTime": check_time.strftime("%H%M"),
         "language": kwargs.get("language", "de"),
         "locationServerActive": kwargs.get("locationServerActive", "1"),
         "macroWebTrip": kwargs.get("macroWebTrip", "true"),
@@ -104,11 +114,14 @@ def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[
         "useUT": kwargs.get("useUT", "1"),
         "version": kwargs.get("version", "10.2.10.139"),
         "w_objPrefAl": kwargs.get("w_objPrefAl", "12"),
-        "w_regPrefAm": kwargs.get("w_regPrefAm", "1")
+        "w_regPrefAm": kwargs.get("w_regPrefAm", "1"),
     }
 
     try:
-        r = requests.get(__API_URL, **{**request_params, **{"params": params}})
+        if session:
+            r = session.get(__API_URL, **{**request_params, **{"params": params}})
+        else:
+            r = requests.get(__API_URL, **{**request_params, **{"params": params}})
     except ConnectionError:
         print("ConnectionError")
         traceback.print_exc()
@@ -125,7 +138,7 @@ def get_trips(origin_station_id: Union[str, int], destination_station_id: Union[
         return r
 
     try:
-        r.encoding = 'UTF-8'
+        r.encoding = "UTF-8"
         return _parse_response(r.json(), limit=limit)  # TODO: error handling
     except json.decoder.JSONDecodeError:
         if debug:
@@ -140,7 +153,7 @@ def _parse_response(result: dict, limit: int = 100) -> Union[List[Trip], None]:
     parsed_trips = []
     if not result or "journeys" not in result or not result["journeys"]:
         return []  # no trips found
-    for trip in result["journeys"][:int(limit)]:
+    for trip in result["journeys"][: int(limit)]:
         parsed_trips.append(Trip(**trip))
 
     return parsed_trips
