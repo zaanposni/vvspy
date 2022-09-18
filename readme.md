@@ -86,6 +86,8 @@ See: <a href="https://github.com/FI18-Trainees/vvspy/issues/12#issuecomment-5681
                                              height=90px, width=90px style="border-radius: 50%" /></a>
 <a href="https://github.com/chrrel"><img src="https://avatars.githubusercontent.com/u/7842385?v=4"
                                              height=90px, width=90px style="border-radius: 50%" /></a>
+<a href="https://github.com/mhorst00"><img src="https://avatars.githubusercontent.com/u/36167515?v=4"
+                                             height=90px, width=90px style="border-radius: 50%" /></a>
 
 ## Projects using vvspy
 
