@@ -3,12 +3,12 @@ from datetime import datetime
 from typing import Any
 
 from loguru import logger
-from requests import Session, get
-from requests.models import Response
+from requests import Session
 
-from vvspy.obj.arrival import Arrival
+from vvspy.models.arrival import Arrival
+from vvspy.utils.get_request import get_request
 
-_API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
+__API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
 
 def _parse_arrivals(result: dict[str, Any], limit: int) -> list[Arrival]:
@@ -52,9 +52,8 @@ def get_arrivals(
     limit: int = 100,
     request_params: dict[str, Any] | None = None,
     session: Session | None = None,
-    return_resp: bool = False,
-    **kwargs,
-) -> list[Arrival] | Response | None:
+    **kwargs: dict[str, Any],
+) -> list[Arrival]:
     """This function returns a list of arrivals for a given station id.
 
     Parameters
@@ -69,13 +68,13 @@ def get_arrivals(
         Params parsed to the api request (e.g. proxies). By default None.
     session : Session | None, optional
         If set, uses a given requests.session object for requests. By default None#.
-    return_resp : bool, optional
-        If set, the function returns the response object of the API request. By default False,
+    **kwargs : dict[str, Any]
+        Additional parameters to pass to the API request.
 
     Returns
     -------
-    list[Arrival] | Response | None
-        Returns either a list of Arrival objects, a Response object or None.
+    list[Arrival]
+        Returns a list of Arrival objects.
 
     Examples
     --------
@@ -121,23 +120,10 @@ def get_arrivals(
     if request_params is None:
         request_params = {}
 
-    try:
-        if session:
-            req = session.get(_API_URL, **request_params, params=params)
-        else:
-            req = get(_API_URL, **request_params, params=params)
+    req = get_request(__API_URL, params, request_params, session)
 
-        if req.status_code != 200:
-            logger.error("The API request returned a non 200 status code.")
-            logger.debug(f"Request: {req.status_code}")
-            logger.debug(f"Request text: {req.text}")
-            return None
-    except ConnectionError as err:
-        logger.error(f"Connection error: {err}")
-        return None
-
-    if return_resp:
-        return req
+    if req is None:
+        return []
 
     try:
         req.encoding = "UTF-8"
@@ -146,4 +132,4 @@ def get_arrivals(
         logger.error(f"Invalid json: {err}")
         logger.debug(f"Request status: {req.status_code}")
         logger.debug(f"Request text: {req.text}")
-        return None
+        return []

@@ -1,13 +1,12 @@
 import json
-import traceback
 from datetime import datetime
 from typing import Any
 
 from loguru import logger
-from requests import Session, get
-from requests.models import Response
+from requests import Session
 
-from vvspy.obj.departure import Departure
+from vvspy.models.departure import Departure
+from vvspy.utils.get_request import get_request
 
 # TODO: new station id format de:08111:2599 (lapp kabel)
 __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
@@ -54,9 +53,8 @@ def get_departures(
     limit: int = 100,
     request_params: dict[str, Any] | None = None,
     session: Session | None = None,
-    return_resp: bool = False,
-    **kwargs,
-) -> list[Departure] | Response | None:
+    **kwargs: dict[str, Any],
+) -> list[Departure]:
     """This function returns a list of Departure objects.
 
     * TODO: error handling
@@ -73,13 +71,13 @@ def get_departures(
         Params parsed to the api request (e.g. proxies). By default None.
     session : Session | None, optional
         If set, uses a given requests.session object for requests. By default None.
-    return_resp : bool, optional
-        If set, the function returns the response object of the API request. By default False.
+    **kwargs : dict[str, Any]
+        Additional parameters to pass to the API request.
 
     Returns
     -------
-    list[Departure] | Response | None
-        Returns a list of Departure objects, a Response object or None if an error occurred.
+    list[Departure]
+        Returns a list of Departure objects.
 
     Examples
     --------
@@ -123,24 +121,10 @@ def get_departures(
     if request_params is None:
         request_params = {}
 
-    try:
-        if session:
-            req = session.get(__API_URL, **{**request_params, **{"params": params}})
-        else:
-            req = get(__API_URL, **{**request_params, **{"params": params}})
-    except ConnectionError:
-        print("ConnectionError")
-        traceback.print_exc()
-        return None
+    req = get_request(__API_URL, params, request_params, session)
 
-    if req.status_code != 200:
-        logger.error("Error in API request")
-        logger.debug(f"Request: {req.status_code}")
-        logger.debug(f"{req.text}")
-        return None
-
-    if return_resp:
-        return req
+    if req is None:
+        return []
 
     try:
         req.encoding = "UTF-8"
@@ -149,4 +133,4 @@ def get_departures(
         logger.error("Error in API request")
         logger.debug(f"Request: {req.status_code}")
         logger.debug(f"{req.text}")
-        return None
+        return []

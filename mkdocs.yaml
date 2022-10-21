@@ -13,7 +13,7 @@ nav:
       - Introduction: introduction.md
   - Dokumentation:
       - Functions: functions.md
-      - Objects: obj.md
+      - Utilities: utils.md
   - Help: help.md
   - License: license.md
 

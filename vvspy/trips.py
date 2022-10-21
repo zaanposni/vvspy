@@ -1,13 +1,12 @@
 import json
-import traceback
 from datetime import datetime
 from typing import Any
 
 from loguru import logger
-from requests import Session, get
-from requests.models import Response
+from requests import Session
 
-from vvspy.obj.trip import Trip
+from vvspy.models.trip import Trip
+from vvspy.utils.get_request import get_request
 
 __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 
@@ -55,9 +54,8 @@ def get_trips(
     request_params: dict[str, Any] | None = None,
     limit: int = 100,
     session: Session | None = None,
-    return_resp: bool = False,
-    **kwargs,
-) -> list[Trip] | Response | None:
+    **kwargs: dict[str, Any],
+) -> list[Trip]:
     """This function returns a list of Trip objects.
 
     * TODO: error handling
@@ -76,13 +74,13 @@ def get_trips(
         Limit request/result on this integer. By default 100.
     session : Session | None, optional
         If set, uses a given requests.session object for requests. By default None.
-    return_resp : bool, optional
-        If set, the function returns the response object of the API request. By default False.
+    **kwargs : dict[str, Any]
+        Additional parameters to pass to the API request.
 
     Returns
     -------
-    list[Trip] | Response | None
-        Returns none on webrequest errors.
+    list[Trip]
+        Returns a list of Trip objects.
 
     Examples
     --------
@@ -148,24 +146,10 @@ def get_trips(
     if request_params is None:
         request_params = {}
 
-    try:
-        if session:
-            req = session.get(__API_URL, **{**request_params, **{"params": params}})
-        else:
-            req = get(__API_URL, **{**request_params, **{"params": params}})
-    except ConnectionError:
-        print("ConnectionError")
-        traceback.print_exc()
-        return None
+    req = get_request(__API_URL, params, request_params, session)
 
-    if req.status_code != 200:
-        logger.error("Error in API request")
-        logger.debug(f"Request: {req.status_code}")
-        logger.debug(f"{req.text}")
-        return None
-
-    if return_resp:
-        return req
+    if req is None:
+        return []
 
     try:
         req.encoding = "UTF-8"
@@ -174,4 +158,4 @@ def get_trips(
         logger.error("Error in API request")
         logger.debug(f"Request: {req.status_code}")
         logger.debug(f"{req.text}")
-        return None
+        return []

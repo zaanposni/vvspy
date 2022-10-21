@@ -1,8 +1,8 @@
 from requests.models import Response
 
-from vvspy.obj.arrival import Arrival
-from vvspy.obj.departure import Departure
-from vvspy.obj.trip import Trip
+from vvspy.models.arrival import Arrival
+from vvspy.models.departure import Departure
+from vvspy.models.trip import Trip
 
 # from datetime import datetime
 # from typing import Any
@@ -20,7 +20,7 @@ def departures_now(
     Todo:
         * TODO: Remove this function
     """
-    pass
+    return None
     # return get_departures(
     #     station_id=station_id,
     #     check_time=datetime.now(),
@@ -45,7 +45,7 @@ def get_departure(
     Todo:
         * TODO: Remove this function
     """
-    pass
+    return None
     # try:
     #     departures = get_departures(
     #         station_id=station_id,
@@ -86,7 +86,7 @@ def get_arrival(
     Todo:
         * TODO: Remove this function
     """
-    pass
+    return None
     # try:
     #     arrivals = get_arrivals(
     #         station_id=station_id,
@@ -128,7 +128,7 @@ def get_trip(
     Todo:
         * TODO: Remove this function
     """
-    pass
+    return None
     # try:
     #     trips = get_trips(
     #         origin_station_id=origin_station_id,
