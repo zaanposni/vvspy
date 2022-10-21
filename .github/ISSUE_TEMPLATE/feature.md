@@ -1,8 +1,8 @@
 ---
 name: Feature request
 about: Create a report to help us improve
-title: "[Feature]"
-labels: feature
+title: "[Feature] <Title>"
+labels: ["feature"]
 assignees: "zaanposni"
 ---
 

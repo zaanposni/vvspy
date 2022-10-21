@@ -1,0 +1,98 @@
+# Metadata
+site_name: VVSPY 🚆
+site_description: API Wrapper for VVS (Verkehrsverbund Stuttgart)
+site_author: Zaanposni
+repo_name: vvspy
+repo_url: "https://github.com/zaanposni/vvspy"
+watch: ["vvspy", "docs", "tests", "mkdocs.yaml", "pyproject.toml", "README.md"]
+
+# Navigation
+nav:
+  - Overview:
+      - index.md
+      - Introduction: introduction.md
+  - Dokumentation:
+      - Functions: functions.md
+      - Objects: obj.md
+  - Help: help.md
+  - License: license.md
+
+# Plugins
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          import:
+            - https://docs.python.org/3/objects.inv
+            - https://mkdocstrings.github.io/objects.inv
+            - https://mkdocstrings.github.io/griffe/objects.inv
+          options:
+            filters: ["!^__"]
+            docstring_style: numpy
+            show_root_heading: true
+            show_source: yes
+            show_root_full_path: no
+
+# Theme
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  features:
+    # Enable the tabs on the top of the page (the level 1 folder will be displayed as a tab)
+    - navigation.tabs
+
+    # Will expand the navigation tree on the sidebar
+    # - navigation.expand
+
+    # TODO: Add description
+    - navigation.tracking
+
+    # Adds a button to get back to the top of the page
+    - navigation.top
+
+    # Shows files and navigation items on the left side
+    - toc.integrate
+
+    # TODO: Add description
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+
+  icon:
+    logo: logo
+
+  language: en
+
+# Extras
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/zaanposni/vvspy
+      name: GitHub
+
+# Markdown extensions
+markdown_extensions:
+  - attr_list
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
