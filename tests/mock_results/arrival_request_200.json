@@ -336,7 +336,7 @@
             "isTTB": "1",
             "isSTT": "1",
             "isROP": "1",
-            "attrs": [ ]
+            "attrs": []
           }
         },
         "index": "2:0"
@@ -370,7 +370,7 @@
             "isTTB": "1",
             "isSTT": "1",
             "isROP": "1",
-            "attrs": [ ]
+            "attrs": []
           }
         },
         "index": "2:1"
@@ -404,7 +404,7 @@
             "isTTB": "1",
             "isSTT": "1",
             "isROP": "1",
-            "attrs": [ ]
+            "attrs": []
           }
         },
         "index": "2:2"
@@ -438,7 +438,7 @@
             "isTTB": "1",
             "isSTT": "1",
             "isROP": "1",
-            "attrs": [ ]
+            "attrs": []
           }
         },
         "index": "2:3"
@@ -472,7 +472,7 @@
             "isTTB": "1",
             "isSTT": "1",
             "isROP": "1",
-            "attrs": [ ]
+            "attrs": []
           }
         },
         "index": "2:4"
@@ -506,7 +506,7 @@
             "isTTB": "1",
             "isSTT": "1",
             "isROP": "1",
-            "attrs": [ ]
+            "attrs": []
           }
         },
         "index": "2:5"
