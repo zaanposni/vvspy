@@ -1,87 +1,108 @@
-from typing import List, Union
-from datetime import datetime
-import requests
-from requests.models import Response
 import json
 import traceback
+from datetime import datetime
+from typing import Any
 
-from vvspy.obj import Departure
+from loguru import logger
+from requests import Session, get
+from requests.models import Response
 
-__API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
+from vvspy.obj.departure import Departure
+
 # TODO: new station id format de:08111:2599 (lapp kabel)
+__API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
 
-def get_departures(
-    station_id: Union[str, int],
-    check_time: datetime = None,
-    limit: int = 100,
-    debug: bool = False,
-    request_params: dict = None,
-    return_resp: bool = False,
-    session: requests.Session = None,
-    **kwargs,
-) -> Union[List[Departure], Response, None]:
-    r"""
+def _parse_departures(result: dict[str, Any], limit: int) -> list[Departure]:
+    """Parser which selects the relevant data from the API response.
+    And next converts them to Departure objects and returns them in a list.
 
-    Returns: List[:class:`vvspy.obj.Departure`]
-    Returns none on webrequest errors.
-
-    Examples
-    --------
-    Basic usage:
-
-    .. code-block:: python
-
-        results = vvspy.get_departures("5006115", limit=3)  # Stuttgart main station
-
-    Set proxy for request:
-
-    .. code-block:: python
-
-        proxies = {}  # see https://stackoverflow.com/a/8287752/9850709
-        results = vvspy.get_departures("5006115", request_params={"proxies": proxies})
+    * TODO: Abstract the parser to a separate class.
+    * TODO: Add option to limit the number of results.
 
     Parameters
     ----------
-        station_id Union[:class:`int`, :class:`str`]
-            Station you want to get departures from.
-            See csv on root of repository to get your id.
-        check_time Optional[:class:`datetime.datetime`]
-            Time you want to check.
-            default datetime.now()
-        limit Optional[:class:`int`]
-            Limit request/result on this integer.
-            default 100
-        debug Optional[:class:`bool`]
-            Get advanced debug prints on failed web requests
-            default False
-        request_params Optional[:class:`dict`]
-            params parsed to the api request (e.g. proxies)
-            default {}
-        return_resp Optional[:class:`bool`]
-            if set, the function returns the response object of the API request.
-        session Optional[:class:`requests.Session`]
-            if set, uses a given requests.session object for requests
-        kwargs Optional[:class:`dict`]
-            Check departures.py to see all available kwargs.
+    result : dict[str, Any]
+        The API response.
+    limit : int
+        Limit the number of results.
 
+    Returns
+    -------
+    list[Departure]
+        A list of Departure objects or None if a error occurred.
     """
+    parsed_response = []
 
-    if not check_time:
-        check_time = datetime.now()
-    if request_params is None:
-        request_params = dict()
+    try:
+        parsed_response = [Departure(**departure) for departure in result["departureList"][:limit]]
+    except KeyError as err:
+        logger.error(f"Invalid response: {err}")
+        logger.debug(f"Response: {result}")
+        return []
+    except Exception as err:
+        logger.error(f"Unknown error: {err}")
+        logger.debug(f"Response: {result}")
+        return []
 
+    return parsed_response
+
+
+def get_departures(
+    station_id: str | int,
+    check_time: datetime = datetime.now(),
+    limit: int = 100,
+    request_params: dict[str, Any] | None = None,
+    session: Session | None = None,
+    return_resp: bool = False,
+    **kwargs,
+) -> list[Departure] | Response | None:
+    """This function returns a list of Departure objects.
+
+    * TODO: error handling
+
+    Parameters
+    ----------
+    station_id : str | int
+        Station you want to get departures from. See csv on root of repository to get your id.
+    check_time : datetime, optional
+        Time you want to check. By default datetime.now().
+    limit : int, optional
+        Limit request/result on this integer. By default 100.
+    request_params : dict[str, Any] | None, optional
+        Params parsed to the api request (e.g. proxies). By default None.
+    session : Session | None, optional
+        If set, uses a given requests.session object for requests. By default None.
+    return_resp : bool, optional
+        If set, the function returns the response object of the API request. By default False.
+
+    Returns
+    -------
+    list[Departure] | Response | None
+        Returns a list of Departure objects, a Response object or None if an error occurred.
+
+    Examples
+    --------
+    The following code shows a basic example on how to use ``get_departures()``::
+
+    ```python
+    results = vvspy.get_departures("5006115", limit=3)  # Stuttgart main station
+    ```
+
+    An example for setting a proxy for the request::
+
+    ```python
+    proxies = {}  # see https://stackoverflow.com/a/8287752/9850709
+    results = vvspy.get_departures("5006115", request_params={"proxies": proxies})
+    ```
+    """
     params = {
         "locationServerActive": kwargs.get("locationServerActive", 1),
         "lsShowTrainsExplicit": kwargs.get("lsShowTrainsExplicit", 1),
         "stateless": kwargs.get("stateless", 1),
         "language": kwargs.get("language", "de"),
         "SpEncId": kwargs.get("SpEncId", 0),
-        "anySigWhenPerfectNoOtherMatches": kwargs.get(
-            "anySigWhenPerfectNoOtherMatches", 1
-        ),
-        "limit": limit,
+        "anySigWhenPerfectNoOtherMatches": kwargs.get("anySigWhenPerfectNoOtherMatches", 1),
         "depArr": "departure",
         "type_dm": kwargs.get("type_dm", "any"),
         "anyObjFilter_dm": kwargs.get("anyObjFilter_dm", 2),
@@ -99,49 +120,33 @@ def get_departures(
         "itdTimeMinute": check_time.strftime("%M"),
     }
 
+    if request_params is None:
+        request_params = {}
+
     try:
         if session:
-            r = session.get(__API_URL, **{**request_params, **{"params": params}})
+            req = session.get(__API_URL, **{**request_params, **{"params": params}})
         else:
-            r = requests.get(__API_URL, **{**request_params, **{"params": params}})
-    except ConnectionError as e:
+            req = get(__API_URL, **{**request_params, **{"params": params}})
+    except ConnectionError:
         print("ConnectionError")
         traceback.print_exc()
-        return
+        return None
 
-    if r.status_code != 200:
-        if debug:
-            print("Error in API request")
-            print(f"Request: {r.status_code}")
-            print(f"{r.text}")
-        return
+    if req.status_code != 200:
+        logger.error("Error in API request")
+        logger.debug(f"Request: {req.status_code}")
+        logger.debug(f"{req.text}")
+        return None
 
     if return_resp:
-        return r
+        return req
 
     try:
-        r.encoding = "UTF-8"
-        return _parse_response(r.json())  # TODO: error handling
+        req.encoding = "UTF-8"
+        return _parse_departures(req.json(), limit=limit)
     except json.decoder.JSONDecodeError:
-        if debug:
-            print("Error in API request")
-            print("Received invalid json")
-            print(f"Request: {r.status_code}")
-            print(f"{r.text}")
-        return
-
-
-def _parse_response(result: dict) -> List[Departure]:
-    parsed_response = []
-    if (
-        not result or "departureList" not in result or not result["departureList"]
-    ):  # error in response/request
-        return []  # no results
-
-    if isinstance(result["departureList"], dict):  # one result
-        parsed_response.append(Departure(**result["departureList"]["departure"]))
-    elif isinstance(result["departureList"], list):  # multiple result
-        for departure in result["departureList"]:
-            parsed_response.append(Departure(**departure))
-
-    return parsed_response
+        logger.error("Error in API request")
+        logger.debug(f"Request: {req.status_code}")
+        logger.debug(f"{req.text}")
+        return None
