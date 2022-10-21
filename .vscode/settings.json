@@ -1,0 +1,17 @@
+{
+  "gitmoji.outputType": "emoji",
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+      "source.fixAll": true,
+      "source.fixAll.unusedImports": false
+    }
+  },
+  "autoDocstring.docstringFormat": "numpy",
+  "python.formatting.provider": "black",
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": true
+}

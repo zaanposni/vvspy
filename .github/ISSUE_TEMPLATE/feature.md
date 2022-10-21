@@ -3,8 +3,7 @@ name: Feature request
 about: Create a report to help us improve
 title: "[Feature]"
 labels: feature
-assignees: 'zaanposni'
-
+assignees: "zaanposni"
 ---
 
 **Summarize the feature**

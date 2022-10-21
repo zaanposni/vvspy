@@ -1,0 +1,34 @@
+{
+  "language": "en, de-de, lorem-ipsum, python",
+  "ignorePaths": [
+    ".git",
+    ".vscode"
+  ],
+  "words": [
+    "autoclass",
+    "autorefs",
+    "depatures",
+    "fontawesome",
+    "github",
+    "impared",
+    "isort",
+    "kabel",
+    "lapp",
+    "leasttime",
+    "loguru",
+    "magiclink",
+    "materialx",
+    "mkdocs",
+    "mkdocstrings",
+    "mypy",
+    "numpy",
+    "pymdownx",
+    "pyproject",
+    "pytest",
+    "pyupgrade",
+    "vvspy",
+    "webrequest",
+    "zaanposni",
+    "Zaanposni"
+  ]
+}
