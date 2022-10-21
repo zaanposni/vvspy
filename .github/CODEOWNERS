@@ -1,13 +1,10 @@
-* @zaanposni
+- @zaanposni
 
 # PYTHON
-*.py @zaanposni
-/requirements.txt @zaanposni
 
-# UNITTESTS
+\*.py @zaanposni
+/pyproject.toml @zaanposni
+
+# TESTS
+
 /tests/ @zaanposni
-
-# PYPI
-/setup.cfg @zaanposni
-/setup.py @zaanposni
-/MANIFEST.in @zaanposni

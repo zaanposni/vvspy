@@ -1,0 +1,91 @@
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit.com hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  skip: [poetry-lock, poetry-export, pytest, pytest-cov]
+
+default_language_version:
+  python: python3.10
+
+# TODO: Add check for yaml
+repos:
+  - repo: https://github.com/python-poetry/poetry
+    rev: "1.2.1"
+    hooks:
+      - id: poetry-check
+        name: check poetry (poetry-check)
+        always_run: true
+
+      - id: poetry-lock
+        name: lock poetry (poetry-lock)
+        always_run: true
+
+      - id: poetry-export
+        name: export poetry (poetry-export)
+        args: ["-f", "requirements.txt", "-o", "requirements.txt"]
+        always_run: true
+
+  - repo: local
+    hooks:
+      - id: isort
+        name: sort imports (isort)
+        language: system
+        entry: poetry run isort .
+        stages: [commit, push]
+        types: [python]
+
+      - id: black
+        name: format python code (black)
+        language: system
+        entry: poetry run black .
+        stages: [commit, push]
+        types: [python]
+
+      - id: flake8
+        name: check code style (flake8)
+        language: system
+        entry: poetry run flake8
+        stages: [commit, push]
+        types: [python]
+
+      - id: mypy
+        name: check types (mypy)
+        language: system
+        entry: poetry run mypy .
+        stages: [commit, push]
+        types: [python]
+        require_serial: true
+
+      - id: pytest
+        name: run pytest (pytest)
+        language: system
+        entry: poetry run pytest
+        pass_filenames: false
+        always_run: true
+
+      # TODO: Change percentage to 80
+      - id: pytest-cov
+        name: check pytest coverage (pytest-cov)
+        language: system
+        entry: poetry run pytest --cov --cov-fail-under=50
+        pass_filenames: false
+        always_run: true
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v2.7.1"
+    hooks:
+      - id: prettier
+        name: format files (prettier)
+        stages: [commit, push]
+        exclude_types: [python]
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.0.0
+    hooks:
+      - id: pyupgrade
+        name: upgrade pre-commit (pyupgrade)
+        stages: [commit, push]
+        args: [--py310-plus]
+        always_run: true
