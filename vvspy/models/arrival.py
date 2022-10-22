@@ -1,21 +1,20 @@
 from datetime import datetime
 
-from .serving_line import ServingLine
-from .line_operator import LineOperator
+from loguru import logger
+
+from vvspy.models.line_operator import LineOperator
+from vvspy.models.serving_line import ServingLine
 
 
-class Departure:
-    r"""
-
-     Departure object from a departure request of one station.
+class Arrival:
+    """Arrival object from a arrival request of one station.
 
     Attributes
     -----------
-
     raw :class:`dict`
         Raw dict received by the API.
     stop_id :class:`str`
-        Station_id of the departure.
+        Station_id of the arrival.
     x :class:`str`
         Coordinates of the station.
     y :class:`str`
@@ -25,7 +24,7 @@ class Departure:
     area :class:`str`
         The area of the station (unsure atm)
     platform :class:`str`
-        Platform / track of the departure.
+        Platform / track of the arrival.
     platform_name :class:`str`
         name of the platform.
     stop_name :class:`str`
@@ -33,18 +32,18 @@ class Departure:
     name_wo :class:`str`
         name of the station.
     countdown :class:`int`
-        minutes until departure.
+        minutes until arrival.
     datetime :class:`datetime.datetime`
-        Planned departure datetime.
+        Planned arrival datetime.
     real_datetime :class:`datetime.datetime`
-        Estimated departure datetime (equal to ``self.datetime`` if no realtime data is available).
+        Estimated arrival datetime (equal to ``self.datetime`` if no realtime data is available).
     delay :class:`int`
-        Delay of departure in minutes.
+        Delay of arrival in minutes.
     serving_line :class:`ServingLine`
-        line of the incoming departure.
+        line of the incoming arrival.
     operator :class:`LineOperator`
-        Operator of the incoming departure.
-    stop_infos: Optional[:class:`dict`]
+        Operator of the incoming arrival.
+    stop_infos Optional[:class:`dict`]
         All related info to the station (e.g. maintenance work).
     line_infos Optional[:class:`dict`]
         All related info to the station (e.g. maintenance work).
@@ -62,6 +61,10 @@ class Departure:
         self.name_wo = kwargs.get("nameWO")
         self.point_type = kwargs.get("pointType")
         self.countdown = int(kwargs.get("countdown", "0"))
+
+        # TODO: Correct default value and type
+        self.datetime: datetime | None = None
+        self.real_datetime = self.datetime
         dt = kwargs.get("dateTime")
         if dt:
             try:
@@ -70,12 +73,11 @@ class Departure:
                     month=int(dt.get("month", datetime.now().month)),
                     day=int(dt.get("day", datetime.now().day)),
                     hour=int(dt.get("hour", datetime.now().hour)),
-                    minute=int(dt.get("minute", datetime.now().minute))
+                    minute=int(dt.get("minute", datetime.now().minute)),
                 )
             except ValueError:
-                pass
-        else:
-            self.datetime = None
+                logger.debug("Could not parse datetime")
+                self.datetime = None
         r_dt = kwargs.get("realDateTime")
         if r_dt:
             try:
@@ -84,14 +86,15 @@ class Departure:
                     month=int(r_dt.get("month", datetime.now().month)),
                     day=int(r_dt.get("day", datetime.now().day)),
                     hour=int(r_dt.get("hour", datetime.now().hour)),
-                    minute=int(r_dt.get("minute", datetime.now().minute))
+                    minute=int(r_dt.get("minute", datetime.now().minute)),
                 )
             except ValueError:
-                pass
-        else:
-            self.real_datetime = self.datetime
+                logger.debug("Could not parse real datetime")
+                self.real_datetime = self.datetime
+        self.delay = 0
+        if self.datetime and self.real_datetime:
+            self.delay = int((self.real_datetime - self.datetime).total_seconds() / 60)
 
-        self.delay = int((self.real_datetime - self.datetime).total_seconds() / 60)
         self.serving_line = ServingLine(**kwargs.get("servingLine", {}))
         self.operator = LineOperator(**kwargs.get("operator", {}))
 
@@ -101,7 +104,12 @@ class Departure:
         self.line_infos = kwargs.get("lineInfos")
 
     def __str__(self):
-        pre = "[Delayed] " if self.delay else ""
-        if self.real_datetime.date() == datetime.now().date():
-            return f"{pre}[{str(self.real_datetime.strftime('%H:%M'))}] {self.serving_line}"
-        return f"{pre}[{str(self.real_datetime)}] {self.serving_line}"
+        pre = "[Delayed] " if self.delay > 0 else ""
+
+        if self.real_datetime:
+            if self.real_datetime.date() == datetime.now().date():
+                return f"{pre}[{str(self.real_datetime.strftime('%H:%M'))}] {self.serving_line}"
+            return f"{pre}[{str(self.real_datetime)}] {self.serving_line}"
+
+        logger.debug("No real datetime available")
+        return f"{pre}[N/A] {self.serving_line}"

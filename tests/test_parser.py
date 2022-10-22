@@ -3,9 +3,9 @@ from pathlib import Path
 
 from vvspy.arrivals import _parse_arrivals as parse_arrivals
 from vvspy.departures import _parse_departures as parse_departures
-from vvspy.obj.arrival import Arrival
-from vvspy.obj.departure import Departure
-from vvspy.obj.trip import Trip
+from vvspy.models.arrival import Arrival
+from vvspy.models.departure import Departure
+from vvspy.models.trip import Trip
 from vvspy.trips import _parse_trips as parse_trips
 
 path = Path("tests/mock_results")
