@@ -54,7 +54,7 @@ mkdocs-git-revision-date-localized-plugin = "^1.1.0"
 mkdocs-jupyter = "^0.22.0"
 
 [tool.mypy]
-mypy_path = 'src'
+mypy_path = 'vvspy'
 check_untyped_defs = true
 disallow_any_generics = true
 ignore_missing_imports = true

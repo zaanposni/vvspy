@@ -1,5 +1,9 @@
 [flake8]
 ignore = E203, E266, E501, W503
+per-file-ignores = 
+  vvspy/__init__.py:F401
+  vvspy/models/__init__.py:F401
+  vvspy/utils/__init__.py:F401
 max-line-length = 120
 max-complexity = 18
 select = B,C,E,F,W,T4

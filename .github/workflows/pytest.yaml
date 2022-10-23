@@ -2,7 +2,7 @@ name: Run Pytest
 
 on:
   push:
-    branches: ["main", "project-config"]
+    branches: ["*"]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: ["main"]
@@ -18,14 +18,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install Poetry
+        run: pipx install poetry
       - name: Set up Python ${{ matrix.python }}
         uses: actions/setup-python@v4
         with:
           python-version: "${{ matrix.python }}"
-      - name: Install Poetry
-        uses: abatilo/actions-poetry@v2
-        with:
-          poetry-version: 1.2.1
+          cache: "poetry"
       - name: Install dependencies using Poetry
         run: poetry install
       - name: Run tests

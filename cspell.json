@@ -1,9 +1,6 @@
 {
   "language": "en, de-de, lorem-ipsum, python",
-  "ignorePaths": [
-    ".git",
-    ".vscode"
-  ],
+  "ignorePaths": [".git", ".vscode"],
   "words": [
     "abatilo",
     "autobuild",

@@ -27,37 +27,64 @@ repos:
         args: ["-f", "requirements.txt", "-o", "requirements.txt"]
         always_run: true
 
-  - repo: local
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: check-case-conflict
+        name: check case conflict (check-case-conflict)
+        always_run: true
+      - id: check-merge-conflict
+        name: check merge conflict (check-merge-conflict)
+        always_run: true
+      - id: check-yaml
+        name: check yaml (check-yaml)
+        exclude: mkdocs.yaml
+        stages: [commit, push]
+        types: [yaml]
+      - id: check-json
+        name: check json (check-json)
+        stages: [commit, push]
+        types: [json]
+      - id: check-added-large-files
+        name: check added large files (check-added-large-files)
+        stages: [commit, push]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
     hooks:
       - id: isort
         name: sort imports (isort)
-        language: system
-        entry: poetry run isort .
         stages: [commit, push]
         types: [python]
 
+  - repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
       - id: black
         name: format python code (black)
-        language: system
-        entry: poetry run black .
         stages: [commit, push]
         types: [python]
 
+  - repo: https://github.com/PyCQA/flake8
+    rev: 5.0.4
+    hooks:
       - id: flake8
         name: check code style (flake8)
-        language: system
-        entry: poetry run flake8
         stages: [commit, push]
         types: [python]
 
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.982
+    hooks:
       - id: mypy
         name: check types (mypy)
-        language: system
-        entry: poetry run mypy .
         stages: [commit, push]
         types: [python]
+        additional_dependencies: [types-requests]
         require_serial: true
 
+  - repo: local
+    hooks:
       - id: pytest
         name: run pytest (pytest)
         language: system
@@ -85,7 +112,7 @@ repos:
     rev: v3.0.0
     hooks:
       - id: pyupgrade
-        name: upgrade pre-commit (pyupgrade)
+        name: upgrade python code (pyupgrade)
         stages: [commit, push]
-        args: [--py310-plus]
+        args: [--py36-plus]
         always_run: true
