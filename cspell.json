@@ -28,6 +28,7 @@
     "mkdocstrings",
     "mypy",
     "numpy",
+    "pipx",
     "pydantic",
     "pymdownx",
     "pyproject",
