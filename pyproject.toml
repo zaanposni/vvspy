@@ -27,7 +27,6 @@ classifiers = [
 ]
 license = "MIT"
 readme = "README.md"
-packages = [{ include = "vvspy" }]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -51,6 +50,8 @@ mkdocs = { extras = ["python"], version = "^1.4.0" }
 mkdocs-material = "^8.5.6"
 mkdocstrings = { extras = ["python"], version = "^0.19.0" }
 mkdocs-autorefs = "^0.4.1"
+mkdocs-git-revision-date-localized-plugin = "^1.1.0"
+mkdocs-jupyter = "^0.22.0"
 
 [tool.mypy]
 mypy_path = 'src'
@@ -64,7 +65,7 @@ warn_redundant_casts = true
 warn_return_any = true
 warn_unreachable = true
 warn_unused_configs = true
-no_implicit_reexport = true
+no_implicit_reexport = false
 
 [tool.black]
 line-length = 120
@@ -90,7 +91,7 @@ exclude = '''
 profile = "black"
 
 [tool.pylint]
-disable = "missing-module-docstring, broad-except"
+disable = "missing-module-docstring, broad-except, missing-class-docstring"
 max-line-length = 120
 
 [tool.pytest]

@@ -21,9 +21,9 @@
 </div>
 <br>
 
-<!-- TODO: Add description -->
+## Motivation
 
-Excepteur fugiat laborum nostrud officia ad fugiat. Do magna dolor ullamco sint ut reprehenderit enim elit cillum. Quis officia cupidatat nostrud non aute consectetur ullamco cupidatat mollit esse eu. Laborum ullamco non voluptate eiusmod qui.
+I always wanted to get some insights into public transport, and as I am very programming affine, I started investigating the VVS API. However, I noticed quickly that the EFA system is not programmer-friendly, at least if you are still getting into it. I saw some projects from CodeOfGermany and various others, but as they are way out of date, I figured I wanted to publish my solution. For example, I use this library to track my daily connections and send push notifications on my mobile device if one is delayed. But you can do various other things, for example, a simple dashboard displaying upcoming departures at a nearby station.
 
 ## Installation
 
@@ -35,7 +35,16 @@ This repository is available over [PyPI](https://pypi.org/project/vvspy/). There
 pip install vvspy
 ```
 
-## Usage
+### Features
+
+- :sparkles: Departures, arrivals, trips, station info, upcoming events, maintenance work
+- :white_check_mark: Parsing all available info into result obj
+- :wrench: Full customizable requests and parameters
+- :test_tube: Well tested
+
+> See [issues](https://github.com/zaanposni/vvspy/issues) on GitHub for upcoming features and requests.
+
+### Usage
 
 > :warning: To use the library you need to obtain station id's for the VVS endpoints. Regarding this, please see the issue: [#12](https://github.com/zaanposni/vvspy/issues/12#issuecomment-568175314).
 
@@ -44,13 +53,13 @@ pip install vvspy
 The first function provided by _vvspy_ is `get_trip()` and `get_trips()`. This function **gets complete trip information's between two stations**. This functions returns not only the start and end station, but also the intermediate stations and the departure and arrival times.
 
 ```python
-from vvspy import get_trip  # also usable: get_trips
+from vvspy import get_trip  # alternative: get_trips
 
 trip = get_trip("5000355", "5005600")  # Stuttgart main station
 
 print(f"Duration: {trip.duration / 60} minutes")
-for connect in trip.connections:
-    print(f"From: {connect.origin.name} - To: {connect.destination.name}")
+for connection in trip.connections:
+    print(f"From: {connection.origin.name} - To: {connection.destination.name}")
 ```
 
 ```text
@@ -67,12 +76,12 @@ From: Marbach (N) Bf - To: Murr Hardtlinde
 The following code snippet will **filter the requested departures** for a specific train number.
 
 ```python
-from vvspy import get_departures
+from vvspy import get_departures # alternative: get_departure
 
 departures = get_departures("5006118")  # Stuttgart main station (lower)
-for depart in departures:
-    if depart.serving_line.symbol == "S4":
-        print(f"Departure of S4 at {depart.real_datetime}")
+for departure in departures:
+    if departure.serving_line.symbol == "S4":
+        print(f"Departure of S4 at {departure.real_datetime}")
 ```
 
 <br>
@@ -80,26 +89,21 @@ for depart in departures:
 When requesting departure times the object includes a attribute storing the delay a connection has. As shown in the code below you can access this attribute using `connection.delay`.
 
 ```python
-from vvspy import get_departures
+from vvspy import get_departures # alternative: get_departure
 
 departures = get_departures("5006115", limit=3)  # Stuttgart main station
-for depart in departures:
-    if depart.delay > 0:
+for departure in departures:
+    if departure.delay > 0:
         print("Alarm! Delay detected.")
-        print(depart)  # [Delayed] [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
+        print(departure)  # [Delayed] [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
     else:
         print("Train on time")
-        print(depart)  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
+        print(departure)  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 ```
 
-## Features
+<br>
 
-- :sparkles: Departures, arrivals, trips, station info, upcoming events, maintenance work
-- :white_check_mark: Parsing all available info into result obj
-- :wrench: Full customizable requests and parameters
-- :test_tube: Well tested
-
-> See [issues](https://github.com/zaanposni/vvspy/issues) on GitHub for upcoming features and requests.
+This was only a small selection of examples. For more information please see our more detailed [examples](https://vvspy.readthedocs.io/en/latest/examples/).
 
 ## Contribution
 
@@ -129,8 +133,8 @@ Thanks to all who have already contributed to this project!
 
 ## Projects using _vvspy_
 
-- <a href="https://github.com/aschuma/vvs_direct_connect">vvs_direct_connect</a> is a dockerized REST service providing departure data by @[aschuma](https://github.com/aschuma).
+- <a href="https://github.com/aschuma/vvs_direct_connect">vvs_direct_connect</a> is a dockerized REST service providing departure data by [@aschuma](https://github.com/aschuma).
 
 ## License
 
-This project is licensed under MIT.
+This project is licensed under [MIT](https://github.com/zaanposni/vvspy).

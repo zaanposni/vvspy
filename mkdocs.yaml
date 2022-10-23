@@ -8,20 +8,28 @@ watch: ["vvspy", "docs", "tests", "mkdocs.yaml", "pyproject.toml", "README.md"]
 
 # Navigation
 nav:
-  - Overview:
-      - index.md
-      - Introduction: introduction.md
-  - Dokumentation:
-      - Functions: functions.md
-      - Objects: models.md
-      - Utilities: utils.md
+  - Getting Started: index.md
+  - Package:
+      - Package: package/index.md
+      - Functions: package/functions.md
+      - Models: package/models.md
+      - Utilities: package/utils.md
+  - Examples:
+      - Examples: examples/index.md
+      - Departures: examples/departures.ipynb
+      - Trips: examples/trips.ipynb
   - Help: help.md
   - License: license.md
 
 # Plugins
 plugins:
   - search
+  - git-revision-date-localized:
+      fallback_to_build_date: true
   - autorefs
+  - mkdocs-jupyter:
+      include: ["*.ipynb"]
+      kernel_name: python3
   - mkdocstrings:
       handlers:
         python:
@@ -33,6 +41,8 @@ plugins:
           options:
             filters: ["!^__"]
             docstring_style: numpy
+            docstring_section_style: table
+            merge_init_into_class: true
             show_root_heading: true
             show_source: yes
             show_root_full_path: no
@@ -78,6 +88,7 @@ theme:
 
   icon:
     logo: logo
+    repo: fontawesome/brands/github
 
   language: en
 
