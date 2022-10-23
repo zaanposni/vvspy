@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from typing import Any
+from typing import Any, Dict, List, Optional, Union
 
 from loguru import logger
 from requests import Session
@@ -11,23 +11,20 @@ from vvspy.utils.get_request import get_request
 __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 
 
-def _parse_trips(result: dict[str, Any], limit: int) -> list[Trip]:
+def _parse_trips(result: Dict[str, Any], limit: int) -> List[Trip]:
     """Parser which selects the relevant data from the API response.
     And next converts them to Departure objects and returns them in a list.
 
-    * TODO: Abstract the parser to a separate class.
-    * TODO: Add option to limit the number of results.
-
     Parameters
     ----------
-    result : dict[str, Any]
+    result : Dict[str, Any]
         The API response.
     limit : int
         The maximum number of results to return.
 
     Returns
     -------
-    list[Trip]
+    List[Trip]
         A list of Departure objects or None if a error occurred.
     """
     parsed_response = []
@@ -47,39 +44,74 @@ def _parse_trips(result: dict[str, Any], limit: int) -> list[Trip]:
     return parsed_response
 
 
-def get_trips(
-    origin_station_id: str | int,
-    destination_station_id: str | int,
+def get_trip(
+    origin_station_id: Union[str, int],
+    destination_station_id: Union[str, int],
     check_time: datetime = datetime.now(),
-    request_params: dict[str, Any] | None = None,
-    limit: int = 100,
-    session: Session | None = None,
-    **kwargs: dict[str, Any],
-) -> list[Trip]:
-    """This function returns a list of Trip objects.
-
-    * TODO: error handling
+    request_params: Optional[Dict[str, Any]] = None,
+    session: Optional[Session] = None,
+    **kwargs,
+) -> List[Trip]:
+    """A wrapper function for `get_trips` which returns only the first result.
 
     Parameters
     ----------
-    origin_station_id : str | int
+    origin_station_id : Union[str, int]
         Origin station where you want to start your trip.
-    destination_station_id : str | int
+    destination_station_id : Union[str, int]
         Destination station where you want to end your trip.
     check_time : datetime, optional
-        Time you want to check. By default datetime.now().
-    request_params : dict[str, Any] | None, optional
-        Params parsed to the api request (e.g. proxies). By default None.
-    limit : int, optional
-        Limit request/result on this integer. By default 100.
-    session : Session | None, optional
-        If set, uses a given requests.session object for requests. By default None.
-    **kwargs : dict[str, Any]
+        Time you want to check. _By default `datetime.now()`._
+    request_params : Optional[Dict[str, Any]], optional
+        Params parsed to the api request (e.g. proxies). _By default `None`._
+    session : Optional[Session], optional
+        If set, uses a given requests.session object for requests. _By default `None`._
+    **kwargs : Dict[str, Any]
         Additional parameters to pass to the API request.
 
     Returns
     -------
-    list[Trip]
+    List[Trip]
+        Returns a list with one Trip object or a empty list if an error occurred.
+    """
+    return get_trips(origin_station_id, destination_station_id, check_time, 1, request_params, session, **kwargs)
+
+
+def get_trips(
+    origin_station_id: Union[str, int],
+    destination_station_id: Union[str, int],
+    check_time: datetime = datetime.now(),
+    limit: int = 100,
+    request_params: Optional[Dict[str, Any]] = None,
+    session: Optional[Session] = None,
+    **kwargs,
+) -> List[Trip]:
+    """This function returns a list of Trip objects.
+
+    * TODO: error handling
+    * TODO: Switch from `kwargs` to dataclasses or pydantic
+    * TODO: Add method to get the raw response
+
+    Parameters
+    ----------
+    origin_station_id : Union[str, int]
+        Origin station where you want to start your trip.
+    destination_station_id : Union[str, int]
+        Destination station where you want to end your trip.
+    check_time : datetime, optional
+        Time you want to check. _By default `datetime.now()`._
+    limit : int, optional
+        Limit request/result on this integer. _By default `100`._
+    request_params : Optional[Dict[str, Any]], optional
+        Params parsed to the api request (e.g. proxies). _By default `None`._
+    session : Optional[Session], optional
+        If set, uses a given requests.session object for requests. _By default `None`._
+    **kwargs : Dict[str, Any]
+        Additional parameters to pass to the API request.
+
+    Returns
+    -------
+    List[Trip]
         Returns a list of Trip objects.
 
     Examples

@@ -1,71 +1,80 @@
 from datetime import datetime
+from typing import Any, Dict, Optional
 
 from vvspy.models.line_operator import LineOperator
 from vvspy.models.serving_line import ServingLine
 
 
 class Departure:
-    """
-
-    Departure object from a departure request of one station.
+    """Departure object from a departure request of one station.
 
     Attributes
     -----------
-
-    raw :class:`dict`
+    raw : Dict[str, Any]
         Raw dict received by the API.
-    stop_id :class:`str`
-        Station_id of the departure.
-    x :class:`str`
-        Coordinates of the station.
-    y :class:`str`
-        Coordinates of the station.
-    map_name :class:`str`
-        Map name the API works on.
-    area :class:`str`
-        The area of the station (unsure atm)
-    platform :class:`str`
-        Platform / track of the departure.
-    platform_name :class:`str`
-        name of the platform.
-    stop_name :class:`str`
-        name of the station.
-    name_wo :class:`str`
-        name of the station.
-    countdown :class:`int`
-        minutes until departure.
-    datetime :class:`datetime.datetime`
+    stop_id : str
+        Station_id of the departure. _By default `""`._
+    platform : str
+        Platform / track of the departure. _By default `""`._
+    platform_name : str
+        Name of the platform. _By default `""`._
+    stop_name : str
+        Name of the station. _By default `""`._
+    name_wo : str
+        Name of the station. _By default `""`._
+    area : str
+        The area of the station (unsure atm). _By default `""`._
+    x : str
+        Coordinates of the station. _By default `""`._
+    y : str
+        Coordinates of the station. _By default `""`._
+    map_name : str
+        Map name the API works on. _By default `""`._
+    serving_line : ServingLine
+        line of the incoming departure. _By default `ServingLine({})`._
+    operator : LineOperator
+        Operator of the incoming departure. _By default `LineOperator({})`._
+    stop_infos : Optional[Dict[str, Any]]
+        All related info to the station (e.g. maintenance work).
+    line_infos : Optional[Dict[str, Any]]
+        All related info to the station (e.g. maintenance work).
+    point_type : Optional[str]
+        _None_
+    countdown : int
+        Minutes until departure. _By default `-1`._
+    datetime : Optional[datetime]
         Planned departure datetime.
-    real_datetime :class:`datetime.datetime`
-        Estimated departure datetime (equal to ``self.datetime`` if no realtime data is available).
-    delay :class:`int`
-        Delay of departure in minutes.
-    serving_line :class:`ServingLine`
-        line of the incoming departure.
-    operator :class:`LineOperator`
-        Operator of the incoming departure.
-    stop_infos: Optional[:class:`dict`]
-        All related info to the station (e.g. maintenance work).
-    line_infos Optional[:class:`dict`]
-        All related info to the station (e.g. maintenance work).
+    real_datetime : Optional[datetime]
+        Estimated departure datetime (equal to `self.datetime` if no realtime data is available).
+    delay : int
+        Delay of departure in minutes. _By default `-1`._
     """
 
     def __init__(self, **kwargs) -> None:
-        self.stop_id = kwargs.get("stopID")
-        self.x = kwargs.get("x")
-        self.y = kwargs.get("y")
-        self.map_name = kwargs.get("mapName")
-        self.area = kwargs.get("area")
-        self.platform = kwargs.get("platform")
-        self.platform_name = kwargs.get("platformName")
-        self.stop_name = kwargs.get("stopName")
-        self.name_wo = kwargs.get("nameWO")
-        self.point_type = kwargs.get("pointType")
-        self.countdown = int(kwargs.get("countdown", "0"))
-        dt = kwargs.get("dateTime")
+        self.raw = kwargs
+        self.stop_id: str = kwargs.get("stopID", "")
+        self.platform: str = kwargs.get("platform", "")
+        self.platform_name: str = kwargs.get("platformName", "")
+        self.stop_name: str = kwargs.get("stopName", "")
+        self.name_wo: str = kwargs.get("nameWO", "")
+        self.area: str = kwargs.get("area", "")
+        self.x: str = kwargs.get("x", "")
+        self.y: str = kwargs.get("y", "")
+        self.map_name: str = kwargs.get("mapName", "")
+        self.serving_line = ServingLine(**kwargs.get("servingLine", {}))
+        self.operator = LineOperator(**kwargs.get("operator", {}))
+        self.stop_infos: Optional[Dict[str, Any]] = kwargs.get("stopInfos")
+        self.line_infos: Optional[Dict[str, Any]] = kwargs.get("lineInfos")
+        self.point_type: Optional[str] = kwargs.get("pointType")
+
+        self.countdown: int = int(kwargs.get("countdown", -1))
+        # TODO: Refactor this
+        self.datetime: Optional[datetime] = None
+        self.real_datetime: Optional[datetime] = self.datetime
+        dt = kwargs.get("dateTime", None)
         if dt:
             try:
-                self.datetime: datetime | None = datetime(
+                self.datetime = datetime(
                     year=int(dt.get("year", datetime.now().year)),
                     month=int(dt.get("month", datetime.now().month)),
                     day=int(dt.get("day", datetime.now().day)),
@@ -76,10 +85,10 @@ class Departure:
                 pass
         else:
             self.datetime = None
-        r_dt = kwargs.get("realDateTime")
+        r_dt = kwargs.get("realDateTime", None)
         if r_dt:
             try:
-                self.real_datetime: datetime | None = datetime(
+                self.real_datetime = datetime(
                     year=int(r_dt.get("year", datetime.now().year)),
                     month=int(r_dt.get("month", datetime.now().month)),
                     day=int(r_dt.get("day", datetime.now().day)),
@@ -91,15 +100,9 @@ class Departure:
         else:
             self.real_datetime = self.datetime
 
+        self.delay: int = -1
         if self.datetime and self.real_datetime is not None:
-            self.delay: int | None = int((self.real_datetime - self.datetime).total_seconds() / 60)
-        self.serving_line = ServingLine(**kwargs.get("servingLine", {}))
-        self.operator = LineOperator(**kwargs.get("operator", {}))
-
-        # inserted raw
-        self.raw = kwargs
-        self.stop_infos = kwargs.get("stopInfos")
-        self.line_infos = kwargs.get("lineInfos")
+            self.delay = int((self.real_datetime - self.datetime).total_seconds() / 60)
 
     def __str__(self) -> str:
         pre = ""

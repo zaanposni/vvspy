@@ -1,32 +1,31 @@
-from typing import Any
+from typing import Any, Dict, Optional
 
 from loguru import logger
-from requests import Session, get
-from requests.models import Response
+from requests import Response, Session, get
 
 
 def get_request(
     url: str,
-    params: dict[str, Any],
-    request_params: dict[str, Any],
-    session: Session | None,
-) -> Response | None:
+    params: Dict[str, Any],
+    request_params: Dict[str, Any],
+    session: Optional[Session],
+) -> Optional[Response]:
     """A helper method which returns the raw API response.
 
     Parameters
     ----------
     url : str
         The API url.
-    params : dict[str, Any]
+    params : Dict[str, Any]
         The parameters for the API request.
-    request_params : dict[str, Any]
+    request_params : Dict[str, Any]
         The parameters for the request.
-    session : Session | None
+    session : Optional[Session]
         If a session is provided, the request will be made using the session.
 
     Returns
     -------
-    Response | None
+    Optional[Response]
         Depending on the success of the request, a Response object or None is returned.
     """
     try:

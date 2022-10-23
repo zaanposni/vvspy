@@ -2,13 +2,10 @@ from vvspy.models.connection import Connection
 
 
 class Trip:
-    """
-
-    Result object from a trip request from one station to another including interchanges
+    """Result object from a trip request from one station to another including interchanges
 
     Attributes
     -----------
-
     raw :class:`dict`
         Raw dict received by the API.
     connections List[:class:`Connection`]

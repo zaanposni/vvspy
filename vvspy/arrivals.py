@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from typing import Any
+from typing import Any, Dict, List, Optional, Union
 
 from loguru import logger
 from requests import Session
@@ -11,23 +11,20 @@ from vvspy.utils.get_request import get_request
 __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
 
-def _parse_arrivals(result: dict[str, Any], limit: int) -> list[Arrival]:
+def _parse_arrivals(result: Dict[str, Any], limit: int) -> List[Arrival]:
     """Parser which selects the relevant data from the API response.
     And next converts them to Arrival objects and returns them in a list.
 
-    * TODO: Abstract the parser to a separate class.
-    * TODO: Add option to limit the number of results.
-
     Parameters
     ----------
-    result : dict[str, Any]
+    result : Dict[str, Any]
         The API response.
     limit : int
         Limit the number of results.
 
     Returns
     -------
-    list[Arrival]
+    List[Arrival]
         A list of Arrival objects or None if a error occurred.
     """
     parsed_response = []
@@ -46,34 +43,69 @@ def _parse_arrivals(result: dict[str, Any], limit: int) -> list[Arrival]:
     return parsed_response
 
 
-def get_arrivals(
-    station_id: str | int,
+def get_arrival(
+    station_id: Union[str, int],
     check_time: datetime = datetime.now(),
-    limit: int = 100,
-    request_params: dict[str, Any] | None = None,
-    session: Session | None = None,
-    **kwargs: dict[str, Any],
-) -> list[Arrival]:
-    """This function returns a list of arrivals for a given station id.
+    request_params: Optional[Dict[str, Any]] = None,
+    session: Optional[Session] = None,
+    **kwargs,
+) -> Optional[List[Arrival]]:
+    """Wrapper function for `get_arrivals()` which returns only one result.
+
+    * TODO: Think about deleting this function.
 
     Parameters
     ----------
-    station_id : str | int
+    station_id : Union[str, int]
         Station you want to get arrivals from. See csv on root of repository to get your id.
     check_time : datetime, optional
-        Time you want to check. By default datetime.now().
-    limit : int, optional
-        Limit requests to this integer. By default 100.
-    request_params : dict[str, Any] | None, optional
-        Params parsed to the api request (e.g. proxies). By default None.
-    session : Session | None, optional
-        If set, uses a given requests.session object for requests. By default None#.
-    **kwargs : dict[str, Any]
+        Time you want to check. _By default `datetime.now()`._
+    request_params : Optional[Dict[str, Any]], optional
+        Params parsed to the api request (e.g. proxies). _By default `None`._
+    session : Optional[Session], optional
+        If set, uses a given requests.session object for requests. _By default `None`._
+    **kwargs : Dict[str, Any]
         Additional parameters to pass to the API request.
 
     Returns
     -------
-    list[Arrival]
+    Optional[List[Arrival]]
+        Returns a list containing one Arrival object or None if a error occurred.
+    """
+    return get_arrivals(station_id, check_time, 1, request_params, session, **kwargs)
+
+
+def get_arrivals(
+    station_id: Union[str, int],
+    check_time: datetime = datetime.now(),
+    limit: int = 100,
+    request_params: Optional[Dict[str, Any]] = None,
+    session: Optional[Session] = None,
+    **kwargs,
+) -> List[Arrival]:
+    """This function returns a list of arrivals for a given station id.
+
+    * TODO: Switch from `kwargs` to dataclasses or pydantic
+    * TODO: Add method to get the raw response
+
+    Parameters
+    ----------
+    station_id : Union[str, int]
+        Station you want to get arrivals from. See csv on root of repository to get your id.
+    check_time : datetime, optional
+        Time you want to check. _By default `datetime.now()`._
+    limit : int, optional
+        Limit requests to this integer. _By default `100`._
+    request_params : Optional[Dict[str, Any]], optional
+        Params parsed to the api request (e.g. proxies). _By default `None`._
+    session : Optional[Session], optional
+        If set, uses a given requests.session object for requests. _By default `None`._
+    **kwargs : Dict[str, Any]
+        Additional parameters to pass to the API request.
+
+    Returns
+    -------
+    List[Arrival]
         Returns a list of Arrival objects.
 
     Examples

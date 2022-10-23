@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from typing import Any
+from typing import Any, Dict, List, Optional, Union
 
 from loguru import logger
 from requests import Session
@@ -8,27 +8,23 @@ from requests import Session
 from vvspy.models.departure import Departure
 from vvspy.utils.get_request import get_request
 
-# TODO: new station id format de:08111:2599 (lapp kabel)
 __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
 
-def _parse_departures(result: dict[str, Any], limit: int) -> list[Departure]:
+def _parse_departures(result: Dict[str, Any], limit: int) -> List[Departure]:
     """Parser which selects the relevant data from the API response.
     And next converts them to Departure objects and returns them in a list.
 
-    * TODO: Abstract the parser to a separate class.
-    * TODO: Add option to limit the number of results.
-
     Parameters
     ----------
-    result : dict[str, Any]
+    result : Dict[str, Any]
         The API response.
     limit : int
         Limit the number of results.
 
     Returns
     -------
-    list[Departure]
+    List[Departure]
         A list of Departure objects or None if a error occurred.
     """
     parsed_response = []
@@ -47,36 +43,87 @@ def _parse_departures(result: dict[str, Any], limit: int) -> list[Departure]:
     return parsed_response
 
 
-def get_departures(
-    station_id: str | int,
+def departures_now(
+    station_id: Union[str, int],
     check_time: datetime = datetime.now(),
     limit: int = 100,
-    request_params: dict[str, Any] | None = None,
-    session: Session | None = None,
-    **kwargs: dict[str, Any],
-) -> list[Departure]:
-    """This function returns a list of Departure objects.
+    request_params: Optional[Dict[str, Any]] = None,
+    session: Optional[Session] = None,
+    **kwargs,
+) -> List[Departure]:
+    """DEPRECATED: Use `get_departures` instead.
+    Because the default value for `check_time` is now `datetime.now()` this function is deprecated.
 
-    * TODO: error handling
+    * TODO: Remove this function
+    """
+    return get_departures(station_id, check_time, limit, request_params, session, **kwargs)
+
+
+def get_departure(
+    station_id: Union[str, int],
+    check_time: datetime = datetime.now(),
+    request_params: Optional[Dict[str, Any]] = None,
+    session: Optional[Session] = None,
+    **kwargs,
+) -> List[Departure]:
+    """This function is a wrapper for `get_departures()` which returns only one result.
+
+    * TODO: Think about deleting this function.
 
     Parameters
     ----------
-    station_id : str | int
+    station_id : Union[str, int]
         Station you want to get departures from. See csv on root of repository to get your id.
     check_time : datetime, optional
-        Time you want to check. By default datetime.now().
-    limit : int, optional
-        Limit request/result on this integer. By default 100.
-    request_params : dict[str, Any] | None, optional
-        Params parsed to the api request (e.g. proxies). By default None.
-    session : Session | None, optional
-        If set, uses a given requests.session object for requests. By default None.
-    **kwargs : dict[str, Any]
+        Time you want to check. _By default `datetime.now()`._
+    request_params : Optional[Dict[str, Any]], optional
+        Params parsed to the api request (e.g. proxies). _By default `None`._
+    session : Optional[Session], optional
+        If set, uses a given requests.session object for requests. _By default `None`._
+    **kwargs : Dict[str, Any]
         Additional parameters to pass to the API request.
 
     Returns
     -------
-    list[Departure]
+    List[Departure]
+        A list containing one Departure object or None if a error occurred.
+    """
+    return get_departures(station_id, check_time, 1, request_params, session, **kwargs)
+
+
+def get_departures(
+    station_id: Union[str, int],
+    check_time: datetime = datetime.now(),
+    limit: int = 100,
+    request_params: Optional[Dict[str, Any]] = None,
+    session: Optional[Session] = None,
+    **kwargs,
+) -> List[Departure]:
+    """This function returns a list of Departure objects.
+
+    * TODO: error handling
+    * TODO: Switch from `kwargs` to dataclasses or pydantic
+    * TODO: new station id format de:08111:2599 (lapp kabel)
+    * TODO: Add method to get the raw response
+
+    Parameters
+    ----------
+    station_id : Union[str, int]
+        Station you want to get departures from. See csv on root of repository to get your id.
+    check_time : datetime, optional
+        Time you want to check. _By default `datetime.now()`._
+    limit : int, optional
+        Limit request/result on this integer. _By default `100`._
+    request_params : Optional[Dict[str, Any]], optional
+        Params parsed to the api request (e.g. proxies). _By default `None`._
+    session : Optional[Session], optional
+        If set, uses a given requests.session object for requests. _By default `None`._
+    **kwargs : Dict[str, Any]
+        Additional parameters to pass to the API request.
+
+    Returns
+    -------
+    List[Departure]
         Returns a list of Departure objects.
 
     Examples
