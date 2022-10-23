@@ -23,8 +23,13 @@ repos:
         always_run: true
 
       - id: poetry-export
-        name: export poetry (poetry-export)
-        args: ["-f", "requirements.txt", "-o", "requirements.txt"]
+        name: export poetry normal and dev (poetry-export)
+        args: ["--with=dev", "-f", "requirements.txt", "-o", "requirements.txt"]
+        always_run: true
+
+      - id: poetry-export
+        name: export poetry docs (poetry-export)
+        args: ["--only=docs", "-f", "requirements.txt", "-o", "docs/requirements.txt"]
         always_run: true
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
