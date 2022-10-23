@@ -8,7 +8,7 @@ from vvspy.models.departure import Departure
 from vvspy.models.trip import Trip
 from vvspy.trips import _parse_trips as parse_trips
 
-path = Path("tests/mock_results")
+path = Path("data/mock_results")
 
 
 def test_trip_200():
