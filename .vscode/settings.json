@@ -11,7 +11,5 @@
   },
   "autoDocstring.docstringFormat": "numpy",
   "python.formatting.provider": "black",
-  "python.linting.mypyEnabled": true,
-  "python.linting.pylintEnabled": true,
-  "python.linting.flake8Enabled": true
+  "python.linting.mypyEnabled": true
 }

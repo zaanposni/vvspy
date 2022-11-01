@@ -14,7 +14,7 @@ def test_trip_200():
     with open(path / "trip_request_200.json", encoding="utf-8") as file:
         data = json.load(file)
     results = parse_trips(data, limit=100)
-    assert results is not None
+    assert results
     assert all(isinstance(x, Trip) for x in results) is True
     assert results[0].connections[0].origin.delay == 1
 
@@ -32,7 +32,7 @@ def test_arrival_200():
     with open(path / "arrival_request_200.json", encoding="utf-8") as file:
         data = json.load(file)
     results = parse_arrivals(data, limit=100)
-    assert results is not None
+    assert results
     assert all(isinstance(x, Arrival) for x in results) is True
     assert results[0].delay == 1
 
@@ -50,7 +50,7 @@ def test_departure_200():
     with open(path / "departure_request_200.json", encoding="utf-8") as file:
         data = json.load(file)
     results = parse_departures(data, limit=100)
-    assert results is not None
+    assert results
     assert all(isinstance(x, Departure) for x in results) is True
     assert results[0].delay == 1
 

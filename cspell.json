@@ -27,6 +27,7 @@
     "mkdocs",
     "mkdocstrings",
     "mypy",
+    "niveau",
     "numpy",
     "pipx",
     "pydantic",

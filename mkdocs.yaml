@@ -4,7 +4,7 @@ site_description: API Wrapper for VVS (Verkehrsverbund Stuttgart)
 site_author: Zaanposni
 repo_name: vvspy
 repo_url: "https://github.com/zaanposni/vvspy"
-watch: ["vvspy", "docs", "tests", "mkdocs.yaml", "pyproject.toml", "README.md"]
+watch: ["vvspy", "docs", "mkdocs.yaml", "pyproject.toml", "README.md"]
 
 # Navigation
 nav:
@@ -14,10 +14,7 @@ nav:
       - Functions: package/functions.md
       - Models: package/models.md
       - Utilities: package/utils.md
-  - Examples:
-      - Examples: examples/index.md
-      - Departures: examples/departures.ipynb
-      - Trips: examples/trips.ipynb
+  - Examples: examples.md
   - Help: help.md
   - License: license.md
 
@@ -33,7 +30,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: [src]
+          paths: [vvspy]
           import:
             - https://docs.python.org/3/objects.inv
             - https://mkdocstrings.github.io/objects.inv

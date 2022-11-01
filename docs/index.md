@@ -1,5 +1,5 @@
 <h1 align="center">
-  VVSPY - VVS API Wrapper 🚆
+  VVSPY - Python API Wrapper 🚆
 </h1>
 
 <h4 align="center">
@@ -27,7 +27,7 @@ I always wanted to get some insights into public transport, and as I am very pro
 
 ## Installation
 
-> :arrow_up: Python 3.8 or higher required.
+> :arrow_up: Python 3.7 or higher required.
 
 This repository is available over [PyPI](https://pypi.org/project/vvspy/). Therefore you can simply install the module with the following command:
 
