@@ -7,7 +7,7 @@ ci:
   skip: [poetry-lock, poetry-export, pytest, pytest-cov]
 
 default_language_version:
-  python: python3.8
+  python: python3.10
 
 # TODO: Add check for yaml
 repos:
@@ -20,17 +20,22 @@ repos:
 
       - id: poetry-lock
         name: lock poetry (poetry-lock)
-        always_run: true
+        files: "pyproject.toml"
 
       - id: poetry-export
-        name: export poetry normal and dev (poetry-export)
-        args: ["--with=dev", "-f", "requirements.txt", "-o", "requirements.txt"]
-        always_run: true
+        name: export dependencies (poetry-export)
+        args: ["-f", "requirements.txt", "-o", "requirements.txt"]
+        files: "poetry.lock"
+
+      - id: poetry-export
+        name: export dev dependencies (poetry-export)
+        args: ["--only=dev", "-f", "requirements.txt", "-o", "requirements_dev.txt"]
+        files: "poetry.lock"
 
       - id: poetry-export
         name: export poetry docs (poetry-export)
         args: ["--only=docs", "-f", "requirements.txt", "-o", "docs/requirements.txt"]
-        always_run: true
+        files: "poetry.lock"
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
@@ -119,5 +124,5 @@ repos:
       - id: pyupgrade
         name: upgrade python code (pyupgrade)
         stages: [commit, push]
-        args: [--py38-plus]
+        args: [--py37-plus]
         always_run: true

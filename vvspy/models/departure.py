@@ -8,28 +8,30 @@ from vvspy.models.serving_line import ServingLine
 class Departure:
     """Departure object from a departure request of one station.
 
+    * TODO: Check which fields are required
+
     Attributes
     -----------
     raw : Dict[str, Any]
         Raw dict received by the API.
-    stop_id : str
-        Station_id of the departure. _By default `""`._
-    platform : str
-        Platform / track of the departure. _By default `""`._
-    platform_name : str
-        Name of the platform. _By default `""`._
-    stop_name : str
-        Name of the station. _By default `""`._
-    name_wo : str
-        Name of the station. _By default `""`._
-    area : str
-        The area of the station (unsure atm). _By default `""`._
-    x : str
-        Coordinates of the station. _By default `""`._
-    y : str
-        Coordinates of the station. _By default `""`._
-    map_name : str
-        Map name the API works on. _By default `""`._
+    stop_id : Optional[str]
+        Station_id of the departure.
+    platform : Optional[str]
+        Platform / track of the departure.
+    platform_name : Optional[str]
+        Name of the platform.
+    stop_name : Optional[str]
+        Name of the station.
+    name_wo : Optional[str]
+        Name of the station.
+    area : Optional[str]
+        The area of the station (unsure atm).
+    x : Optional[str]
+        Coordinates of the station.
+    y : Optional[str]
+        Coordinates of the station.
+    map_name : Optional[str]
+        Map name the API works on.
     serving_line : ServingLine
         line of the incoming departure. _By default `ServingLine({})`._
     operator : LineOperator
@@ -52,15 +54,15 @@ class Departure:
 
     def __init__(self, **kwargs) -> None:
         self.raw = kwargs
-        self.stop_id: str = kwargs.get("stopID", "")
-        self.platform: str = kwargs.get("platform", "")
-        self.platform_name: str = kwargs.get("platformName", "")
-        self.stop_name: str = kwargs.get("stopName", "")
-        self.name_wo: str = kwargs.get("nameWO", "")
-        self.area: str = kwargs.get("area", "")
-        self.x: str = kwargs.get("x", "")
-        self.y: str = kwargs.get("y", "")
-        self.map_name: str = kwargs.get("mapName", "")
+        self.stop_id: Optional[str] = kwargs.get("stopID")
+        self.platform: Optional[str] = kwargs.get("platform")
+        self.platform_name: Optional[str] = kwargs.get("platformName")
+        self.stop_name: Optional[str] = kwargs.get("stopName")
+        self.name_wo: Optional[str] = kwargs.get("nameWO")
+        self.area: Optional[str] = kwargs.get("area")
+        self.x: Optional[str] = kwargs.get("x")
+        self.y: Optional[str] = kwargs.get("y")
+        self.map_name: Optional[str] = kwargs.get("mapName")
         self.serving_line = ServingLine(**kwargs.get("servingLine", {}))
         self.operator = LineOperator(**kwargs.get("operator", {}))
         self.stop_infos: Optional[Dict[str, Any]] = kwargs.get("stopInfos")
@@ -71,7 +73,7 @@ class Departure:
         # TODO: Refactor this
         self.datetime: Optional[datetime] = None
         self.real_datetime: Optional[datetime] = self.datetime
-        dt = kwargs.get("dateTime", None)
+        dt = kwargs.get("dateTime")
         if dt:
             try:
                 self.datetime = datetime(
@@ -85,7 +87,7 @@ class Departure:
                 pass
         else:
             self.datetime = None
-        r_dt = kwargs.get("realDateTime", None)
+        r_dt = kwargs.get("realDateTime")
         if r_dt:
             try:
                 self.real_datetime = datetime(
@@ -101,15 +103,15 @@ class Departure:
             self.real_datetime = self.datetime
 
         self.delay: int = -1
-        if self.datetime and self.real_datetime is not None:
+        if self.datetime and self.real_datetime:
             self.delay = int((self.real_datetime - self.datetime).total_seconds() / 60)
 
     def __str__(self) -> str:
         pre = ""
 
-        if self.delay is not None:
+        if self.delay:
             pre = "[Delayed] " if self.delay > 0 else ""
-        if self.real_datetime is not None:
+        if self.real_datetime:
             if self.real_datetime.date() == datetime.now().date():
                 return f"{pre}[{str(self.real_datetime.strftime('%H:%M'))}] {self.serving_line}"
             return f"{pre}[{str(self.real_datetime)}] {self.serving_line}"

@@ -1,8 +1,8 @@
 import json
+import logging
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Union
 
-from loguru import logger
 from requests import Session
 
 from vvspy.models.trip import Trip
@@ -33,12 +33,10 @@ def _parse_trips(result: Dict[str, Any], limit: int) -> List[Trip]:
         print(result["journeys"])
         parsed_response = [Trip(**trip) for trip in result["journeys"][:limit]]
     except KeyError as err:
-        logger.error(f"Invalid response: {err}")
-        logger.debug(f"Response: {result}")
+        logging.error("Invalid response: %s", err)
         return []
     except Exception as err:
-        logger.error(f"Unknown error: {err}")
-        logger.debug(f"Response: {result}")
+        logging.error("Unknown error: %s", err)
         return []
 
     return parsed_response
@@ -63,9 +61,9 @@ def get_trip(
     check_time : datetime, optional
         Time you want to check. _By default `datetime.now()`._
     request_params : Optional[Dict[str, Any]], optional
-        Params parsed to the api request (e.g. proxies). _By default `None`._
+        Params parsed to the api request (e.g. proxies).
     session : Optional[Session], optional
-        If set, uses a given requests.session object for requests. _By default `None`._
+        If set, uses a given requests.session object for requests.
     **kwargs : Dict[str, Any]
         Additional parameters to pass to the API request.
 
@@ -103,9 +101,9 @@ def get_trips(
     limit : int, optional
         Limit request/result on this integer. _By default `100`._
     request_params : Optional[Dict[str, Any]], optional
-        Params parsed to the api request (e.g. proxies). _By default `None`._
+        Params parsed to the api request (e.g. proxies).
     session : Optional[Session], optional
-        If set, uses a given requests.session object for requests. _By default `None`._
+        If set, uses a given requests.session object for requests.
     **kwargs : Dict[str, Any]
         Additional parameters to pass to the API request.
 
@@ -187,7 +185,6 @@ def get_trips(
         req.encoding = "UTF-8"
         return _parse_trips(req.json(), limit=limit)
     except json.decoder.JSONDecodeError:
-        logger.error("Error in API request")
-        logger.debug(f"Request: {req.status_code}")
-        logger.debug(f"{req.text}")
+        logging.error("Error in API request")
+        logging.debug("Request: %s, Request text: %s", req.status_code, req.text)
         return []

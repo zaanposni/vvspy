@@ -1,6 +1,6 @@
+import logging
 from typing import Any, Dict, Optional
 
-from loguru import logger
 from requests import Response, Session, get
 
 
@@ -14,7 +14,7 @@ def get_request(
 
     Parameters
     ----------
-    url : str
+    url : Optional[str]
         The API url.
     params : Dict[str, Any]
         The parameters for the API request.
@@ -35,13 +35,13 @@ def get_request(
             req = get(url, **request_params, params=params)
 
         if req.status_code != 200:
-            logger.error("The API request returned a non 200 status code.")
-            logger.debug(f"Request returned: {req.status_code}, {req.text}")
+            logging.error("The API request returned a non 200 status code.")
+            logging.debug("Request returned: %s, %s", req.status_code, req.text)
 
             return None
     except ConnectionError:
-        logger.error("Connection error")
-        logger.debug(f"url: {url}, params: {params}, request_params: {request_params}")
+        logging.error("Connection error")
+        logging.debug("url: %s, params: %s, request_params: %s", url, params, request_params)
         return None
 
     return req

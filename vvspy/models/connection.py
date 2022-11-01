@@ -10,6 +10,7 @@ class Connection:
     """Function to initialize a Connection object
 
     * TODO: Check typing for Origin, Destination, and Transportation
+    * TODO: Check which fields are required
 
     Attributes
     -----------
@@ -67,7 +68,11 @@ class Connection:
         dep_pre = "[Delayed] " if self.origin.delay else ""
         arr_pre = "[Delayed] " if self.destination.delay else ""
 
-        if self.origin.departure_time_estimated.date() == datetime.now().date():
+        if (
+            self.origin.departure_time_estimated
+            and self.destination.arrival_time_estimated
+            and self.origin.departure_time_estimated.date() == datetime.now().date()
+        ):
             return f"[{self.transportation.disassembled_name}]: {dep_pre}[{self.origin.departure_time_estimated.strftime('%H:%M')}] @ {self.origin.name} - {arr_pre}[{self.destination.arrival_time_estimated.strftime('%H:%M')}] @ {self.destination.name}"
 
         return f"[{self.transportation.disassembled_name}]: {dep_pre}[{self.origin.departure_time_estimated}] @ {self.origin.name} - {arr_pre}[{self.destination.arrival_time_estimated}] @ {self.destination.name}"
