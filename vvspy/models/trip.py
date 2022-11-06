@@ -13,7 +13,7 @@ class Trip:
     -----------
     raw : Dict[str, Any]
         Raw dict received by the API.
-    connections List[Connection]
+    connections : List[Connection]
         List of connections the trip consists of.
     duration : int
         Seconds the trip takes overall.

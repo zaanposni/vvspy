@@ -9,11 +9,11 @@ watch: ["vvspy", "docs", "mkdocs.yaml", "pyproject.toml", "README.md"]
 # Navigation
 nav:
   - Getting Started: index.md
-  - Package:
-      - Package: package/index.md
-      - Functions: package/functions.md
-      - Models: package/models.md
-      - Utilities: package/utils.md
+  - VVSPY:
+      - Introduction: vvspy/index.md
+      - Functions: vvspy/functions.md
+      - Models: vvspy/models.md
+      - Utilities: vvspy/utils.md
   - Examples: examples.md
   - Help: help.md
   - License: license.md
@@ -24,9 +24,6 @@ plugins:
   - git-revision-date-localized:
       fallback_to_build_date: true
   - autorefs
-  - mkdocs-jupyter:
-      include: ["*.ipynb"]
-      kernel_name: python3
   - mkdocstrings:
       handlers:
         python:

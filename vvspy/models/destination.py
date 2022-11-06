@@ -21,11 +21,10 @@ class Destination:
         Detailed name of the destination station.
     type : Optional[str]
         Type of the destination station. (e.g. bus, track)
-    point_type Optional[str]
+    point_type : Optional[str]
         _None_
     coord : Tuple[int]
-        Coords of the station. _By default `()`._
-    niveau : Optional[int]
+           niveau : Optional[int]
         _None_
     parent : Optional[Dict[str, Any]]
         _None_
@@ -36,7 +35,8 @@ class Destination:
     delay : Optional[int]
         Minutes of delay.
     properties : Optional[Dict[str, Any]]
-        Misc info about the destination.
+        Misc info about the destination. Coords of the station. _By default `()`._
+
     """
 
     def __init__(self, **kwargs) -> None:

@@ -21,7 +21,7 @@ class Origin:
         Detailed name of the origin station.
     type : Optional[str]
         Type of the origin station. (e.g. bus, track)
-    point_type Optional[str]
+    point_type : Optional[str]
         _None_
     coord : Tuple[int]
         Coords of the station. _By default `()`._
