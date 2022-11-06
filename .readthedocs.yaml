@@ -7,7 +7,7 @@ version: 2
 
 python:
   install:
-    - requirements: requirements_docs.txt
+    - requirements: docs/requirements.txt
     - method: pip
       path: .
   system_packages: true

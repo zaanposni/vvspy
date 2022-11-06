@@ -34,7 +34,7 @@ repos:
 
       - id: poetry-export
         name: export poetry docs (poetry-export)
-        args: ["--only=docs", "-f", "requirements.txt", "-o", "requirements_docs.txt"]
+        args: ["--only=docs", "-f", "requirements.txt", "-o", "docs/requirements.txt"]
         files: "poetry.lock"
 
   - repo: https://github.com/pre-commit/pre-commit-hooks

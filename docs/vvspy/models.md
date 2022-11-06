@@ -1,19 +1,19 @@
 # VVSPY Models
 
-::: vvspy.models.arrival
+::: vvspy.models.arrival.Arrival
 
-::: vvspy.models.connection
+::: vvspy.models.connection.Connection
 
-::: vvspy.models.departure
+::: vvspy.models.departure.Departure
 
-::: vvspy.models.destination
+::: vvspy.models.destination.Destination
 
-::: vvspy.models.line_operator
+::: vvspy.models.line_operator.LineOperator
 
-::: vvspy.models.origin
+::: vvspy.models.origin.Origin
 
-::: vvspy.models.serving_line
+::: vvspy.models.serving_line.ServingLine
 
-::: vvspy.models.transportation
+::: vvspy.models.transportation.Transportation
 
-::: vvspy.models.trip
+::: vvspy.models.trip.Trip
