@@ -91,11 +91,14 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/zaanposni/vvspy
-      name: GitHub
+      name: GitHub (zaanposni/vvspy)
 
 # Markdown extensions
 markdown_extensions:
   - attr_list
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences
   - pymdownx.magiclink
   - pymdownx.snippets:
       check_paths: true

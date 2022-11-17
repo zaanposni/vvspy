@@ -31,7 +31,7 @@ I always wanted to get some insights into public transport, and as I am very pro
 
 This repository is available over [PyPI](https://pypi.org/project/vvspy/). Therefore you can simply install the module with the following command:
 
-```bash
+```bash linenums="0"
 pip install vvspy
 ```
 
@@ -62,7 +62,7 @@ for connection in trip.connections:
     print(f"From: {connection.origin.name} - To: {connection.destination.name}")
 ```
 
-```text
+```text linenums="0"
 # Output:
 Duration: 58 minutes
 From: Wallgraben - To: Hauptbf (A.-Klett-Pl.)
@@ -71,27 +71,19 @@ From: Stuttgart Hauptbahnhof (tief) - To: Marbach (N)
 From: Marbach (N) Bf - To: Murr Hardtlinde
 ```
 
-<br>
-
-The following code snippet will **filter the requested departures** for a specific train number.
+During the following code we first get depatures from a specific station. Next we iterate over the results and check if the train is of type `S4`. If so, we print the departure time. In the second example we only check if the train is delayed. If thats the case, we print the delay time.
 
 ```python
 from vvspy import get_departures # alternative: get_departure
 
-departures = get_departures("5006118")  # Stuttgart main station (lower)
+departures = get_departures("5006118", limit=3)  # Stuttgart main station (lower)
+
+# Example 1: Filter by train number
 for departure in departures:
     if departure.serving_line.symbol == "S4":
         print(f"Departure of S4 at {departure.real_datetime}")
-```
 
-<br>
-
-When requesting departure times the object includes a attribute storing the delay a connection has. As shown in the code below you can access this attribute using `connection.delay`.
-
-```python
-from vvspy import get_departures # alternative: get_departure
-
-departures = get_departures("5006115", limit=3)  # Stuttgart main station
+# Example 2: Check for delay
 for departure in departures:
     if departure.delay > 0:
         print("Alarm! Delay detected.")
@@ -103,9 +95,13 @@ for departure in departures:
 
 <br>
 
-This was only a small selection of examples. For more information please see our more detailed [examples](https://vvspy.readthedocs.io/en/latest/examples/).
+> This was only a small selection of examples. For more please check out our [examples](https://vvspy.readthedocs.io/en/latest/examples/) tab.
 
-## Contribution
+## Projects using _vvspy_
+
+- <a href="https://github.com/aschuma/vvs_direct_connect">vvs_direct_connect</a> is a dockerized REST service providing departure data by [@aschuma](https://github.com/aschuma).
+
+## Contributors
 
 <!-- TODO: Add description on how to contribute -->
 
@@ -115,25 +111,21 @@ Thanks to all who have already contributed to this project!
 
 <div>
   <a href="https://github.com/zaanposni">
-    <img src="https://avatars3.githubusercontent.com/u/24491035?s=460&v=4" height=90px, width=90px style="border-radius: 50%" />
+    <img src="https://avatars3.githubusercontent.com/u/24491035?s=460&v=4" height=75px, width=75px style="border-radius: 50%" />
   </a>
   <a href="https://github.com/ArPiiX">
-    <img src="https://avatars1.githubusercontent.com/u/48033823?s=460&v=4" height=90px, width=90px style="border-radius: 50%" />
+    <img src="https://avatars1.githubusercontent.com/u/48033823?s=460&v=4" height=75px, width=75px style="border-radius: 50%" />
   </a>
   <a href="https://github.com/Monkmitrad">
-    <img src="https://avatars1.githubusercontent.com/u/33026966?s=460&v=4" height=90px, width=90px style="border-radius: 50%" />
+    <img src="https://avatars1.githubusercontent.com/u/33026966?s=460&v=4" height=75px, width=75px style="border-radius: 50%" />
   </a>
   <a href="https://github.com/chrrel">
-    <img src="https://avatars.githubusercontent.com/u/7842385?v=4" height=90px, width=90px style="border-radius: 50%" />
+    <img src="https://avatars.githubusercontent.com/u/7842385?v=4" height=75px, width=75px style="border-radius: 50%" />
   </a>
   <a href="https://github.com/mhorst00">
-    <img src="https://avatars.githubusercontent.com/u/36167515?v=4" height=90px, width=90px style="border-radius: 50%" />
+    <img src="https://avatars.githubusercontent.com/u/36167515?v=4" height=75px, width=75px style="border-radius: 50%" />
   </a>
 </div>
-
-## Projects using _vvspy_
-
-- <a href="https://github.com/aschuma/vvs_direct_connect">vvs_direct_connect</a> is a dockerized REST service providing departure data by [@aschuma](https://github.com/aschuma).
 
 ## License
 

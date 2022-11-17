@@ -41,22 +41,6 @@ def _parse_departures(result: Dict[str, Any], limit: int) -> List[Departure]:
     return parsed_response
 
 
-def departures_now(
-    station_id: Union[str, int],
-    check_time: datetime = datetime.now(),
-    limit: int = 100,
-    request_params: Optional[Dict[str, Any]] = None,
-    session: Optional[Session] = None,
-    **kwargs,
-) -> List[Departure]:
-    """DEPRECATED: Use `get_departures` instead.
-    Because the default value for `check_time` is now `datetime.now()` this function is deprecated.
-
-    * TODO: Remove this function
-    """
-    return get_departures(station_id, check_time, limit, request_params, session, **kwargs)
-
-
 def get_departure(
     station_id: Union[str, int],
     check_time: datetime = datetime.now(),
