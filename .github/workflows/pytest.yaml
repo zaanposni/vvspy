@@ -29,5 +29,6 @@ jobs:
         run: poetry install
       - name: Run tests
         run: poetry run pytest
+      # TODO: Increase the code coverage to 80%
       - name: Check code coverage
         run: poetry run pytest --cov --cov-fail-under=50

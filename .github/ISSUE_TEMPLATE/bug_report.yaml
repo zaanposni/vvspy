@@ -1,0 +1,65 @@
+name: Bug report
+description: Create a report to help us improve
+title: "[BUG] <Title>"
+labels: ["bug"]
+assignees: "zaanposni"
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear description of what the bug is. Please attach screenshot into Screenshot section below.
+      placeholder: Bug description
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction Steps
+      description: Steps to reproduce the bug.
+      placeholder: |
+        1. Visit page ...
+        2. Click on ...
+        3. Errors show up ...
+      value: |
+        1. <step one>
+        2. <step two>
+        3. <step three>
+    validations:
+      required: true
+
+  - type: textarea
+    id: expectation
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen. If applicable, add screenshots to help explain your problem.
+      placeholder: It should work like ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        Please complete the following information.
+        - OS: Windows 11, Fedora 36, etc.
+        - Python: 3.10.7
+        - Poetry: 1.2
+      value: |
+        - OS: <version>
+        - Python: <version>
+        - Poetry: <version>
+      placeholder: It should work like ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here.
+    validations:
+      required: false
