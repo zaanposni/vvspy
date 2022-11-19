@@ -30,7 +30,6 @@ def _parse_trips(result: Dict[str, Any], limit: int) -> List[Trip]:
     parsed_response = []
 
     try:
-        print(result["journeys"])
         parsed_response = [Trip(**trip) for trip in result["journeys"][:limit]]
     except KeyError as err:
         logging.error("Invalid response: %s", err)
