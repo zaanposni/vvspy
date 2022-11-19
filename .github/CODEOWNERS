@@ -1,10 +1,8 @@
-- @zaanposni
+* @zaanposni
 
 # PYTHON
-
-\*.py @zaanposni
-/pyproject.toml @zaanposni
+*.py @zaanposni
+pyproject.toml @zaanposni
 
 # TESTS
-
 /tests/ @zaanposni
