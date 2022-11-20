@@ -12,8 +12,9 @@
   <a href="https://vvspy.readthedocs.io/en/latest/" target="_blank">
     <img src="https://img.shields.io/readthedocs/vvspy" />
   </a>
-  <img src="https://github.com/zaanposni/vvspy/workflows/BasicCheckup/badge.svg" alt="Checkup status"/>
-  <img src="https://github.com/zaanposni/vvspy/workflows/Unittests/badge.svg" alt="Checkup status"/>
+  <a href="https://github.com/zaanposni/vvspy/actions/workflows/pytest.yaml">
+    <img src="https://github.com/zaanposni/vvspy/actions/workflows/pytest.yaml/badge.svg?branch=master" alt="Status: Pytest"/>
+  </a>
   <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
   <a href="https://github.com/zaanposni/vvspy/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/>
