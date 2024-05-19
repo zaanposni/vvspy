@@ -2,5 +2,11 @@ include *.csv
 include *.md
 include *.txt
 include LICENSE
+
 recursive-include vvspy *.py
-recursive-include vvspy *.pyc
+
+# Exclude all .pyc files
+global-exclude *.pyc
+
+# Exclude the build directory
+prune build
