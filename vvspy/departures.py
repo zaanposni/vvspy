@@ -5,7 +5,7 @@ from requests.models import Response
 import json
 import logging as __logging
 
-from .enums.stations import Station
+from .enums import Station
 from vvspy.models import Departure
 
 __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"

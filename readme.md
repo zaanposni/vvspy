@@ -20,7 +20,7 @@ pip install vvspy
 
 ```python
 from vvspy import get_departures
-from vvspy.enums.stations import Station
+from vvspy.enums import Station
 
 deps = get_departures(Station.HAUPTBAHNHOF__TIEF, limit=3)
 for dep in deps:
@@ -37,7 +37,7 @@ for dep in deps:
 
 ```python
 from vvspy import get_trip  # also usable: get_trips
-from vvspy.enums.stations import Station
+from vvspy.enums import Station
 
 trip = get_trip(Station.HAUPTBAHNHOF__TIEF, Station.HARDTLINDE)
 
@@ -59,7 +59,7 @@ From: Marbach (N) Bf - To: Murr Hardtlinde
 
 ```python
 from vvspy import get_departures
-from vvspy.enums.stations import Station
+from vvspy.enums import Station
 
 deps = get_departures(Station.HAUPTBAHNHOF__TIEF)
 for dep in deps:

@@ -1,5 +1,5 @@
 from vvspy import get_trips
-from vvspy.enums.stations import Station
+from vvspy.enums import Station
 
 """
 Check connections between two stations and alarm on delay.

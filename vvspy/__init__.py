@@ -5,7 +5,7 @@ from requests.models import Response as __Response
 from requests import Session
 import logging as __logging
 
-from .enums.stations import Station
+from .enums import Station
 from .models import Arrival as __Arrival
 from .models import Departure as __Departure
 from .models import Trip as __Trip

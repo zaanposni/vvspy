@@ -1,5 +1,5 @@
 from vvspy import get_departures
-from vvspy.enums.stations import Station
+from vvspy.enums import Station
 
 """
 Get specific data about incoming departure
