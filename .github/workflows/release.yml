@@ -9,16 +9,6 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Check if the release creator is the owner
-              id: check_owner
-              run: |
-                  CREATOR=$(jq -r .release.creator.login $GITHUB_EVENT_PATH)
-                  OWNER=$(jq -r .repository.owner.login $GITHUB_EVENT_PATH)
-                  if [ "$CREATOR" != "$OWNER" ]; then
-                    echo "The release creator is not the owner of the repository."
-                    exit 1
-                  fi
-
             - name: Set up Python
               uses: actions/setup-python@v3
               with:
