@@ -85,7 +85,7 @@ logger.setLevel(logging.DEBUG)
 
 ## ⭐️ Project assistance
 
-If you want to say **thank you** or/and support active development of `psaggregator`:
+If you want to say **thank you** or/and support active development of `vvspy`:
 
 - Add a [GitHub Star][repo_url] to the project.
 - Support me on [Ko-fi][kofi_url].
@@ -104,7 +104,7 @@ Together, we can make this project **better** every day!
 
 ## 👀 Projects using vvspy
 
-- [vvs_direct_connect][vvs_direct_connect_url] is a dockerized REST service providing departure data by @aschuma.
+- [vvs_direct_connect][vvs_direct_connect_url] is a dockerized REST service providing departure data by aschuma.
 
 ## 🔥 Other projects of the authors
 
@@ -112,8 +112,8 @@ Together, we can make this project **better** every day!
 
 ## ⚠️ License
 
-[`psaggregator`][repo_url] is free and open-source software licensed under
-the [GPL-3.0 License][repo_license_url].
+[vvspy][repo_url] is free and open-source software licensed under
+the [MIT][repo_license_url].
 
 <!-- Repository -->
 
