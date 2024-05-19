@@ -5,7 +5,7 @@ import json
 from typing import Union, List
 import traceback
 
-from .obj import Trip
+from .models import Trip
 
 __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 

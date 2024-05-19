@@ -4,9 +4,9 @@ from typing import Union as __Union
 from requests.models import Response as __Response
 from requests import Session
 
-from .obj import Arrival as __Arrival
-from .obj import Departure as __Departure
-from .obj import Trip as __Trip
+from .models import Arrival as __Arrival
+from .models import Departure as __Departure
+from .models import Trip as __Trip
 from .trip import get_trips
 from .departures import get_departures
 from .arrivals import get_arrivals
@@ -17,7 +17,7 @@ def departures_now(
     limit: int = 100,
     return_resp: bool = False,
     session: Session = None,
-    **kwargs
+    **kwargs,
 ) -> __Union[__List[__Departure], __Response, None]:
     """
     Same as `get_departures`
@@ -33,7 +33,7 @@ def departures_now(
         limit=limit,
         return_resp=return_resp,
         session=session,
-        **kwargs
+        **kwargs,
     )
 
 
@@ -44,7 +44,7 @@ def get_departure(
     request_params: dict = None,
     return_resp: bool = False,
     session: Session = None,
-    **kwargs
+    **kwargs,
 ) -> __Union[__Departure, __Response, None]:
     """
     Same as `get_departures`
@@ -64,7 +64,7 @@ def get_departure(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )
         else:
             return get_departures(
@@ -75,7 +75,7 @@ def get_departure(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )[0]
     except IndexError:  # no results returned
         if debug:
@@ -94,7 +94,7 @@ def get_arrival(
     request_params: dict = None,
     return_resp: bool = False,
     session: Session = None,
-    **kwargs
+    **kwargs,
 ) -> __Union[__Arrival, __Response, None]:
     """
     Same as `get_arrivals`
@@ -114,7 +114,7 @@ def get_arrival(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )
         else:
             return get_arrivals(
@@ -125,7 +125,7 @@ def get_arrival(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )[0]
     except IndexError:  # no results returned
         if debug:
@@ -145,7 +145,7 @@ def get_trip(
     request_params: dict = None,
     return_resp: bool = False,
     session: Session = None,
-    **kwargs
+    **kwargs,
 ) -> __Union[__Trip, __Response, None]:
     """
     Same as `get_trips`
@@ -166,7 +166,7 @@ def get_trip(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )
         else:
             return get_trips(
@@ -177,7 +177,7 @@ def get_trip(
                 debug=debug,
                 request_params=request_params,
                 session=session,
-                **kwargs
+                **kwargs,
             )[0]
     except IndexError:  # no results returned
         if debug:

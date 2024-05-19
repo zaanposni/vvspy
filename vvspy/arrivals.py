@@ -5,7 +5,7 @@ from requests.models import Response
 import json
 import traceback
 
-from .obj import Arrival
+from .models import Arrival
 
 _API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 

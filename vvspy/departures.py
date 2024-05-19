@@ -5,7 +5,7 @@ from requests.models import Response
 import json
 import traceback
 
-from vvspy.obj import Departure
+from vvspy.models import Departure
 
 __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 # TODO: new station id format de:08111:2599 (lapp kabel)
