@@ -35,7 +35,7 @@ jobs:
               run: python start.py
 
     Python_3_7:
-        runs-on: uubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v1
             - name: Set up Python 3.7
