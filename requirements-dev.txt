@@ -1,2 +1,4 @@
+setuptools==69.5.1
 requests==2.31.0
 typing==3.7.4.3
+black==24.4.2

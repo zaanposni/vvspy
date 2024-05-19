@@ -1,30 +1,28 @@
-<h1 align="center">VVS API Wrapper</h1>
-<p align="center">
-<img src="https://img.shields.io/pypi/pyversions/vvspy" />
-<img src="https://img.shields.io/pypi/v/vvspy" />
-<a href="https://vvspy.readthedocs.io/en/latest/" target="_blank"><img src="https://img.shields.io/readthedocs/vvspy" /></a>
-<img src="https://github.com/FI18-Trainees/vvspy/workflows/BasicCheckup/badge.svg" alt="Checkup status"/>
-<img src="https://github.com/FI18-Trainees/vvspy/workflows/Unittests/badge.svg" alt="Checkup status"/>
-<a href="https://github.com/zaanposni/vvs/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/zaanposni/vvs.svg"/></a>
-</p>
+# 🚂 VVS API Wrapper
+
+[![PackageVersion][package_version_img]][package_version_img]
+[![PythonVersions][python_versions_img]][python_versions_img]
+[![License][repo_license_img]][repo_license_url]
 
 **Fully object-oriented library** to integrate the **VVS API** into your project.
 
-- <a href="https://vvspy.readthedocs.io/en/latest/" target="_blank">readthedocs</a>
-
 ## Installation
 
-**Python 3.6 or higher required**
-```
+Python 3.6 or higher required
+
+```bash
 pip install vvspy
 ```
 
 ## Examples
+
 - Detect delay in upcoming departures:
+
 ```python
 from vvspy import get_departures
+from vvspy.enums import Station
 
-deps = get_departures("5006115", limit=3)  # Stuttgart main station
+deps = get_departures(Station.HAUPTBAHNHOF__TIEF, limit=3)
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
@@ -34,16 +32,20 @@ for dep in deps:
         print("Train on time")
         print(dep)  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 ```
+
 - Get complete trip info between two stations (including interchanges):
+
 ```python
 from vvspy import get_trip  # also usable: get_trips
+from vvspy.enums import Station
 
-trip = get_trip("5000355", "5005600")  # Stuttgart main station
+trip = get_trip(Station.HAUPTBAHNHOF__TIEF, Station.HARDTLINDE)
 
 print(f"Duration: {trip.duration / 60} minutes")
 for connection in trip.connections:
     print(f"From: {connection.origin.name} - To: {connection.destination.name}")
 ```
+
 ```text
 # Output:
 Duration: 58 minutes
@@ -52,47 +54,87 @@ From: Hauptbf (Arnulf-Klett-Platz) - To: Stuttgart Hauptbahnhof (tief)
 From: Stuttgart Hauptbahnhof (tief) - To: Marbach (N)
 From: Marbach (N) Bf - To: Murr Hardtlinde
 ```
+
 - Filter for specific lines:
+
 ```python
 from vvspy import get_departures
+from vvspy.enums import Station
 
-deps = get_departures("5006118")  # Stuttgart main station (lower)
+deps = get_departures(Station.HAUPTBAHNHOF__TIEF)
 for dep in deps:
     if dep.serving_line.symbol == "S4":
         print(f"Departure of S4 at {dep.real_datetime}")
 ```
 
-## Get your station id
+### Get your station id
 
-See: <a href="https://github.com/FI18-Trainees/vvspy/issues/12#issuecomment-568175314">https://github.com/FI18-Trainees/vvspy/issues/12#issuecomment-568175314</a>
+See: [#64][station_id_issue_url]
 
+### Logging
 
-## Features
+vvspy uses the python logging module. If you want to change the log level of vvsp, use the following:
 
-- [x] full customizable requests and parameters
-- [x] parsing all available info into result obj
-- [x] Well tested and maintained
-- [x] Departures, Arrivals, Trips, Station info, Upcoming events, Maintenance work
+```python
+import logging
 
-- See issues/projects on GitHub for upcoming features
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("vvspy")
+logger.setLevel(logging.DEBUG)
+```
 
-## Contributors <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
+## ⭐️ Project assistance
 
-<a href="https://github.com/zaanposni"><img src="https://avatars3.githubusercontent.com/u/24491035?s=460&v=4"
-                                            height=90px, width=90px style="border-radius: 50%" /></a>
-<a href="https://github.com/ArPiiX"><img src="https://avatars1.githubusercontent.com/u/48033823?s=460&v=4"
-                                         height=90px, width=90px style="border-radius: 50%" /></a>
-<a href="https://github.com/Monkmitrad"><img src="https://avatars1.githubusercontent.com/u/33026966?s=460&v=4"
-                                             height=90px, width=90px style="border-radius: 50%" /></a>
-<a href="https://github.com/chrrel"><img src="https://avatars.githubusercontent.com/u/7842385?v=4"
-                                             height=90px, width=90px style="border-radius: 50%" /></a>
-<a href="https://github.com/mhorst00"><img src="https://avatars.githubusercontent.com/u/36167515?v=4"
-                                             height=90px, width=90px style="border-radius: 50%" /></a>
+If you want to say **thank you** or/and support active development of `vvspy`:
 
-## Projects using vvspy
+- Add a [GitHub Star][repo_url] to the project.
+- Support me on [Ko-fi][kofi_url].
 
-- <a href="https://github.com/aschuma/vvs_direct_connect">vvs_direct_connect</a> is a dockerized REST service providing departure data by @[aschuma](https://github.com/aschuma).
+## 🏆 A win-win cooperation
 
-## License:
+And now, I invite you to participate in this project! Let's work **together** to
+create the **most useful** tool for all PietSmiet Enjoyers.
 
-This project is licensed under MIT.
+- [Issues][repo_issues_url]: ask questions and submit your features.
+- [Pull requests][repo_pull_request_url]: send your improvements to the current.
+- [Mail][mail_url]: send your ideas for the project.
+- [Discord][discord_url]: add me as a friend on Discord: @zaanposni
+
+Together, we can make this project **better** every day!
+
+## 👀 Projects using vvspy
+
+- [vvs_direct_connect][vvs_direct_connect_url] is a dockerized REST service providing departure data by aschuma.
+
+## 🔥 Other projects of the authors
+
+- [discord-masz][discord_masz_url] - MASZ is a selfhostable highly sophisticated moderation bot for Discord. Includes a web dashboard and a discord bot.
+
+## ⚠️ License
+
+[vvspy][repo_url] is free and open-source software licensed under
+the [MIT][repo_license_url].
+
+<!-- Repository -->
+
+[repo_url]: https://github.com/zaanposni/vvspy
+[repo_issues_url]: https://github.com/zaanposni/vvspy/issues
+[repo_pull_request_url]: https://github.com/zaanposni/vvspy/pulls
+[repo_license_url]: https://github.com/zaanposni/vvspy/blob/master/LICENSE
+[repo_license_img]: https://img.shields.io/badge/license-MIT-red?style=for-the-badge&logo=none
+
+[python_versions_img]: https://img.shields.io/pypi/pyversions/vvspy?style=for-the-badge
+[package_version_img]: https://img.shields.io/pypi/v/vvspy?style=for-the-badge
+
+[station_id_issue_url]: https://github.com/zaanposni/vvspy/issues/64
+
+<!-- Author -->
+
+[kofi_url]: https://ko-fi.com/zaanposni
+[discord_masz_url]: https://github.com/zaanposni/discord-masz
+[mail_url]: mailto:vvspy@zaanposni.com
+[discord_url]: https://discord.com
+
+<!-- Projects -->
+
+[vvs_direct_connect_url]: https://github.com/aschuma/vvs_direct_connect

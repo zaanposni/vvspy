@@ -3,27 +3,31 @@ from typing import List as __List
 from typing import Union as __Union
 from requests.models import Response as __Response
 from requests import Session
+import logging as __logging
 
-from .obj import Arrival as __Arrival
-from .obj import Departure as __Departure
-from .obj import Trip as __Trip
+from .enums import Station
+from .models import Arrival as __Arrival
+from .models import Departure as __Departure
+from .models import Trip as __Trip
 from .trip import get_trips
 from .departures import get_departures
 from .arrivals import get_arrivals
 
 
+__logger = __logging.getLogger("vvspy")
+
 def departures_now(
-    station_id: __Union[str, int],
+    station_id: __Union[str, int, Station],
     limit: int = 100,
     return_resp: bool = False,
     session: Session = None,
-    **kwargs
+    **kwargs,
 ) -> __Union[__List[__Departure], __Response, None]:
     """
     Same as `get_departures`
     But `datetime.datetime.now()` is already used as parameter.
 
-    Returns: List[:class:`vvspy.obj.Departure`]
+    Returns: List[:class:`vvspy.models.Departure`]
     Returns none on webrequest errors or no results found.
 
     """
@@ -33,24 +37,24 @@ def departures_now(
         limit=limit,
         return_resp=return_resp,
         session=session,
-        **kwargs
+        **kwargs,
     )
 
 
 def get_departure(
-    station_id: __Union[str, int],
+    station_id: __Union[str, int, Station],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
     return_resp: bool = False,
     session: Session = None,
-    **kwargs
+    **kwargs,
 ) -> __Union[__Departure, __Response, None]:
     """
     Same as `get_departures`
     But limited to one obj as result.
 
-    Returns: :class:`vvspy.obj.Departure`
+    Returns: :class:`vvspy.models.Departure`
     Returns none on webrequest errors or no results found.
 
     """
@@ -64,7 +68,7 @@ def get_departure(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )
         else:
             return get_departures(
@@ -75,32 +79,30 @@ def get_departure(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )[0]
-    except IndexError:  # no results returned
-        if debug:
-            print("No departures found.")
-        return
-    except TypeError:  # none returned | most likely an error
-        if debug:
-            print("Error on webrequest")
-        return
+    except IndexError as e:  # no results returned
+        __logger.error(f"No departures found. {e}")
+        raise e
+    except TypeError as e:  # none returned | most likely an error
+        __logger.error(f"Error on webrequest. {e}")
+        raise e
 
 
 def get_arrival(
-    station_id: __Union[str, int],
+    station_id: __Union[str, int, Station],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
     return_resp: bool = False,
     session: Session = None,
-    **kwargs
+    **kwargs,
 ) -> __Union[__Arrival, __Response, None]:
     """
     Same as `get_arrivals`
     But limited to one obj as result.
 
-    Returns: :class:`vvspy.obj.Arrival`
+    Returns: :class:`vvspy.models.Arrival`
     Returns none on webrequest errors or no results found.
 
     """
@@ -114,7 +116,7 @@ def get_arrival(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )
         else:
             return get_arrivals(
@@ -125,33 +127,31 @@ def get_arrival(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )[0]
-    except IndexError:  # no results returned
-        if debug:
-            print("No arrivals found.")
-        return
-    except TypeError:  # none returned | most likely an error
-        if debug:
-            print("Error on webrequest")
-        return
+    except IndexError as e:  # no results returned
+        __logger.error(f"No arrivals found. {e}")
+        raise e
+    except TypeError as e:  # none returned | most likely an error
+        __logger.error(f"Error on webrequest. {e}")
+        raise e
 
 
 def get_trip(
-    origin_station_id: __Union[str, int],
-    destination_station_id: __Union[str, int],
+    origin_station_id: __Union[str, int, Station],
+    destination_station_id: __Union[str, int, Station],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
     return_resp: bool = False,
     session: Session = None,
-    **kwargs
+    **kwargs,
 ) -> __Union[__Trip, __Response, None]:
     """
     Same as `get_trips`
     But limited to one obj as result.
 
-    Returns: :class:`vvspy.obj.Trip`
+    Returns: :class:`vvspy.models.Trip`
     Returns none on webrequest errors or no results found.
 
     """
@@ -166,7 +166,7 @@ def get_trip(
                 request_params=request_params,
                 return_resp=return_resp,
                 session=session,
-                **kwargs
+                **kwargs,
             )
         else:
             return get_trips(
@@ -177,13 +177,11 @@ def get_trip(
                 debug=debug,
                 request_params=request_params,
                 session=session,
-                **kwargs
+                **kwargs,
             )[0]
-    except IndexError:  # no results returned
-        if debug:
-            print("No trips found.")
-        return
-    except TypeError:  # none returned | most likely an error
-        if debug:
-            print("Error on webrequest")
-        return
+    except IndexError as e:
+        __logger.error(f"No trips found. {e}")
+        raise e
+    except TypeError as e:
+        __logger.error(f"Error on webrequest. {e}")
+        raise e

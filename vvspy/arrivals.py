@@ -3,26 +3,26 @@ from datetime import datetime
 import requests
 from requests.models import Response
 import json
-import traceback
+import logging as __logging
 
-from .obj import Arrival
+from .enums import Station
+from .models import Arrival
 
 _API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
-
+__logger = __logging.getLogger("vvspy")
 
 def get_arrivals(
-    station_id: Union[str, int],
+    station_id: Union[str, int, Station],
     check_time: datetime = None,
     limit: int = 100,
-    debug: bool = False,
     request_params: dict = None,
-    return_resp: bool = False,
+    return_response: bool = False,
     session: requests.Session = None,
     **kwargs,
 ) -> Union[List[Arrival], Response, None]:
     r"""
 
-    Returns: List[:class:`vvspy.obj.Arrival`]
+    Returns: List[:class:`vvspy.models.Arrival`]
     Returns none on webrequest errors.
 
     Examples
@@ -42,22 +42,18 @@ def get_arrivals(
 
     Parameters
     ----------
-        station_id Union[:class:`int`, :class:`str`]
+        station_id Union[:class:`int`, :class:`str`, :class:`vvspy.enums.Station`]
             Station you want to get arrivals from.
-            See csv on root of repository to get your id.
         check_time Optional[:class:`datetime.datetime`]
             Time you want to check.
             default datetime.now()
         limit Optional[:class:`int`]
             Limit request/result on this integer.
             default 100
-        debug Optional[:class:`bool`]
-            Get advanced debug prints on failed web requests
-            default False
         request_params Optional[:class:`dict`]
             params parsed to the api request (e.g. proxies)
             default {}
-        return_resp Optional[:class:`bool`]
+        return_response Optional[:class:`bool`]
             if set, the function returns the response object of the API request.
         session Optional[:class:`requests.Session`]
             if set, uses a given requests.session object for requests
@@ -85,7 +81,7 @@ def get_arrivals(
         "type_dm": kwargs.get("type_dm", "any"),
         "anyObjFilter_dm": kwargs.get("anyObjFilter_dm", 2),
         "deleteAssignedStops": kwargs.get("deleteAssignedStops", 1),
-        "name_dm": station_id,
+        "name_dm": station_id.value,
         "mode": kwargs.get("mode", "direct"),
         "dmLineSelectionAll": kwargs.get("dmLineSelectionAll", 1),
         "useRealtime": kwargs.get("useRealtime", 1),  # live delay
@@ -100,36 +96,30 @@ def get_arrivals(
         "itdTripDateTimeDepArr": "arr",
     }
 
-    try:
-        if session:
-            session.get(_API_URL, **{**request_params, **{"params": params}})
-        else:
-            r = requests.get(_API_URL, **{**request_params, **{"params": params}})
-    except ConnectionError as e:
-        print("ConnectionError")
-        traceback.print_exc()
-        return
+    if session:
+        r = session.get(_API_URL, **{**request_params, **{"params": params}})
+    else:
+        r = requests.get(_API_URL, **{**request_params, **{"params": params}})
+
+    __logger.debug(f"Request took {r.elapsed.total_seconds()}s and returned {r.status_code}")
 
     if r.status_code != 200:
-        if debug:
-            print("Error in API request")
-            print(f"Request: {r.status_code}")
-            print(f"{r.text}")
-        return
+        __logger.error("Error in API request")
+        __logger.error(f"Request: {r.status_code}")
+        __logger.error(f"{r.text}")
+        raise Exception(f"Error in API request: {r.status_code}")
 
-    if return_resp:
+    if return_response:
         return r
+
+    __logger.debug("Initializing parsing of response...")
 
     try:
         r.encoding = "UTF-8"
-        return _parse_response(r.json())  # TODO: error handling
-    except json.decoder.JSONDecodeError:
-        if debug:
-            print("Error in API request")
-            print("Received invalid json")
-            print(f"Request: {r.status_code}")
-            print(f"{r.text}")
-        return
+        return _parse_response(r.json())
+    except json.decoder.JSONDecodeError as e:
+        __logger.error("Error in API request. Received invalid JSON. Status code: %s", r.status_code)
+        raise e
 
 
 def _parse_response(result: dict) -> List[Arrival]:
