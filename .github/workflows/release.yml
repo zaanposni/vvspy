@@ -1,0 +1,47 @@
+name: Upload to PyPI on Release
+
+on:
+    release:
+        types: [created]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check if the release creator is the owner
+              id: check_owner
+              run: |
+                  CREATOR=$(jq -r .release.creator.login $GITHUB_EVENT_PATH)
+                  OWNER=$(jq -r .repository.owner.login $GITHUB_EVENT_PATH)
+                  if [ "$CREATOR" != "$OWNER" ]; then
+                    echo "The release creator is not the owner of the repository."
+                    exit 1
+                  fi
+
+            - name: Set up Python
+              uses: actions/setup-python@v3
+              with:
+                  python-version: 3.12
+
+            - name: Install dependencies
+              run: |
+                  python3 -m pip install --upgrade pip
+                  pip install -r requirements-dev.txt
+                  python3 -m pip install --upgrade build
+
+            - name: Build package
+              run: python3 -m build
+
+            - name: Install twine
+              run: python3 -m pip install --upgrade twine
+
+            - name: Check package
+              run: twine check dist/*
+
+            - name: Upload to PyPI
+              env:
+                  TWINE_USERNAME: __token__
+                  TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+              run: |
+                  python3 -m twine upload dist/*
