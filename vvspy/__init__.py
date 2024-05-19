@@ -3,9 +3,9 @@ from typing import List as __List
 from typing import Union as __Union
 from requests.models import Response as __Response
 from requests import Session
+import logging as __logging
 
-from vvspy.enums.stations import Station
-
+from .enums.stations import Station
 from .models import Arrival as __Arrival
 from .models import Departure as __Departure
 from .models import Trip as __Trip
@@ -13,6 +13,8 @@ from .trip import get_trips
 from .departures import get_departures
 from .arrivals import get_arrivals
 
+
+__logger = __logging.getLogger("vvspy")
 
 def departures_now(
     station_id: __Union[str, int, Station],
@@ -79,14 +81,12 @@ def get_departure(
                 session=session,
                 **kwargs,
             )[0]
-    except IndexError:  # no results returned
-        if debug:
-            print("No departures found.")
-        return
-    except TypeError:  # none returned | most likely an error
-        if debug:
-            print("Error on webrequest")
-        return
+    except IndexError as e:  # no results returned
+        __logger.error(f"No departures found. {e}")
+        raise e
+    except TypeError as e:  # none returned | most likely an error
+        __logger.error(f"Error on webrequest. {e}")
+        raise e
 
 
 def get_arrival(
@@ -129,14 +129,12 @@ def get_arrival(
                 session=session,
                 **kwargs,
             )[0]
-    except IndexError:  # no results returned
-        if debug:
-            print("No arrivals found.")
-        return
-    except TypeError:  # none returned | most likely an error
-        if debug:
-            print("Error on webrequest")
-        return
+    except IndexError as e:  # no results returned
+        __logger.error(f"No arrivals found. {e}")
+        raise e
+    except TypeError as e:  # none returned | most likely an error
+        __logger.error(f"Error on webrequest. {e}")
+        raise e
 
 
 def get_trip(
@@ -181,11 +179,9 @@ def get_trip(
                 session=session,
                 **kwargs,
             )[0]
-    except IndexError:  # no results returned
-        if debug:
-            print("No trips found.")
-        return
-    except TypeError:  # none returned | most likely an error
-        if debug:
-            print("Error on webrequest")
-        return
+    except IndexError as e:
+        __logger.error(f"No trips found. {e}")
+        raise e
+    except TypeError as e:
+        __logger.error(f"Error on webrequest. {e}")
+        raise e

@@ -3,23 +3,21 @@ import requests
 from requests.models import Response
 import json
 from typing import Union, List
-import traceback
+import logging as __logging
 
-from vvspy.enums.stations import Station
-
+from .enums.stations import Station
 from .models import Trip
 
 __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
-
+__logger = __logging.getLogger("vvspy")
 
 def get_trips(
     origin_station_id: Union[str, int, Station],
     destination_station_id: Union[str, int, Station],
     check_time: datetime = None,
     limit: int = 100,
-    debug: bool = False,
     request_params: dict = None,
-    return_resp: bool = False,
+    return_response: bool = False,
     session: requests.Session = None,
     **kwargs,
 ) -> Union[List[Trip], Response, None]:
@@ -53,13 +51,10 @@ def get_trips(
         limit Optional[:class:`int`]
             Limit request/result on this integer.
             default 100
-        debug Optional[:class:`bool`]
-            Get advanced debug prints on failed web requests
-            default False
         request_params Optional[:class:`dict`]
             params parsed to the api request (e.g. proxies)
             default {}
-        return_resp Optional[:class:`bool`]
+        return_response Optional[:class:`bool`]
             if set, the function returns the response object of the API request.
         session Optional[:class:`requests.Session`]
             if set, uses a given requests.session object for requests
@@ -118,36 +113,30 @@ def get_trips(
         "w_regPrefAm": kwargs.get("w_regPrefAm", "1"),
     }
 
-    try:
-        if session:
-            r = session.get(__API_URL, **{**request_params, **{"params": params}})
-        else:
-            r = requests.get(__API_URL, **{**request_params, **{"params": params}})
-    except ConnectionError:
-        print("ConnectionError")
-        traceback.print_exc()
-        return
+    if session:
+        r = session.get(__API_URL, **{**request_params, **{"params": params}})
+    else:
+        r = requests.get(__API_URL, **{**request_params, **{"params": params}})
+
+    __logger.debug(f"Request took {r.elapsed.total_seconds()}s and returned {r.status_code}")
 
     if r.status_code != 200:
-        if debug:
-            print("Error in API request")
-            print(f"Request: {r.status_code}")
-            print(f"{r.text}")
-        return
+        __logger.error("Error in API request")
+        __logger.error(f"Request: {r.status_code}")
+        __logger.error(f"{r.text}")
+        raise Exception(f"Error in API request: {r.status_code}")
 
-    if return_resp:
+    if return_response:
         return r
+
+    __logger.debug("Initializing parsing of response...")
 
     try:
         r.encoding = "UTF-8"
-        return _parse_response(r.json(), limit=limit)  # TODO: error handling
-    except json.decoder.JSONDecodeError:
-        if debug:
-            print("Error in API request")
-            print("Received invalid json")
-            print(f"Request: {r.status_code}")
-            print(f"{r.text}")
-        return
+        return _parse_response(r.json(), limit)
+    except json.decoder.JSONDecodeError as e:
+        __logger.error("Error in API request. Received invalid JSON. Status code: %s", r.status_code)
+        raise e
 
 
 def _parse_response(result: dict, limit: int = 100) -> Union[List[Trip], None]:
