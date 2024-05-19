@@ -4,6 +4,8 @@ from typing import Union as __Union
 from requests.models import Response as __Response
 from requests import Session
 
+from vvspy.enums.stations import Station
+
 from .models import Arrival as __Arrival
 from .models import Departure as __Departure
 from .models import Trip as __Trip
@@ -13,7 +15,7 @@ from .arrivals import get_arrivals
 
 
 def departures_now(
-    station_id: __Union[str, int],
+    station_id: __Union[str, int, Station],
     limit: int = 100,
     return_resp: bool = False,
     session: Session = None,
@@ -23,7 +25,7 @@ def departures_now(
     Same as `get_departures`
     But `datetime.datetime.now()` is already used as parameter.
 
-    Returns: List[:class:`vvspy.obj.Departure`]
+    Returns: List[:class:`vvspy.models.Departure`]
     Returns none on webrequest errors or no results found.
 
     """
@@ -38,7 +40,7 @@ def departures_now(
 
 
 def get_departure(
-    station_id: __Union[str, int],
+    station_id: __Union[str, int, Station],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
@@ -50,7 +52,7 @@ def get_departure(
     Same as `get_departures`
     But limited to one obj as result.
 
-    Returns: :class:`vvspy.obj.Departure`
+    Returns: :class:`vvspy.models.Departure`
     Returns none on webrequest errors or no results found.
 
     """
@@ -88,7 +90,7 @@ def get_departure(
 
 
 def get_arrival(
-    station_id: __Union[str, int],
+    station_id: __Union[str, int, Station],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
@@ -100,7 +102,7 @@ def get_arrival(
     Same as `get_arrivals`
     But limited to one obj as result.
 
-    Returns: :class:`vvspy.obj.Arrival`
+    Returns: :class:`vvspy.models.Arrival`
     Returns none on webrequest errors or no results found.
 
     """
@@ -138,8 +140,8 @@ def get_arrival(
 
 
 def get_trip(
-    origin_station_id: __Union[str, int],
-    destination_station_id: __Union[str, int],
+    origin_station_id: __Union[str, int, Station],
+    destination_station_id: __Union[str, int, Station],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
@@ -151,7 +153,7 @@ def get_trip(
     Same as `get_trips`
     But limited to one obj as result.
 
-    Returns: :class:`vvspy.obj.Trip`
+    Returns: :class:`vvspy.models.Trip`
     Returns none on webrequest errors or no results found.
 
     """

@@ -5,14 +5,16 @@ import json
 from typing import Union, List
 import traceback
 
+from vvspy.enums.stations import Station
+
 from .models import Trip
 
 __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 
 
 def get_trips(
-    origin_station_id: Union[str, int],
-    destination_station_id: Union[str, int],
+    origin_station_id: Union[str, int, Station],
+    destination_station_id: Union[str, int, Station],
     check_time: datetime = None,
     limit: int = 100,
     debug: bool = False,
@@ -23,7 +25,7 @@ def get_trips(
 ) -> Union[List[Trip], Response, None]:
     r"""
 
-    Returns: List[:class:`vvspy.obj.Trip`]
+    Returns: List[:class:`vvspy.models.Trip`]
     Returns none on webrequest errors.
 
     Examples
@@ -43,9 +45,8 @@ def get_trips(
 
     Parameters
     ----------
-        station_id Union[:class:`int`, :class:`str`]
+        station_id Union[:class:`int`, :class:`str`, :class:`vvspy.enums.Station`]
             Station you want to get trips from.
-            See csv on root of repository to get your id.
         check_time Optional[:class:`datetime.datetime`]
             Time you want to check.
             default datetime.now()
@@ -89,8 +90,8 @@ def get_trips(
         "language": kwargs.get("language", "de"),
         "locationServerActive": kwargs.get("locationServerActive", "1"),
         "macroWebTrip": kwargs.get("macroWebTrip", "true"),
-        "name_destination": destination_station_id,
-        "name_origin": origin_station_id,
+        "name_destination": destination_station_id.value,
+        "name_origin": origin_station_id.value,
         "noElevationProfile": kwargs.get("noElevationProfile", "1"),
         "noElevationSummary": kwargs.get("noElevationSummary", "1"),
         "outputFormat": "rapidJSON",

@@ -5,6 +5,7 @@ from requests.models import Response
 import json
 import traceback
 
+from vvspy.enums.stations import Station
 from vvspy.models import Departure
 
 __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
@@ -12,7 +13,7 @@ __API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 
 
 def get_departures(
-    station_id: Union[str, int],
+    station_id: Union[str, int, Station],
     check_time: datetime = None,
     limit: int = 100,
     debug: bool = False,
@@ -23,7 +24,7 @@ def get_departures(
 ) -> Union[List[Departure], Response, None]:
     r"""
 
-    Returns: List[:class:`vvspy.obj.Departure`]
+    Returns: List[:class:`vvspy.models.Departure`]
     Returns none on webrequest errors.
 
     Examples
@@ -43,9 +44,8 @@ def get_departures(
 
     Parameters
     ----------
-        station_id Union[:class:`int`, :class:`str`]
+        station_id Union[:class:`int`, :class:`str`, :class:`vvspy.enums.Station`]
             Station you want to get departures from.
-            See csv on root of repository to get your id.
         check_time Optional[:class:`datetime.datetime`]
             Time you want to check.
             default datetime.now()
@@ -86,7 +86,7 @@ def get_departures(
         "type_dm": kwargs.get("type_dm", "any"),
         "anyObjFilter_dm": kwargs.get("anyObjFilter_dm", 2),
         "deleteAssignedStops": kwargs.get("deleteAssignedStops", 1),
-        "name_dm": station_id,
+        "name_dm": station_id.value,
         "mode": kwargs.get("mode", "direct"),
         "dmLineSelectionAll": kwargs.get("dmLineSelectionAll", 1),
         "useRealtime": kwargs.get("useRealtime", 1),  # live delay

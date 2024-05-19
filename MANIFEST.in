@@ -8,5 +8,7 @@ recursive-include vvspy *.py
 # Exclude all .pyc files
 global-exclude *.pyc
 
+exclude requirements-dev.txt
+
 # Exclude the build directory
 prune build
