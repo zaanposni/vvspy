@@ -73,7 +73,7 @@ See: [#64][station_id_issue_url]
 
 ### Logging
 
-vvspy uses the python logging module. If you want to change the log level of vvsp, use the following:
+vvspy uses the python logging module. If you want to change the log level of vvspy, use the following:
 
 ```python
 import logging
