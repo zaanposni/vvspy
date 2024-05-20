@@ -5,7 +5,7 @@ with open("readme.md", "r") as fh:
 
 setup(
     name="vvspy",
-    version="2.0.1",
+    version="2.0.2",
     license="MIT",
     description="API Wrapper for VVS (Verkehrsverbund Stuttgart)",
     author="zaanposni",
