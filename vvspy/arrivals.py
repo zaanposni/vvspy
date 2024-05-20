@@ -81,7 +81,7 @@ def get_arrivals(
         "type_dm": kwargs.get("type_dm", "any"),
         "anyObjFilter_dm": kwargs.get("anyObjFilter_dm", 2),
         "deleteAssignedStops": kwargs.get("deleteAssignedStops", 1),
-        "name_dm": station_id.value if type(station_id) == "<enum 'Station'>" else str(station_id),
+        "name_dm": station_id.value if isinstance(station_id, Station) else str(station_id),
         "mode": kwargs.get("mode", "direct"),
         "dmLineSelectionAll": kwargs.get("dmLineSelectionAll", 1),
         "useRealtime": kwargs.get("useRealtime", 1),  # live delay
