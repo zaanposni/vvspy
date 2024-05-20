@@ -20,7 +20,7 @@ class TripE2E(unittest.TestCase):
         trips = get_trips(
             origin_station_id=Station.VAIHINGEN,
             destination_station_id=Station.HAUPTBAHNHOF__TIEF,
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
             limit=5,
         )
         self.assertIsNotNone(trips)
@@ -33,7 +33,7 @@ class TripE2E(unittest.TestCase):
         trip = get_trip(
             origin_station_id=Station.VAIHINGEN,
             destination_station_id=Station.HAUPTBAHNHOF__TIEF,
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
         )
         self.assertIsNotNone(trip)
         self.assertIsInstance(trip, Trip)
@@ -42,7 +42,7 @@ class TripE2E(unittest.TestCase):
         trips = get_trips(
             origin_station_id=Station.VAIHINGEN,
             destination_station_id="de:08111:6118",
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
             limit=5,
         )
         self.assertIsNotNone(trips)
@@ -55,7 +55,7 @@ class TripE2E(unittest.TestCase):
         trip = get_trip(
             origin_station_id=Station.VAIHINGEN,
             destination_station_id="de:08111:6118",
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
         )
         self.assertIsNotNone(trip)
         self.assertIsInstance(trip, Trip)
@@ -64,7 +64,7 @@ class TripE2E(unittest.TestCase):
         trips = get_trips(
             origin_station_id="de:08111:6002",
             destination_station_id="de:08111:6118",
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
             limit=5,
         )
         self.assertIsNotNone(trips)
@@ -77,7 +77,7 @@ class TripE2E(unittest.TestCase):
         trip = get_trip(
             origin_station_id="de:08111:6002",
             destination_station_id="de:08111:6118",
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
         )
         self.assertIsNotNone(trip)
         self.assertIsInstance(trip, Trip)
