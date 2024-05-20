@@ -19,7 +19,7 @@ class DepartureE2E(unittest.TestCase):
     def departures_enum(self):
         departures = get_departures(
             station_id=Station.HAUPTBAHNHOF__TIEF,
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
             limit=5,
         )
         self.assertIsNotNone(departures)
@@ -31,7 +31,7 @@ class DepartureE2E(unittest.TestCase):
     def departure_enum(self):
         departure = get_departure(
             station_id=Station.HAUPTBAHNHOF__TIEF,
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
         )
         self.assertIsNotNone(departure)
         self.assertIsInstance(departure, Departure)
@@ -39,7 +39,7 @@ class DepartureE2E(unittest.TestCase):
     def departures_id(self):
         departures = get_departures(
             station_id="de:08111:6118",
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
             limit=5,
         )
         self.assertIsNotNone(departures)
@@ -51,7 +51,7 @@ class DepartureE2E(unittest.TestCase):
     def departure_id(self):
         departure = get_departure(
             station_id="de:08111:6118",
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
         )
         self.assertIsNotNone(departure)
         self.assertIsInstance(departure, Departure)

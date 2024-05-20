@@ -19,7 +19,7 @@ class ArrivalE2E(unittest.TestCase):
     def arrivals_enum(self):
         arrivals = get_arrivals(
             station_id=Station.HAUPTBAHNHOF__TIEF,
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
             limit=5,
         )
         self.assertIsNotNone(arrivals)
@@ -31,7 +31,7 @@ class ArrivalE2E(unittest.TestCase):
     def arrival_enum(self):
         arrival = get_arrival(
             station_id=Station.HAUPTBAHNHOF__TIEF,
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
         )
         self.assertIsNotNone(arrival)
         self.assertIsInstance(arrival, Arrival)
@@ -39,7 +39,7 @@ class ArrivalE2E(unittest.TestCase):
     def arrivals_id(self):
         arrivals = get_arrivals(
             station_id="de:08111:6118",
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
             limit=5,
         )
         self.assertIsNotNone(arrivals)
@@ -51,7 +51,7 @@ class ArrivalE2E(unittest.TestCase):
     def arrival_id(self):
         arrival = get_arrival(
             station_id="de:08111:6118",
-            datetime=self.get_next_monday_noon(),
+            check_time=self.get_next_monday_noon(),
         )
         self.assertIsNotNone(arrival)
         self.assertIsInstance(arrival, Arrival)
