@@ -8,8 +8,6 @@
 
 ## Installation
 
-Python 3.6 or higher required
-
 ```bash
 pip install vvspy
 ```
