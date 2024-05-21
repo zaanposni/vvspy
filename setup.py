@@ -14,7 +14,7 @@ setup(
     keywords=["vvs", "api", "stuttgart", "wrapper", "json", "rest", "efa", "python"],
     packages=find_packages(exclude=["*tests"]),
     package_data={"vvspy": ["vvspy/*"]},
-    python_requires=">=3.6",
+    python_requires=">=3.8",
     install_requires=[
         "requests",
         "typing",
@@ -25,8 +25,6 @@ setup(
         "Topic :: Software Development :: Build Tools",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
