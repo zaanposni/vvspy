@@ -31,6 +31,20 @@ for dep in deps:
         print(dep)  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 ```
 
+- Detect cancellations in upcoming departures/arrivals:
+
+```python
+from vvspy import get_departures
+from vvspy.enums import Station
+
+arrivals = get_departures(Station.VAIHINGEN, limit=5)
+
+for arrival in arrivals:
+    if arrival.cancelled:
+        print(f"Alarm! The train at {arrival.real_datetime} has been cancelled!")
+        # Check arrival.stop_infos and arrival.line_infos for more information
+```
+
 - Get complete trip info between two stations (including interchanges):
 
 ```python
@@ -63,6 +77,18 @@ deps = get_departures(Station.HAUPTBAHNHOF__TIEF)
 for dep in deps:
     if dep.serving_line.symbol == "S4":
         print(f"Departure of S4 at {dep.real_datetime}")
+```
+
+- Filter for specific platforms:
+
+```python
+from vvspy import get_departures
+from vvspy.enums import Station
+
+deps = get_departures(Station.HAUPTBAHNHOF__TIEF)
+for dep in deps:
+    if dep.platform == "101":
+        print(f"Departure of {dep.serving_line.number} to {dep.serving_line.direction} on {dep.platform_name} at {dep.real_datetime}")
 ```
 
 ### Get your station id
