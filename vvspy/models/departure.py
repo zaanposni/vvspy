@@ -16,6 +16,10 @@ class Departure:
         Raw dict received by the API.
     stop_id :class:`str`
         Station_id of the departure.
+    cancelled :class:`bool`
+        If the departure is cancelled.
+    realtime_status :class:`str`
+        Realtime status of the departure.
     x :class:`str`
         Coordinates of the station.
     y :class:`str`
@@ -54,6 +58,8 @@ class Departure:
         self.stop_id = kwargs.get("stopID")
         self.x = kwargs.get("x")
         self.y = kwargs.get("y")
+        self.realtime_status = kwargs.get("realtimeStatus")
+        self.cancelled = self.realtime_status == "DEPARTURE_CANCELLED"
         self.map_name = kwargs.get("mapName")
         self.area = kwargs.get("area")
         self.platform = kwargs.get("platform")
@@ -70,7 +76,7 @@ class Departure:
                     month=int(dt.get("month", datetime.now().month)),
                     day=int(dt.get("day", datetime.now().day)),
                     hour=int(dt.get("hour", datetime.now().hour)),
-                    minute=int(dt.get("minute", datetime.now().minute))
+                    minute=int(dt.get("minute", datetime.now().minute)),
                 )
             except ValueError:
                 pass
@@ -84,7 +90,7 @@ class Departure:
                     month=int(r_dt.get("month", datetime.now().month)),
                     day=int(r_dt.get("day", datetime.now().day)),
                     hour=int(r_dt.get("hour", datetime.now().hour)),
-                    minute=int(r_dt.get("minute", datetime.now().minute))
+                    minute=int(r_dt.get("minute", datetime.now().minute)),
                 )
             except ValueError:
                 pass
@@ -101,7 +107,11 @@ class Departure:
         self.line_infos = kwargs.get("lineInfos")
 
     def __str__(self):
-        pre = "[Delayed] " if self.delay else ""
+        pre = ""
+        if self.delay:
+            pre = "[Delayed] "
+        if self.cancelled:
+            pre = "[Cancelled] "
         if self.real_datetime.date() == datetime.now().date():
             return f"{pre}[{str(self.real_datetime.strftime('%H:%M'))}] {self.serving_line}"
         return f"{pre}[{str(self.real_datetime)}] {self.serving_line}"
