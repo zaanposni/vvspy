@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import unittest
 import sys
 
@@ -13,7 +13,7 @@ class DepartureE2E(unittest.TestCase):
     def get_next_monday_noon(self) -> datetime:
         now = datetime.now()
         while now.weekday() != 0:
-            now = now.replace(day=now.day + 1)
+            now += timedelta(days=1)
         return now.replace(hour=12, minute=0, second=0, microsecond=0)
 
     def departures_enum(self):
