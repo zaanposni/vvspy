@@ -1,11 +1,13 @@
 from datetime import datetime as __datetime
 from typing import List as __List
-from typing import Union as __Union
+from typing import Union as __Union, TYPE_CHECKING
 from requests.models import Response as __Response
 from requests import Session
 import logging as __logging
 
-from .enums import Station
+if TYPE_CHECKING:
+    from .enums import Station
+
 from .models import Arrival as __Arrival
 from .models import Departure as __Departure
 from .models import Trip as __Trip
@@ -16,8 +18,9 @@ from .arrivals import get_arrivals
 
 __logger = __logging.getLogger("vvspy")
 
+
 def departures_now(
-    station_id: __Union[str, int, Station],
+    station_id: __Union[str, int, "Station"],
     limit: int = 100,
     return_resp: bool = False,
     session: Session = None,
@@ -42,7 +45,7 @@ def departures_now(
 
 
 def get_departure(
-    station_id: __Union[str, int, Station],
+    station_id: __Union[str, int, "Station"],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
@@ -90,7 +93,7 @@ def get_departure(
 
 
 def get_arrival(
-    station_id: __Union[str, int, Station],
+    station_id: __Union[str, int, "Station"],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
@@ -138,8 +141,8 @@ def get_arrival(
 
 
 def get_trip(
-    origin_station_id: __Union[str, int, Station],
-    destination_station_id: __Union[str, int, Station],
+    origin_station_id: __Union[str, int, "Station"],
+    destination_station_id: __Union[str, int, "Station"],
     check_time: __datetime = None,
     debug: bool = False,
     request_params: dict = None,
