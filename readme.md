@@ -64,7 +64,6 @@ for connection in trip.connections:
 ```text
 # Output:
 Duration: 58 minutes
-From: Wallgraben - To: Hauptbf (A.-Klett-Pl.)
 From: Hauptbf (Arnulf-Klett-Platz) - To: Stuttgart Hauptbahnhof (tief)
 From: Stuttgart Hauptbahnhof (tief) - To: Marbach (N)
 From: Marbach (N) Bf - To: Murr Hardtlinde
@@ -116,18 +115,6 @@ If you want to say **thank you** or/and support active development of `vvspy`:
 
 - Add a [GitHub Star][repo_url] to the project.
 - Support me on [Ko-fi][kofi_url].
-
-## 🏆 A win-win cooperation
-
-And now, I invite you to participate in this project! Let's work **together** to
-create the **most useful** tool for all PietSmiet Enjoyers.
-
-- [Issues][repo_issues_url]: ask questions and submit your features.
-- [Pull requests][repo_pull_request_url]: send your improvements to the current.
-- [Mail][mail_url]: send your ideas for the project.
-- [Discord][discord_url]: add me as a friend on Discord: @zaanposni
-
-Together, we can make this project **better** every day!
 
 ## 👀 Projects using vvspy
 
