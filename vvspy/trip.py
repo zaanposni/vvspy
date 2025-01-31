@@ -1,19 +1,22 @@
-from datetime import datetime, timezone
-import requests
+from datetime import datetime
 from requests.models import Response
+from typing import Union, List, TYPE_CHECKING
+from enum import Enum
+import requests
 import json
-from typing import Union, List
 import logging as __logging
 
-from .enums import Station
+if TYPE_CHECKING:
+    from .enums import Station
 from .models import Trip
 
 __API_URL = "https://www3.vvs.de/mngvvs/XML_TRIP_REQUEST2"
 __logger = __logging.getLogger("vvspy")
 
+
 def get_trips(
-    origin_station_id: Union[str, int, Station],
-    destination_station_id: Union[str, int, Station],
+    origin_station_id: Union[str, int, "Station"],
+    destination_station_id: Union[str, int, "Station"],
     check_time: datetime = None,
     limit: int = 100,
     request_params: dict = None,
@@ -85,8 +88,16 @@ def get_trips(
         "language": kwargs.get("language", "de"),
         "locationServerActive": kwargs.get("locationServerActive", "1"),
         "macroWebTrip": kwargs.get("macroWebTrip", "true"),
-        "name_destination": destination_station_id.value if isinstance(destination_station_id, Station) else str(destination_station_id),
-        "name_origin": origin_station_id.value if isinstance(origin_station_id, Station) else str(origin_station_id),
+        "name_destination": (
+            destination_station_id.value
+            if isinstance(destination_station_id, Enum)
+            else str(destination_station_id)
+        ),
+        "name_origin": (
+            origin_station_id.value
+            if isinstance(origin_station_id, Enum)
+            else str(origin_station_id)
+        ),
         "noElevationProfile": kwargs.get("noElevationProfile", "1"),
         "noElevationSummary": kwargs.get("noElevationSummary", "1"),
         "outputFormat": "rapidJSON",
@@ -118,7 +129,9 @@ def get_trips(
     else:
         r = requests.get(__API_URL, **{**request_params, **{"params": params}})
 
-    __logger.debug(f"Request took {r.elapsed.total_seconds()}s and returned {r.status_code}")
+    __logger.debug(
+        f"Request took {r.elapsed.total_seconds()}s and returned {r.status_code}"
+    )
 
     if r.status_code != 200:
         __logger.error("Error in API request")
@@ -135,7 +148,10 @@ def get_trips(
         r.encoding = "UTF-8"
         return _parse_response(r.json(), limit)
     except json.decoder.JSONDecodeError as e:
-        __logger.error("Error in API request. Received invalid JSON. Status code: %s", r.status_code)
+        __logger.error(
+            "Error in API request. Received invalid JSON. Status code: %s",
+            r.status_code,
+        )
         raise e
 
 

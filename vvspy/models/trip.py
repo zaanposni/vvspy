@@ -1,7 +1,3 @@
-from datetime import datetime
-
-from .departure import Departure
-from .arrival import Arrival
 from .connection import Connection
 
 

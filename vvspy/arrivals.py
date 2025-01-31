@@ -1,18 +1,21 @@
-from typing import List, Union
+from typing import List, Union, TYPE_CHECKING
 from datetime import datetime
-import requests
 from requests.models import Response
+from enum import Enum
+import requests
 import json
 import logging as __logging
 
-from .enums import Station
+if TYPE_CHECKING:
+    from .enums import Station
 from .models import Arrival
 
 _API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 __logger = __logging.getLogger("vvspy")
 
+
 def get_arrivals(
-    station_id: Union[str, int, Station],
+    station_id: Union[str, int, "Station"],
     check_time: datetime = None,
     limit: int = 100,
     request_params: dict = None,
@@ -81,7 +84,9 @@ def get_arrivals(
         "type_dm": kwargs.get("type_dm", "any"),
         "anyObjFilter_dm": kwargs.get("anyObjFilter_dm", 2),
         "deleteAssignedStops": kwargs.get("deleteAssignedStops", 1),
-        "name_dm": station_id.value if isinstance(station_id, Station) else str(station_id),
+        "name_dm": (
+            station_id.value if isinstance(station_id, Enum) else str(station_id)
+        ),
         "mode": kwargs.get("mode", "direct"),
         "dmLineSelectionAll": kwargs.get("dmLineSelectionAll", 1),
         "useRealtime": kwargs.get("useRealtime", 1),  # live delay
@@ -101,7 +106,9 @@ def get_arrivals(
     else:
         r = requests.get(_API_URL, **{**request_params, **{"params": params}})
 
-    __logger.debug(f"Request took {r.elapsed.total_seconds()}s and returned {r.status_code}")
+    __logger.debug(
+        f"Request took {r.elapsed.total_seconds()}s and returned {r.status_code}"
+    )
 
     if r.status_code != 200:
         __logger.error("Error in API request")
@@ -118,7 +125,10 @@ def get_arrivals(
         r.encoding = "UTF-8"
         return _parse_response(r.json())
     except json.decoder.JSONDecodeError as e:
-        __logger.error("Error in API request. Received invalid JSON. Status code: %s", r.status_code)
+        __logger.error(
+            "Error in API request. Received invalid JSON. Status code: %s",
+            r.status_code,
+        )
         raise e
 
 
