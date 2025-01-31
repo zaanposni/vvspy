@@ -14,6 +14,9 @@ pip install vvspy
 
 ## Examples
 
+> [!TIP]
+> For optimal performance on low-spec hardware such as Raspberry Pi, it is advisable to use the string values of the enum directly to avoid the overhead associated with loading the full enum.
+
 - Detect delay in upcoming departures:
 
 ```python
