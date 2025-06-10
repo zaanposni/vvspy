@@ -1,4 +1,4 @@
 setuptools==70.0.0
-requests==2.32.0
+requests==2.32.4
 typing==3.7.4.3
 black==24.4.2
