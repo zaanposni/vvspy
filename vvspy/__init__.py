@@ -14,6 +14,7 @@ from .models import Trip as __Trip
 from .trip import get_trips
 from .departures import get_departures
 from .arrivals import get_arrivals
+from .stop_finder import get_stops
 
 
 __logger = __logging.getLogger("vvspy")
@@ -156,6 +157,16 @@ def get_trip(
 
     Returns: :class:`vvspy.models.Trip`
     Returns none on webrequest errors or no results found.
+
+    Optional kwargs:
+        itdDateTimeDepArr Optional[:class:`str`]
+            ``"dep"`` to search for a trip departing at ``check_time``,
+            ``"arr"`` to search for a trip arriving by ``check_time``.
+            Set together with ``itdTripDateTimeDepArr``.
+            default "dep"
+        itdTripDateTimeDepArr Optional[:class:`str`]
+            Same as ``itdDateTimeDepArr``, set both to the same value.
+            default "dep"
 
     """
     try:

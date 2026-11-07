@@ -93,9 +93,41 @@ for dep in deps:
         print(f"Departure of {dep.serving_line.number} to {dep.serving_line.direction} on {dep.platform_name} at {dep.real_datetime}")
 ```
 
+- Get trips arriving by a specific time:
+
+```python
+from datetime import datetime
+from vvspy import get_trip
+from vvspy.enums import Station
+
+trip = get_trip(
+    Station.HAUPTBAHNHOF__TIEF,
+    Station.HARDTLINDE,
+    check_time=datetime(2025, 10, 6, 8, 0),
+    itdDateTimeDepArr="arr",
+    itdTripDateTimeDepArr="arr",
+)
+```
+
 ### Get your station id
 
-See: [#64][station_id_issue_url]
+Use `get_stops` to search for a stop by name. Both `stop.stop_id` and `stop.global_id` can be used as station id in all other functions. `global_id` uses the same format as the `Station` enum:
+
+```python
+from vvspy import get_stops
+
+stops = get_stops("Hauptbahnhof Stuttgart")
+print(stops[0])
+print(stops[0].global_id)
+```
+
+```text
+# Output:
+Stuttgart, Hauptbahnhof (de:08111:6118)
+de:08111:6118
+```
+
+See also: [#64][station_id_issue_url]
 
 ### Logging
 

@@ -8,3 +8,4 @@ from .connection import Connection
 from .origin import Origin
 from .destination import Destination
 from .transportation import Transportation
+from .stop import Stop
