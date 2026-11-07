@@ -1,18 +1,17 @@
 # 🚂 VVS API Wrapper
 
-[![PackageVersion][package_version_img]][package_version_img]
-[![PythonVersions][python_versions_img]][python_versions_img]
+[![PackageVersion][package_version_img]][pypi_url]
+[![PythonVersions][python_versions_img]][pypi_url]
 [![License][repo_license_img]][repo_license_url]
 
 **Fully object-oriented library** to integrate the **VVS API** into your project.
+vvspy ships with type hints, so editors and type checkers understand its API.
 
 ## Installation
 
 ```bash
 pip install vvspy
 ```
-
-vvspy requires Python 3.11 or newer.
 
 ## Examples
 
@@ -29,15 +28,11 @@ deps = get_departures(Station.HAUPTBAHNHOF__TIEF, limit=3)
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
-        print(
-            dep
-        )  # [Delayed] [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
+        print(dep)  # [Delayed] [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 
     else:
         print("Train on time")
-        print(
-            dep
-        )  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
+        print(dep)  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 ```
 
 - Detect cancellations in upcoming departures/arrivals:
@@ -46,12 +41,12 @@ for dep in deps:
 from vvspy import get_departures
 from vvspy.enums import Station
 
-arrivals = get_departures(Station.VAIHINGEN, limit=5)
+deps = get_departures(Station.VAIHINGEN, limit=5)
 
-for arrival in arrivals:
-    if arrival.cancelled:
-        print(f"Alarm! The train at {arrival.real_datetime} has been cancelled!")
-        # Check arrival.stop_infos and arrival.line_infos for more information
+for dep in deps:
+    if dep.cancelled:
+        print(f"Alarm! The train at {dep.real_datetime} has been cancelled!")
+        # Check dep.stop_infos and dep.line_infos for more information
 ```
 
 - Get complete trip info between two stations (including interchanges):
@@ -96,22 +91,22 @@ from vvspy.enums import Station
 deps = get_departures(Station.HAUPTBAHNHOF__TIEF)
 for dep in deps:
     if dep.platform == "101":
-        print(
-            f"Departure of {dep.serving_line.number} to {dep.serving_line.direction} on {dep.platform_name} at {dep.real_datetime}"
-        )
+        print(f"Departure of {dep.serving_line.number} to {dep.serving_line.direction} on {dep.platform_name} at {dep.real_datetime}")
 ```
 
 - Get trips arriving by a specific time:
 
 ```python
-from datetime import datetime
+from datetime import datetime, timedelta
 from vvspy import get_trip
 from vvspy.enums import Station
+
+tomorrow_8am = (datetime.now() + timedelta(days=1)).replace(hour=8, minute=0)
 
 trip = get_trip(
     Station.HAUPTBAHNHOF__TIEF,
     Station.HARDTLINDE,
-    check_time=datetime(2025, 10, 6, 8, 0),
+    check_time=tomorrow_8am,
     itdDateTimeDepArr="arr",
     itdTripDateTimeDepArr="arr",
 )
@@ -154,15 +149,14 @@ logger.setLevel(logging.DEBUG)
 If you want to say **thank you** or/and support active development of `vvspy`:
 
 - Add a [GitHub Star][repo_url] to the project.
-- Support me on [Ko-fi][kofi_url].
+- Report bugs and suggest features in the [issues][repo_issues_url].
+- Open a [pull request][repo_pull_request_url]. See [CONTRIBUTING.md][contributing_url] for the development setup.
+
+Please report security vulnerabilities privately as described in [SECURITY.md][security_url].
 
 ## 👀 Projects using vvspy
 
 - [vvs_direct_connect][vvs_direct_connect_url] is a dockerized REST service providing departure data by aschuma.
-
-## 🔥 Other projects of the authors
-
-- [discord-masz][discord_masz_url] - MASZ is a selfhostable highly sophisticated moderation bot for Discord. Includes a web dashboard and a discord bot.
 
 ## ⚠️ License
 
@@ -179,19 +173,15 @@ The `Station` enum is generated from the "Haltestellen VVS" dataset by VVS, publ
 [repo_pull_request_url]: https://github.com/zaanposni/vvspy/pulls
 [repo_license_url]: https://github.com/zaanposni/vvspy/blob/master/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-MIT-red?style=for-the-badge&logo=none
+[contributing_url]: https://github.com/zaanposni/vvspy/blob/master/CONTRIBUTING.md
+[security_url]: https://github.com/zaanposni/vvspy/blob/master/SECURITY.md
 
+[pypi_url]: https://pypi.org/project/vvspy/
 [python_versions_img]: https://img.shields.io/pypi/pyversions/vvspy?style=for-the-badge
 [package_version_img]: https://img.shields.io/pypi/v/vvspy?style=for-the-badge
 
 [station_id_issue_url]: https://github.com/zaanposni/vvspy/issues/64
 [vvs_opendata_url]: https://www.opendata-oepnv.de/ht/de/organisation/verkehrsverbuende/vvs/startseite
-
-<!-- Author -->
-
-[kofi_url]: https://ko-fi.com/zaanposni
-[discord_masz_url]: https://github.com/zaanposni/discord-masz
-[mail_url]: mailto:vvspy@zaanposni.com
-[discord_url]: https://discord.com
 
 <!-- Projects -->
 
