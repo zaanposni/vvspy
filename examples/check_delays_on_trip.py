@@ -13,5 +13,7 @@ result = get_trips(Station.HAUPTBAHNHOF__TIEF, Station.WEIL_DER_STADT)
 
 for res in result:
     if res.connections[0].destination.delay > 0:
-        print(f"{res.connections[0].transportation.number} is too late!"
-              f" Now arriving {res.connections[0].destination.arrival_time_estimated}")
+        print(
+            f"{res.connections[0].transportation.number} is too late!"
+            f" Now arriving {res.connections[0].destination.arrival_time_estimated}"
+        )

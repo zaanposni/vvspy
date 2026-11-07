@@ -5,6 +5,35 @@ email, or any other method with the owners of this repository before making a ch
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
+## Development Setup
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e . --group dev  # requires pip >= 25.1
+```
+
+Lint and format your changes before opening a pull request:
+
+```bash
+ruff check .
+ruff format .
+```
+
+Run the tests (they query the live VVS API):
+
+```bash
+cd tests
+python start.py
+```
+
+## Release Process
+
+1. Update `version` in `pyproject.toml` and merge the change into `master`.
+2. Create a GitHub release with a new tag matching the version (e.g. `v2.4.0`).
+3. Publishing the release runs the release workflow, which tests, builds and uploads the
+   package to PyPI. A maintainer has to approve the `pypi` deployment.
+
 ## Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a

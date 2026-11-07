@@ -1,4 +1,3 @@
-from .arrival import Arrival
 from .departure import Departure
 from .arrival import Arrival
 from .trip import Trip
@@ -8,3 +7,17 @@ from .connection import Connection
 from .origin import Origin
 from .destination import Destination
 from .transportation import Transportation
+from .stop import Stop
+
+__all__ = [
+    "Departure",
+    "Arrival",
+    "Trip",
+    "ServingLine",
+    "LineOperator",
+    "Connection",
+    "Origin",
+    "Destination",
+    "Transportation",
+    "Stop",
+]

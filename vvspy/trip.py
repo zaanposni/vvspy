@@ -17,11 +17,11 @@ __logger = __logging.getLogger("vvspy")
 def get_trips(
     origin_station_id: Union[str, int, "Station"],
     destination_station_id: Union[str, int, "Station"],
-    check_time: datetime = None,
+    check_time: datetime | None = None,
     limit: int = 100,
-    request_params: dict = None,
+    request_params: dict | None = None,
     return_response: bool = False,
-    session: requests.Session = None,
+    session: requests.Session | None = None,
     **kwargs,
 ) -> Union[List[Trip], Response, None]:
     r"""
@@ -44,6 +44,18 @@ def get_trips(
         proxies = {}  # see https://stackoverflow.com/a/8287752/9850709
         results = vvspy.get_arrivals("5006115", "5006465", request_params={"proxies": proxies})
 
+    Search for trips arriving by ``check_time`` instead of departing at it:
+
+    .. code-block:: python
+
+        results = vvspy.get_trips(
+            "5006115",
+            "5006465",
+            check_time=datetime(2025, 10, 6, 8, 0),
+            itdDateTimeDepArr="arr",
+            itdTripDateTimeDepArr="arr",
+        )
+
     Parameters
     ----------
         station_id Union[:class:`int`, :class:`str`, :class:`vvspy.enums.Station`]
@@ -61,6 +73,14 @@ def get_trips(
             if set, the function returns the response object of the API request.
         session Optional[:class:`requests.Session`]
             if set, uses a given requests.session object for requests
+        itdDateTimeDepArr Optional[:class:`str`]
+            ``"dep"`` to search for trips departing at ``check_time``,
+            ``"arr"`` to search for trips arriving by ``check_time``.
+            Set together with ``itdTripDateTimeDepArr``.
+            default "dep"
+        itdTripDateTimeDepArr Optional[:class:`str`]
+            Same as ``itdDateTimeDepArr``, set both to the same value.
+            default "dep"
         kwargs Optional[:class:`dict`]
             Check trips.py to see all available kwargs.
     """
@@ -123,6 +143,12 @@ def get_trips(
         "w_objPrefAl": kwargs.get("w_objPrefAl", "12"),
         "w_regPrefAm": kwargs.get("w_regPrefAm", "1"),
     }
+
+    # only sent if given, the api defaults to departure-based search ("dep")
+    if "itdDateTimeDepArr" in kwargs:
+        params["itdDateTimeDepArr"] = kwargs["itdDateTimeDepArr"]
+    if "itdTripDateTimeDepArr" in kwargs:
+        params["itdTripDateTimeDepArr"] = kwargs["itdTripDateTimeDepArr"]
 
     if session:
         r = session.get(__API_URL, **{**request_params, **{"params": params}})

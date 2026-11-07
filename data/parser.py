@@ -1,5 +1,9 @@
+# Generates vvspy/enums/stations.py from vvs_steige.csv. Run from inside data/.
+#
+# The CSV files are the VVS "Haltestellen" and "Steige" datasets (CC BY, author VVS):
+# https://www.opendata-oepnv.de/ht/de/organisation/verkehrsverbuende/vvs/startseite
+# (dataset "Haltestellen VVS", saved as vvs_haltestellen.csv and vvs_steige.csv)
 import csv
-from enum import Enum
 import re
 from collections import defaultdict
 
@@ -17,7 +21,7 @@ def read_csv_with_encoding(file_path, encoding):
     with open(file_path, encoding=encoding) as csvfile:
         reader = csv.DictReader(csvfile, delimiter=";")
         for row in reader:
-            name_options = set([row["Name"], row["Name mit Ort"]])
+            name_options = dict.fromkeys([row["Name"], row["Name mit Ort"]])
             global_id = row["Globale ID"]
             long_name = row["Steigname"] if row["Steigname"] else row["Name"]
             city = f"{row.get('Gemeinde', '')} {row.get('Teilort', '')}".strip()
@@ -25,6 +29,9 @@ def read_csv_with_encoding(file_path, encoding):
             description = f"{long_name} ({city})" if city else long_name
 
             if not global_id:
+                continue
+            if not STATION_ID_REGEX.fullmatch(global_id):
+                print(f"Skipping invalid id {global_id!r} ({row['Name']})")
                 continue
             for name in name_options:
                 if name:  # Ensure the name is not empty
@@ -39,10 +46,14 @@ def generate_unique_enum_names(stations):
         if len(info) == 1:
             unique_stations[name] = (info[0][0], info[0][1])
         else:
-            parsed_ids = [STATION_ID_REGEX.match(global_id).groups() for global_id, _ in info]
+            parsed_ids = [
+                STATION_ID_REGEX.match(global_id).groups() for global_id, _ in info
+            ]
             all_group_1 = [parsed_id[0] for parsed_id in parsed_ids]
             all_group_2 = [parsed_id[1] for parsed_id in parsed_ids]
-            if all(x == all_group_1[0] for x in all_group_1) and all(x == all_group_2[0] for x in all_group_2):
+            if all(x == all_group_1[0] for x in all_group_1) and all(
+                x == all_group_2[0] for x in all_group_2
+            ):
                 short_id = f"de:{parsed_ids[0][0]}:{parsed_ids[0][1]}"
                 unique_stations[name] = (short_id, "")
 
