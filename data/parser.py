@@ -1,3 +1,8 @@
+# Generates vvspy/enums/stations.py from vvs_steige.csv. Run from inside data/.
+#
+# The CSV files are the VVS "Haltestellen" and "Steige" datasets (CC BY, author VVS):
+# https://www.opendata-oepnv.de/ht/de/organisation/verkehrsverbuende/vvs/startseite
+# (dataset "Haltestellen VVS", saved as vvs_haltestellen.csv and vvs_steige.csv)
 import csv
 import re
 from collections import defaultdict
@@ -16,7 +21,7 @@ def read_csv_with_encoding(file_path, encoding):
     with open(file_path, encoding=encoding) as csvfile:
         reader = csv.DictReader(csvfile, delimiter=";")
         for row in reader:
-            name_options = set([row["Name"], row["Name mit Ort"]])
+            name_options = dict.fromkeys([row["Name"], row["Name mit Ort"]])
             global_id = row["Globale ID"]
             long_name = row["Steigname"] if row["Steigname"] else row["Name"]
             city = f"{row.get('Gemeinde', '')} {row.get('Teilort', '')}".strip()
@@ -24,6 +29,9 @@ def read_csv_with_encoding(file_path, encoding):
             description = f"{long_name} ({city})" if city else long_name
 
             if not global_id:
+                continue
+            if not STATION_ID_REGEX.fullmatch(global_id):
+                print(f"Skipping invalid id {global_id!r} ({row['Name']})")
                 continue
             for name in name_options:
                 if name:  # Ensure the name is not empty

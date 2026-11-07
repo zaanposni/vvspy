@@ -169,6 +169,9 @@ If you want to say **thank you** or/and support active development of `vvspy`:
 [vvspy][repo_url] is free and open-source software licensed under
 the [MIT][repo_license_url].
 
+The `Station` enum is generated from the "Haltestellen VVS" dataset by VVS, published on
+[opendata-oepnv.de][vvs_opendata_url] under a Creative Commons Attribution (CC BY) license.
+
 <!-- Repository -->
 
 [repo_url]: https://github.com/zaanposni/vvspy
@@ -181,6 +184,7 @@ the [MIT][repo_license_url].
 [package_version_img]: https://img.shields.io/pypi/v/vvspy?style=for-the-badge
 
 [station_id_issue_url]: https://github.com/zaanposni/vvspy/issues/64
+[vvs_opendata_url]: https://www.opendata-oepnv.de/ht/de/organisation/verkehrsverbuende/vvs/startseite
 
 <!-- Author -->
 
