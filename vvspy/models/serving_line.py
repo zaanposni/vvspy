@@ -1,46 +1,47 @@
 class ServingLine:
     r"""
 
-        Describes the line, departing or arriving in a Departure/Arrival result.
+    Describes the line, departing or arriving in a Departure/Arrival result.
 
-        Attributes
-        -----------
+    Attributes
+    -----------
 
-        raw :class:`dict`
-            Raw dict received by the API.
-        key :class:`str`
-            key (most likely an ID) of the line.
-        code :class:`str`
-            code (most likely type) of the line.
-        number :class:`str`
-            number of line (e.g. U12).
-        symbol :class:`str`
-            symbol displayed on the transport itself (e.g. U12).
-        mot_type :class:`str`
-            ~
-        mt_sub_code :class:`str`
-            ~
-        real_time :class:`bool`
-            whether or not the transport supports realtime tracking.
-        direction :class:`str`
-            Last station the transport is heading to.
-        direction :class:`str`
-            Last station the transport is heading to.
-        direction_from :class:`str`
-            Starting station of the transport.
-        name :class:`str`
-            name of the line type (e.g. Stadtbahn).
-        train_num :class:`str`
-            Last station the transport is heading to.
-        delay Optional[:class:`str`]
-            Minutes of delay.
-        li_erg_ri_proj :class:`dict`
-            Detailed line information (e.g. network)
-        dest_id :class:`str`
-            station id of the destination
-        stateless :class:`str`
-            ~
+    raw :class:`dict`
+        Raw dict received by the API.
+    key :class:`str`
+        key (most likely an ID) of the line.
+    code :class:`str`
+        code (most likely type) of the line.
+    number :class:`str`
+        number of line (e.g. U12).
+    symbol :class:`str`
+        symbol displayed on the transport itself (e.g. U12).
+    mot_type :class:`str`
+        ~
+    mt_sub_code :class:`str`
+        ~
+    real_time :class:`bool`
+        whether or not the transport supports realtime tracking.
+    direction :class:`str`
+        Last station the transport is heading to.
+    direction :class:`str`
+        Last station the transport is heading to.
+    direction_from :class:`str`
+        Starting station of the transport.
+    name :class:`str`
+        name of the line type (e.g. Stadtbahn).
+    train_num :class:`str`
+        Last station the transport is heading to.
+    delay Optional[:class:`str`]
+        Minutes of delay.
+    li_erg_ri_proj :class:`dict`
+        Detailed line information (e.g. network)
+    dest_id :class:`str`
+        station id of the destination
+    stateless :class:`str`
+        ~
     """
+
     def __init__(self, **kwargs):
         self.raw = kwargs
         self.key = kwargs.get("key")

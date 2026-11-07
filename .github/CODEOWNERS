@@ -2,12 +2,12 @@
 
 # PYTHON
 *.py @zaanposni
-/requirements.txt @zaanposni
 
 # UNITTESTS
 /tests/ @zaanposni
 
-# PYPI
-/setup.cfg @zaanposni
-/setup.py @zaanposni
-/MANIFEST.in @zaanposni
+# PACKAGING
+/pyproject.toml @zaanposni
+
+# CI / RELEASE
+/.github/ @zaanposni

@@ -16,6 +16,16 @@ from .departures import get_departures
 from .arrivals import get_arrivals
 from .stop_finder import get_stops
 
+__all__ = [
+    "departures_now",
+    "get_departure",
+    "get_departures",
+    "get_arrival",
+    "get_arrivals",
+    "get_trip",
+    "get_trips",
+    "get_stops",
+]
 
 __logger = __logging.getLogger("vvspy")
 
@@ -24,7 +34,7 @@ def departures_now(
     station_id: __Union[str, int, "Station"],
     limit: int = 100,
     return_resp: bool = False,
-    session: Session = None,
+    session: Session | None = None,
     **kwargs,
 ) -> __Union[__List[__Departure], __Response, None]:
     """
@@ -47,11 +57,11 @@ def departures_now(
 
 def get_departure(
     station_id: __Union[str, int, "Station"],
-    check_time: __datetime = None,
+    check_time: __datetime | None = None,
     debug: bool = False,
-    request_params: dict = None,
+    request_params: dict | None = None,
     return_resp: bool = False,
-    session: Session = None,
+    session: Session | None = None,
     **kwargs,
 ) -> __Union[__Departure, __Response, None]:
     """
@@ -95,11 +105,11 @@ def get_departure(
 
 def get_arrival(
     station_id: __Union[str, int, "Station"],
-    check_time: __datetime = None,
+    check_time: __datetime | None = None,
     debug: bool = False,
-    request_params: dict = None,
+    request_params: dict | None = None,
     return_resp: bool = False,
-    session: Session = None,
+    session: Session | None = None,
     **kwargs,
 ) -> __Union[__Arrival, __Response, None]:
     """
@@ -144,11 +154,11 @@ def get_arrival(
 def get_trip(
     origin_station_id: __Union[str, int, "Station"],
     destination_station_id: __Union[str, int, "Station"],
-    check_time: __datetime = None,
+    check_time: __datetime | None = None,
     debug: bool = False,
-    request_params: dict = None,
+    request_params: dict | None = None,
     return_resp: bool = False,
-    session: Session = None,
+    session: Session | None = None,
     **kwargs,
 ) -> __Union[__Trip, __Response, None]:
     """

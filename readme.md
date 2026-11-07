@@ -12,6 +12,8 @@
 pip install vvspy
 ```
 
+vvspy requires Python 3.11 or newer.
+
 ## Examples
 
 > [!TIP]
@@ -27,11 +29,15 @@ deps = get_departures(Station.HAUPTBAHNHOF__TIEF, limit=3)
 for dep in deps:
     if dep.delay > 0:
         print("Alarm! Delay detected.")
-        print(dep)  # [Delayed] [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
+        print(
+            dep
+        )  # [Delayed] [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 
     else:
         print("Train on time")
-        print(dep)  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
+        print(
+            dep
+        )  # [11:47] [RB17]: Stuttgart Hauptbahnhof (oben) - Pforzheim Hauptbahnhof
 ```
 
 - Detect cancellations in upcoming departures/arrivals:
@@ -90,7 +96,9 @@ from vvspy.enums import Station
 deps = get_departures(Station.HAUPTBAHNHOF__TIEF)
 for dep in deps:
     if dep.platform == "101":
-        print(f"Departure of {dep.serving_line.number} to {dep.serving_line.direction} on {dep.platform_name} at {dep.real_datetime}")
+        print(
+            f"Departure of {dep.serving_line.number} to {dep.serving_line.direction} on {dep.platform_name} at {dep.real_datetime}"
+        )
 ```
 
 - Get trips arriving by a specific time:

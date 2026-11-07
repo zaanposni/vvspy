@@ -1,0 +1,112 @@
+name: CI
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+    workflow_call:
+
+permissions: {}
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            contents: read
+        steps:
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                  persist-credentials: false
+
+            - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+              with:
+                  # must match the Python version the pinned requirements were compiled with
+                  python-version: "3.14"
+
+            - name: Install tools
+              run: python -m pip install --require-hashes -r .github/requirements/ci.txt
+
+            - name: Lint
+              run: ruff check --output-format=github .
+
+            - name: Check formatting
+              run: ruff format --check .
+
+    zizmor:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            contents: read
+        steps:
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                  persist-credentials: false
+
+            - name: Audit workflows
+              uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+              with:
+                  advanced-security: false
+
+    tests:
+        name: tests (Python ${{ matrix.python-version }})
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        permissions:
+            contents: read
+        continue-on-error: ${{ matrix.experimental }}
+        strategy:
+            fail-fast: false
+            matrix:
+                python-version: ["3.11", "3.12", "3.13", "3.14", "3.15"]
+                experimental: [false]
+                include:
+                    # upcoming Python release, failures are reported but do not block
+                    - python-version: "3.16"
+                      experimental: true
+        steps:
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                  persist-credentials: false
+
+            - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+              with:
+                  python-version: ${{ matrix.python-version }}
+                  allow-prereleases: ${{ matrix.experimental }}
+
+            - name: Install package
+              run: python -m pip install .
+
+            - name: Tests
+              working-directory: tests
+              run: python start.py
+
+    build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            contents: read
+        steps:
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                  persist-credentials: false
+
+            - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+              with:
+                  python-version: "3.14"
+
+            - name: Install tools
+              run: >-
+                  python -m pip install --require-hashes
+                  -r .github/requirements/release.txt
+                  -r .github/requirements/ci.txt
+
+            - name: Build package
+              run: python -m build
+
+            - name: Check package
+              run: twine check --strict dist/*

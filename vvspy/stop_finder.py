@@ -12,9 +12,9 @@ __logger = __logging.getLogger("vvspy")
 
 def get_stops(
     name: str,
-    request_params: dict = None,
+    request_params: dict | None = None,
     return_response: bool = False,
-    session: requests.Session = None,
+    session: requests.Session | None = None,
     **kwargs,
 ) -> Union[List[Stop], Response]:
     r"""

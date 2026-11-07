@@ -10,17 +10,17 @@ if TYPE_CHECKING:
     from .enums import Station
 from vvspy.models import Departure
 
-__API_URL = "http://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
+__API_URL = "https://www3.vvs.de/vvs/widget/XML_DM_REQUEST?"
 __logger = __logging.getLogger("vvspy")
 
 
 def get_departures(
     station_id: Union[str, int, "Station"],
-    check_time: datetime = None,
+    check_time: datetime | None = None,
     limit: int = 100,
-    request_params: dict = None,
+    request_params: dict | None = None,
     return_response: bool = False,
-    session: requests.Session = None,
+    session: requests.Session | None = None,
     **kwargs,
 ) -> Union[List[Departure], Response, None]:
     r"""

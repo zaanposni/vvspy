@@ -1,5 +1,4 @@
 import csv
-from enum import Enum
 import re
 from collections import defaultdict
 
@@ -39,10 +38,14 @@ def generate_unique_enum_names(stations):
         if len(info) == 1:
             unique_stations[name] = (info[0][0], info[0][1])
         else:
-            parsed_ids = [STATION_ID_REGEX.match(global_id).groups() for global_id, _ in info]
+            parsed_ids = [
+                STATION_ID_REGEX.match(global_id).groups() for global_id, _ in info
+            ]
             all_group_1 = [parsed_id[0] for parsed_id in parsed_ids]
             all_group_2 = [parsed_id[1] for parsed_id in parsed_ids]
-            if all(x == all_group_1[0] for x in all_group_1) and all(x == all_group_2[0] for x in all_group_2):
+            if all(x == all_group_1[0] for x in all_group_1) and all(
+                x == all_group_2[0] for x in all_group_2
+            ):
                 short_id = f"de:{parsed_ids[0][0]}:{parsed_ids[0][1]}"
                 unique_stations[name] = (short_id, "")
 
