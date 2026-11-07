@@ -124,6 +124,12 @@ def get_trips(
         "w_regPrefAm": kwargs.get("w_regPrefAm", "1"),
     }
 
+    if "itdDateTimeDepArr" in kwargs:
+        params["itdDateTimeDepArr"] = kwargs["itdDateTimeDepArr"] # Pass "arr" as value to set request to arrival-based mode
+    if "itdTripDateTimeDepArr" in kwargs:
+        params["itdTripDateTimeDepArr"] = kwargs["itdTripDateTimeDepArr"] # This should be set ton "arr" too, idk if you need both but better be safe than sorry
+
+
     if session:
         r = session.get(__API_URL, **{**request_params, **{"params": params}})
     else:

@@ -17,7 +17,6 @@ setup(
     python_requires=">=3.8",
     install_requires=[
         "requests",
-        "typing",
     ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
